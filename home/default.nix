@@ -72,10 +72,14 @@ in {
   # plain files is through 'home.file'.
   home.file = {
     ".config/tmux".source = dotfiles/tmux;
-    ".config/alacritty".source = linkHome "dotfiles/alacritty";
-    ".config/goku".source = linkHome "dotfiles/goku";
-    ".config/nvim".source = linkHome "dotfiles/nvim";
-    ".config/bat".source = linkHome "dotfiles/bat";
+    ".config/alacritty".source = dotfiles/alacritty;
+    ".config/goku".source = dotfiles/goku;
+    ".config/nvim".source = dotfiles/nvim;
+    ".config/bat".source = dotfiles/bat;
+    #".config/alacritty".source = linkHome "dotfiles/alacritty";
+    #".config/goku".source = linkHome "dotfiles/goku";
+    #".config/nvim".source = linkHome "dotfiles/nvim";
+    #".config/bat".source = linkHome "dotfiles/bat";
   };
 
   # TODO: Maybe this belongs to nix-darwin?
