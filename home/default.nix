@@ -111,7 +111,7 @@ in {
 
   home.sessionPath = [
     "$HOME/bin"
-    "$XDG_CONFIG_HOME/home-manager/dotfiles/scripts"
+    "$XDG_CONFIG_HOME/nix-darwin/home/dotfiles/scripts"
     "$HOME/.local/bin"
     "$HOME/Library/Python/3.10/bin"
     "./node_modules/.bin"
