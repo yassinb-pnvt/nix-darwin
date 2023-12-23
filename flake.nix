@@ -21,8 +21,8 @@
 
             ];
 
-        # This doesn't work... idk why tho :(
-# Hold up... maybe???
+          # This doesn't work... idk why tho :(
+          # Hold up... maybe???
           variables = {
             GOKU_EDN_CONFIG_FILE = "$HOME/.config/goku/karabiner.edn";
           };
@@ -56,7 +56,10 @@
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#MB-Q5JMWQ5VFD
       darwinConfigurations."MB-Q5JMWQ5VFD" = nix-darwin.lib.darwinSystem {
-        modules = [ configuration ];
+        modules = [
+          configuration
+          ./modules/system.nix
+        ];
       };
 
       # Expose the package set, including overlays, for convenience.
