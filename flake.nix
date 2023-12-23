@@ -52,6 +52,8 @@
 
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
+      # Allow unfree packages
+      nixpkgs.config.allowUnfree = true;
 
       # Create /etc/zshrc that loads the nix-darwin environment.
       programs.zsh.enable = true; # default shell on catalina
@@ -73,6 +75,7 @@
       modules = [
         configuration
         ./modules/system.nix
+        ./modules/host-users.nix
 
         home-manager.darwinModules.home-manager
         {
@@ -82,14 +85,15 @@
           home-manager.extraSpecialArgs = inputs;
 
           # TODO replace "yourusername" with your own username!
-          home-manager.users.maxrn = import ./test;
+          home-manager.users."maxrn" = import ./home;
         }
       ];
     };
 
     # Expose the package set, including overlays, for convenience.
     darwinPackages = self.darwinConfigurations."MB-Q5JMWQ5VFD".pkgs;
-    # nix codee formmater
+
+    # nix code formatter
     formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
   };
 }
