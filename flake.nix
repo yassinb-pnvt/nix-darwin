@@ -24,6 +24,7 @@
     nixpkgs,
     home-manager,
     nixpkgs-darwin,
+    ...
   }: let
     configuration = {pkgs, ...}: {
       # List packages installed in system profile. To search by name, run:
@@ -81,7 +82,7 @@
           home-manager.extraSpecialArgs = inputs;
 
           # TODO replace "yourusername" with your own username!
-          home-manager.users.maxrn = import ./home;
+          home-manager.users.maxrn = import ./test;
         }
       ];
     };
