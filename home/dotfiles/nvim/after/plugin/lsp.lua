@@ -32,7 +32,8 @@ local servers = {
     rust_analyzer = {},
     tsserver = {},
     ocamllsp = {
-        cmd = { "ocamllsp" } },
+        cmd = { "ocamllsp" }
+    },
     html = { filetypes = { 'html', 'twig', 'hbs' } },
 
     lua_ls = {
@@ -43,7 +44,9 @@ local servers = {
     },
     astro = {},
     pylsp = {},
-    tailwindcss = {},
+    tailwindcss = {
+        filetypes = { 'templ' },
+    },
     templ = {},
     texlab = {},
 }
@@ -120,30 +123,3 @@ cmp.setup {
         { name = 'luasnip' },
     },
 }
-
-
--- local cmp_select = { behavior = cmp.SelectBehavior.Select }
--- local cmp_mappings = lsp.defaults.cmp_mappings({
---     ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
---     ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
---     ["<C-y>"] = cmp.mapping.confirm({ select = true }),
---     ["<CR>"] = cmp.config.disable,
---     ["<C-Space>"] = cmp.mapping.complete(),
--- })
---
--- -- disable completion with tab
--- -- this helps with copilot setup
--- cmp_mappings["<Tab>"] = nil
--- cmp_mappings["<S-Tab>"] = nil
---
--- lsp.setup_nvim_cmp({
---     sources = {
---         { name = "path" },
---         { name = "nvim_lsp",               keyword_length = 1 },
---         { name = "buffer",                 keyword_length = 3 },
---         { name = "luasnip",                keyword_length = 4 },
---         { name = "emoji" },
---         { name = "nvim_lsp_signature_help" },
---     },
---     mapping = cmp_mappings,
--- })

@@ -3,7 +3,9 @@
   pkgs,
   ...
 }: let
+  homeManager = /Users/maxrn/.config/nix-darwin/home;
   link = config.lib.file.mkOutOfStoreSymlink;
+  l = x: link homeManager + "/${x}";
 in {
   imports = [
     ./git.nix
@@ -70,10 +72,10 @@ in {
   # plain files is through 'home.file'.
   home.file = {
     ".config/tmux".source = dotfiles/tmux;
-    ".config/alacritty".source = link ./dotfiles/alacritty;
-    ".config/goku".source = link ./dotfiles/goku;
-    ".config/nvim".source = link ./dotfiles/nvim;
-    ".config/bat".source = link ./dotfiles/bat;
+    ".config/alacritty".source = l "dotfiles/alacritty";
+    ".config/goku".source = l "dotfiles/goku";
+    ".config/nvim".source = l "dotfiles/nvim";
+    ".config/bat".source = l "dotfiles/bat";
   };
 
   # TODO: Maybe this belongs to nix-darwin?
