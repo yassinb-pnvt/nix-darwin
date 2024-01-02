@@ -39,6 +39,18 @@ key_bindings:
   - { key: Left, mods: Alt, chars: "\x1bb" }
   - { key: Right, mods: Alt, chars: "\x1bf" }
 
+# https://github.com/tmcdonell/config-alacritty/blob/fb13a43d5214e34ed324137bc1f1569a7fb37dc8/alacritty.yml
+hints:
+  enabled:
+  - regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
+            [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+    hyperlinks: true
+    command: open
+    post_processing: true
+    mouse:
+      enabled: true
+      mods: Command
+
 # TODO: Implement color swap
 # # Colors begin
 # colors:

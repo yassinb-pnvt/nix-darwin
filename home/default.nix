@@ -29,6 +29,9 @@ in {
     alacritty
 
     vscode
+    discord
+
+    anki-bin
 
     # programming langs
     go
