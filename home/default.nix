@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-stable,
   ...
 }: let
   homeManager = /Users/maxrn/.config/nix-darwin/home;
@@ -30,6 +31,8 @@ in {
 
     vscode
     discord
+
+    texliveFull
 
     anki-bin
 

@@ -20,8 +20,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
--- vim.keymap.set("n", "<leader>f", "<cmd>Format<CR>")
-vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>")
+vim.keymap.set("n", "<leader>f", "<cmd>Format<CR>")
 
 -- this requires you to set Option as Esc+ in iTerm settings
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>zz")

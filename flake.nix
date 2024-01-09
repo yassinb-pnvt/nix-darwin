@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin";
 
@@ -24,6 +25,7 @@
     nixpkgs,
     home-manager,
     nixpkgs-darwin,
+    nixpkgs-stable,
     ...
   }: let
     configuration = {pkgs, ...}: {
@@ -48,11 +50,8 @@
         nix-daemon.enable = true;
         # karabiner-elements.enable = true;
       };
-      # nix.package = pkgs.nix;
 
-      # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
-      # Allow unfree packages
       nixpkgs.config.allowUnfree = true;
 
       # Create /etc/zshrc that loads the nix-darwin environment.
@@ -71,7 +70,14 @@
   in {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#MB-Q5JMWQ5VFD
-    darwinConfigurations."MB-Q5JMWQ5VFD" = nix-darwin.lib.darwinSystem {
+    # rec used to refer to system in specialArgs
+    darwinConfigurations."MB-Q5JMWQ5VFD" = nix-darwin.lib.darwinSystem rec {
+      system = "aarch64-darwin";
+      specialArgs = {
+        pkgs-stable = import nixpkgs-stable {
+          system = system;
+        };
+      };
       modules = [
         configuration
         ./modules/system.nix
@@ -84,7 +90,6 @@
 
           home-manager.extraSpecialArgs = inputs;
 
-          # TODO replace "yourusername" with your own username!
           home-manager.users."maxrn" = import ./home;
         }
       ];
