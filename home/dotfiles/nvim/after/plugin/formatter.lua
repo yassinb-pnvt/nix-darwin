@@ -15,7 +15,13 @@ require("formatter").setup({
 		lua = { require("formatter.filetypes.lua").stylua },
 		go = { require("formatter.filetypes.go").gofmt },
 		templ = { vim.lsp.buf.format },
-
+		typescriptreact = { require("formatter.filetypes.typescriptreact").prettier },
+		sh = { require("formatter.filetypes.sh").shfmt },
+		rust = { require("formatter.filetypes.rust").rustfmt },
+		c = { require("formatter.filetypes.c").clangformat },
+		cpp = { require("formatter.filetypes.cpp").clangformat },
+		nix = { require("formatter.filetypes.nix").alejandra },
+		python = { require("formatter.filetypes.python").black },
 		-- Use the special "*" filetype for defining formatter configurations on
 		-- any filetype
 		["*"] = {

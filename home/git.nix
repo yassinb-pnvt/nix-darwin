@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{lib, ...}: {
   # `programs.git` will generate the config file: ~/.config/git/config
   # to make git use this config file, `~/.gitconfig` should not exist!
   #
@@ -16,7 +11,6 @@
     enable = true;
     lfs.enable = true;
 
-    # TODO replace with your own name & email
     userName = "Max Große";
     userEmail = "max12.gro@gmail.com";
 

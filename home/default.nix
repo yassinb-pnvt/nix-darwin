@@ -60,8 +60,9 @@ in {
     tmux
     tree
     tree-sitter
-    nixpkgs-fmt
+    alejandra
     jq
+    gnused
 
     gh
 
