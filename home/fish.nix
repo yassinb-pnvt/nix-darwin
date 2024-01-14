@@ -1,32 +1,19 @@
 {...}: {
   # TODO: Maybe this belongs to nix-darwin?
   home.sessionVariables = {
-    ZSH_COMPDUMP = "$XDG_CACHE_HOME/zsh/zshcompdump";
   };
 
   home.shellAliases = {
-    zshconfig = "nvim ~/.zshrc";
-    ohmyzsh = "nvim ~/.oh-my-zsh";
   };
 
   programs = {
     fzf = {
-      enableZshIntegration = true;
+      enableFishIntegration = true;
     };
 
-    direnv = {
-      enableZshIntegration = true;
-    };
-    zsh = {
+    fish = {
       enable = true;
-      enableAutosuggestions = true;
-      enableCompletion = true;
-      syntaxHighlighting = {
-        enable = true;
-      };
-      initExtra = ''
-        zmodload zsh/zprof
-
+      shellInit = ''
           bindkey '^ ' autosuggest-accept
 
           eval "$(fnm env --use-on-cd)"

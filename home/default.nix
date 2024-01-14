@@ -41,6 +41,8 @@ in {
     rustup
     python3
     poetry
+    php83
+    php83Packages.composer
     # Why is it broken??
     # opam
 
@@ -124,12 +126,10 @@ in {
   programs = {
     fzf = {
       enable = true;
-      enableZshIntegration = true;
     };
 
     direnv = {
       enable = true;
-      enableZshIntegration = true;
       nix-direnv.enable = true;
     };
 

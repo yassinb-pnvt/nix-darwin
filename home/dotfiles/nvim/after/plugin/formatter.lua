@@ -1,6 +1,18 @@
 -- Utilities for creating configurations
 local util = require("formatter.util")
 
+local prettier_php = function()
+	return {
+		exe = "prettier",
+		args = {
+			"--parser=php",
+			"--stdin-filepath",
+			vim.api.nvim_buf_get_name(0),
+		},
+		stdin = true,
+	}
+end
+
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 require("formatter").setup({
 	-- Enable or disable logging
@@ -22,6 +34,8 @@ require("formatter").setup({
 		cpp = { require("formatter.filetypes.cpp").clangformat },
 		nix = { require("formatter.filetypes.nix").alejandra },
 		python = { require("formatter.filetypes.python").black },
+		latex = { require("formatter.filetypes.latex").latexindent },
+        php = { prettier_php },
 		-- Use the special "*" filetype for defining formatter configurations on
 		-- any filetype
 		["*"] = {

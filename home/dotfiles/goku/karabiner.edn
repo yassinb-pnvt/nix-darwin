@@ -1,21 +1,20 @@
 {
   :devices {
-            :corsair?? [{:vendor_id 9494 :product_id 60}]
-            :nikos?? [{:vendor_id 0000 :product_id 000}]
+            :masterkeys [{:vendor_id 9494 :product_id 60}]
+            :nikos_uRAGE [{:vendor_id 1241 :product_id 5637}]
            }
  :main
  [
   {:des "fn to Ctrl" :rules [[:fn :left_control]]}
-  ; {:des "Caps Lock to Ctrl" :rules [[:caps_lock :left_control]]}
   {:des "Caps Lock to Esc if alone, else Ctrl" :rules [[:##caps_lock :left_control nil {:alone :escape}]]}
 
   ; For windows keyboards
-  {:des "Don't ask (makes (`~) work)" :rules [[:grave_accent_and_tilde :non_us_backslash :corsair??]]}
-  {:des "Left Cmd to Left Opt" :rules [[:left_command :left_option :corsair??]]}
-  {:des "Left Opt to Left Cmd" :rules [[:left_option :left_command :corsair??]]}
+  {:des "Don't ask (makes (`~) work)" :rules [[:grave_accent_and_tilde :non_us_backslash :masterkeys]]}
+  {:des "Left Cmd to Left Opt" :rules [[:left_command :left_option :masterkeys]]}
+  {:des "Left Opt to Left Cmd" :rules [[:left_option :right_command :masterkeys]]}
 
-  {:des "Don't ask (makes (`~) work)" :rules [[:grave_accent_and_tilde :non_us_backslash :nikos??]]}
-  {:des "Left Cmd to Left Opt" :rules [[:left_command :left_option :nikos??]]}
-  {:des "Left Opt to Left Cmd" :rules [[:left_option :left_command :nikos??]]}
+  {:des "Don't ask (makes (`~) work)" :rules [[:grave_accent_and_tilde :non_us_backslash :nikos_uRAGE]]}
+  {:des "Left Cmd to Left Opt" :rules [[:left_command :left_option :nikos_uRAGE]]}
+  {:des "Left Opt to Left Cmd" :rules [[:left_option :left_command :nikos_uRAGE]]}
  ]
 }
