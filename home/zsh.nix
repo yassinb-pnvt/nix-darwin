@@ -17,6 +17,7 @@
     direnv = {
       enableZshIntegration = true;
     };
+
     zsh = {
       enable = true;
       enableAutosuggestions = true;
@@ -27,15 +28,17 @@
       initExtra = ''
         zmodload zsh/zprof
 
-          bindkey '^ ' autosuggest-accept
+        bindkey '^ ' autosuggest-accept
 
-          eval "$(fnm env --use-on-cd)"
+        eval "$(fnm env --use-on-cd)"
 
-          function inspiration() {
-              fortune | cowsay -f $(node -e "var c='$(cowsay -l | sed "1d" | paste -s -d " " -)'.split(' ');console.log(c[Math.floor(Math.random()*c.length)])") | lolcat --seed 0 --spread 1.0
-          }
+        function inspiration() {
+            fortune | cowsay -f $(node -e "var c='$(cowsay -l | sed "1d" | paste -s -d " " -)'.split(' ');console.log(c[Math.floor(Math.random()*c.length)])") | lolcat --seed 0 --spread 1.0
+        }
 
-          ssh-add ~/.ssh/github 2> /dev/null
+        PROMPT="max@mbp: ";
+
+        ssh-add ~/.ssh/github 2> /dev/null
       '';
     };
   };

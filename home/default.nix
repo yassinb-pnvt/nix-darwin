@@ -10,6 +10,7 @@
 in {
   imports = [
     ./git.nix
+    ./fish.nix
     ./zsh.nix
     ./work.nix
     ./darwin.nix

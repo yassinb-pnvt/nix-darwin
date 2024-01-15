@@ -14,15 +14,15 @@
     fish = {
       enable = true;
       shellInit = ''
-          bindkey '^ ' autosuggest-accept
-
-          eval "$(fnm env --use-on-cd)"
-
-          function inspiration() {
-              fortune | cowsay -f $(node -e "var c='$(cowsay -l | sed "1d" | paste -s -d " " -)'.split(' ');console.log(c[Math.floor(Math.random()*c.length)])") | lolcat --seed 0 --spread 1.0
-          }
-
-          ssh-add ~/.ssh/github 2> /dev/null
+        # bindkey '^ ' autosuggest-accept
+        #
+        # eval "$(fnm env --use-on-cd)"
+        #
+        # function inspiration() {
+        #     fortune | cowsay -f $(node -e "var c='$(cowsay -l | sed "1d" | paste -s -d " " -)'.split(' ');console.log(c[Math.floor(Math.random()*c.length)])") | lolcat --seed 0 --spread 1.0
+        # }
+        #
+        # ssh-add ~/.ssh/github 2> /dev/null
       '';
     };
   };
