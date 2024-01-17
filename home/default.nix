@@ -107,8 +107,6 @@ in {
     gbl = "git branch --list";
     gnew = "git switch -c";
     gs = "git status";
-    # switch to main, if it errors switch to master;
-    gsm = " git switch main 2> /dev/null; [ $? -gt 0 ] && git switch master";
     dbu = "docker compose up -d --build";
     fzvim = "fzf | xargs nvim";
     ll = "ls -lah";

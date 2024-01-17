@@ -35,7 +35,8 @@ require("formatter").setup({
 		nix = { require("formatter.filetypes.nix").alejandra },
 		python = { require("formatter.filetypes.python").black },
 		latex = { require("formatter.filetypes.latex").latexindent },
-        php = { prettier_php },
+		php = { prettier_php },
+		html = { require("formatter.filetypes.html").prettier },
 		-- Use the special "*" filetype for defining formatter configurations on
 		-- any filetype
 		["*"] = {

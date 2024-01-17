@@ -36,9 +36,16 @@
             fortune | cowsay -f $(node -e "var c='$(cowsay -l | sed "1d" | paste -s -d " " -)'.split(' ');console.log(c[Math.floor(Math.random()*c.length)])") | lolcat --seed 0 --spread 1.0
         }
 
+        export SDKMAN_DIR="/Users/maxrn/.local/share/sdkman"
+        source "$SDKMAN_DIR/bin/sdkman-init.sh"
+
+        # switch to main, if it errors switch to master;
+        alias gsm=" git switch main 2> /dev/null; [ $? -gt 0 ] && git switch master";
+
         PROMPT="max@mbp: ";
 
         ssh-add ~/.ssh/github 2> /dev/null
+        exec fish
       '';
     };
   };
