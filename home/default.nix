@@ -10,7 +10,6 @@
 in {
   imports = [
     ./git.nix
-    ./fish.nix
     ./zsh.nix
     ./work.nix
     ./darwin.nix
@@ -133,6 +132,10 @@ in {
     };
 
     home-manager.enable = true;
+
+    eza = {
+      enable = true;
+    };
   };
 
   nixpkgs.config = {

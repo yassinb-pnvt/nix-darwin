@@ -2,16 +2,23 @@
   :devices {
             :masterkeys [{:vendor_id 9494 :product_id 60}]
             :nikos_uRAGE [{:vendor_id 1241 :product_id 5637}]
+            :superlight [{:vendor_id 1133 :product_id 50509}]
            }
  :main
  [
   {:des "fn to Ctrl" :rules [[:fn :left_control]]}
   {:des "Caps Lock to Esc if alone, else Ctrl" :rules [[:##caps_lock :left_control nil {:alone :escape}]]}
 
+  ; Make side buttons behave normally
+  {:des "Backwards" :rules [[{:pkey :button4} :!Copen_bracket ]]}
+  {:des "Forwards" :rules [[{:pkey :button5} :!Cclose_bracket ]]}
+
   ; For windows keyboards
   {:des "Don't ask (makes (`~) work)" :rules [[:grave_accent_and_tilde :non_us_backslash :masterkeys]]}
   {:des "Left Cmd to Left Opt" :rules [[:left_command :left_option :masterkeys]]}
   {:des "Left Opt to Left Cmd" :rules [[:left_option :right_command :masterkeys]]}
+  {:des "Right Cmd to Right Opt" :rules [[:right_command :right_option :masterkeys]]}
+  {:des "Right Opt to Right Cmd" :rules [[:right_option :left_command :masterkeys]]}
 
   {:des "Don't ask (makes (`~) work)" :rules [[:grave_accent_and_tilde :non_us_backslash :nikos_uRAGE]]}
   {:des "Left Cmd to Left Opt" :rules [[:left_command :left_option :nikos_uRAGE]]}

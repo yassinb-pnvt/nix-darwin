@@ -26,15 +26,10 @@
         enable = true;
       };
       initExtra = ''
-        zmodload zsh/zprof
-
-        bindkey '^ ' autosuggest-accept
+        autoload -Uz vcs_info
+        precmd() { vcs_info }
 
         eval "$(fnm env --use-on-cd)"
-
-        function inspiration() {
-            fortune | cowsay -f $(node -e "var c='$(cowsay -l | sed "1d" | paste -s -d " " -)'.split(' ');console.log(c[Math.floor(Math.random()*c.length)])") | lolcat --seed 0 --spread 1.0
-        }
 
         export SDKMAN_DIR="/Users/maxrn/.local/share/sdkman"
         source "$SDKMAN_DIR/bin/sdkman-init.sh"
@@ -42,10 +37,18 @@
         # switch to main, if it errors switch to master;
         alias gsm=" git switch main 2> /dev/null; [ $? -gt 0 ] && git switch master";
 
-        PROMPT="max@mbp: ";
 
+        # Make sure you use single quotes
+        zstyle ':vcs_info:git:*' formats '%b'
+
+        setopt PROMPT_SUBST
+        # NOTE: the extra quotation marks before the dollar sign is for nix escaping
+        # https://www.reddit.com/r/NixOS/comments/jmlohf/escaping_interpolation_in_bash_string/
+        # Make sure you use single quotes
+        PROMPT='%F{blue}%1~%f (%F{red}''${vcs_info_msg_0_}%f) > '
+
+        alias ls=eza
         ssh-add ~/.ssh/github 2> /dev/null
-        exec fish
       '';
     };
   };
