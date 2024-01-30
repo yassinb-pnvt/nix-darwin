@@ -1,7 +1,6 @@
 {
   :devices {
             :masterkeys [{:vendor_id 9494 :product_id 60}]
-            :nikos_uRAGE [{:vendor_id 1241 :product_id 5637}]
             :superlight [{:vendor_id 1133 :product_id 50509}]
            }
  :main
@@ -15,13 +14,11 @@
 
   ; For windows keyboards
   {:des "Don't ask (makes (`~) work)" :rules [[:grave_accent_and_tilde :non_us_backslash :masterkeys]]}
-  {:des "Left Cmd to Left Opt" :rules [[:left_command :left_option :masterkeys]]}
-  {:des "Left Opt to Left Cmd" :rules [[:left_option :right_command :masterkeys]]}
-  {:des "Right Cmd to Right Opt" :rules [[:right_command :right_option :masterkeys]]}
-  {:des "Right Opt to Right Cmd" :rules [[:right_option :left_command :masterkeys]]}
+  ; Needs to be left_option for rcmd to work
+  {:des "Left Cmd to Left Opt" :rules [[:##left_command :left_option :masterkeys]]}
+  {:des "Left Opt to Left Cmd" :rules [[:##left_option :left_command :masterkeys]]}
+  {:des "Right Cmd to Right Opt" :rules [[:##right_command :right_option :masterkeys]]}
+  {:des "Right Opt to Right Cmd" :rules [[:##right_option :right_command :masterkeys]]}
 
-  {:des "Don't ask (makes (`~) work)" :rules [[:grave_accent_and_tilde :non_us_backslash :nikos_uRAGE]]}
-  {:des "Left Cmd to Left Opt" :rules [[:left_command :left_option :nikos_uRAGE]]}
-  {:des "Left Opt to Left Cmd" :rules [[:left_option :left_command :nikos_uRAGE]]}
  ]
 }

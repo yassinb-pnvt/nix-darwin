@@ -48,6 +48,7 @@
         PROMPT='%F{blue}%1~%f (%F{red}''${vcs_info_msg_0_}%f) > '
 
         alias ls=eza
+        bindkey -e
         ssh-add ~/.ssh/github 2> /dev/null
       '';
     };

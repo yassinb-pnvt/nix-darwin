@@ -38,6 +38,7 @@ key_bindings:
 
   - { key: Left, mods: Alt, chars: "\x1bb" }
   - { key: Right, mods: Alt, chars: "\x1bf" }
+  - { key: Semicolon, mods: Control, chars: "Harpoon4" }
 
 # https://github.com/tmcdonell/config-alacritty/blob/fb13a43d5214e34ed324137bc1f1569a7fb37dc8/alacritty.yml
 hints:

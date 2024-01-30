@@ -28,6 +28,7 @@ require("formatter").setup({
 		go = { require("formatter.filetypes.go").gofmt },
 		templ = { vim.lsp.buf.format },
 		typescriptreact = { require("formatter.filetypes.typescriptreact").prettier },
+		typescript = { require("formatter.filetypes.typescript").prettier },
 		sh = { require("formatter.filetypes.sh").shfmt },
 		rust = { require("formatter.filetypes.rust").rustfmt },
 		c = { require("formatter.filetypes.c").clangformat },
@@ -35,6 +36,7 @@ require("formatter").setup({
 		nix = { require("formatter.filetypes.nix").alejandra },
 		python = { require("formatter.filetypes.python").black },
 		latex = { require("formatter.filetypes.latex").latexindent },
+		tex = { require("formatter.filetypes.latex").latexindent },
 		php = { prettier_php },
 		html = { require("formatter.filetypes.html").prettier },
 		-- Use the special "*" filetype for defining formatter configurations on
