@@ -65,6 +65,7 @@ in {
     alejandra
     jq
     gnused
+    difftastic
 
     gh
 

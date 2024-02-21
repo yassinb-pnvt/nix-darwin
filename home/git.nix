@@ -40,7 +40,17 @@
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
       pull.rebase = true;
+
+      # https://jvns.ca/blog/2024/02/16/popular-git-config-options/#merge-conflictstyle-zdiff3
       merge.conflictstyle = "zdiff3";
+      diff.algorithm = "histogram";
+      branch.sort = "-committerdate";
+      diff.tool = "difftastic";
+      difftool.prompt = false;
+      pager.difftool = true;
+      diff.external = "difft";
+      diff.colorMoved = "default";
+      merge.tool = "nvim";
     };
 
     aliases = {
