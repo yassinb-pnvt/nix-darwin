@@ -8,6 +8,29 @@
   {:des "fn to Ctrl" :rules [[:fn :left_control]]}
   {:des "Caps Lock to Esc if alone, else Ctrl" :rules [[:##caps_lock :left_control nil {:alone :escape}]]}
 
+  {:des "Alt Gr layer" :rules [[:!Qa :open_bracket]]} ; [
+  {:des "Alt Gr layer" :rules [[:!Qs :!Sopen_bracket]]} ; {
+  {:des "Alt Gr layer" :rules [[:!Qd :!Sclose_bracket]]} ; }
+  {:des "Alt Gr layer" :rules [[:!Qf :!S9]]} ; (
+  {:des "Alt Gr layer" :rules [[:!Qj :!S0]]} ; )
+  {:des "Alt Gr layer" :rules [[:!Qk :!Sequal_sign]]}
+  {:des "Alt Gr layer" :rules [[:!Ql :close_bracket]]}
+  {:des "Alt Gr layer" :rules [[:!Qsemicolon :!S1]]}
+      ;; !  | means mandatory
+    ;; #  | means optional
+    ;; C  | left_command
+    ;; T  | left_control
+    ;; O  | left_option
+    ;; S  | left_shift
+    ;; F  | fn
+    ;; Q  | right_command
+    ;; W  | right_control
+    ;; E  | right_option
+    ;; R  | right_shift
+    ;; P  | caps_lock
+    ;; !! | mandatory command + control + optional + shift (hyper)
+    ;; ## | optional any
+
   ; Make side buttons behave normally
   {:des "Backwards" :rules [[{:pkey :button4} :!Copen_bracket ]]}
   {:des "Forwards" :rules [[{:pkey :button5} :!Cclose_bracket ]]}

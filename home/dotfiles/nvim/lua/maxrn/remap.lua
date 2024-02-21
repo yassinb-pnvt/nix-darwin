@@ -33,8 +33,6 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("i", "<C-o>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
-
 local function file_exists(name)
 	local f = io.open(name, "r")
 	return f ~= nil and io.close(f)

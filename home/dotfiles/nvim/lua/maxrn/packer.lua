@@ -4,80 +4,82 @@
 vim.cmd.packadd("packer.nvim")
 
 return require("packer").startup(function(use)
-    -- Packer can manage itself
-    use("wbthomason/packer.nvim")
+	-- Packer can manage itself
+	use("wbthomason/packer.nvim")
 
-    use({
-        "nvim-telescope/telescope.nvim",
-        tag = "0.1.5",
-        -- or                            , branch = '0.1.x',
-        requires = { { "nvim-lua/plenary.nvim" } },
-    })
-    use({ "nvim-telescope/telescope-file-browser.nvim" })
+	use({ "folke/trouble.nvim", requires = { "nvim-tree/nvim-web-devicons" } })
 
-    use({
-        "numToStr/Comment.nvim",
-        config = function()
-            require("Comment").setup()
-        end,
-    })
-    use("JoosepAlviste/nvim-ts-context-commentstring")
-    use({
-        "ellisonleao/gruvbox.nvim",
-        as = "gruvbox",
-    })
-    use({ "catppuccin/nvim", as = "catppuccin" })
-    use({ "folke/tokyonight.nvim", as = "tokyo" })
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.5",
+		-- or                            , branch = '0.1.x',
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
+	use({ "nvim-telescope/telescope-file-browser.nvim" })
 
-    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-    use("nvim-treesitter/nvim-treesitter-context")
-    use("nvim-treesitter/playground")
-    use("theprimeagen/harpoon")
-    use("mbbill/undotree")
-    use("tpope/vim-surround")
-    use("tpope/vim-repeat")
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
+	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use({
+		"ellisonleao/gruvbox.nvim",
+		as = "gruvbox",
+	})
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	use({ "folke/tokyonight.nvim", as = "tokyo" })
 
-    use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
-    use({ "sindrets/diffview.nvim" })
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+	use("nvim-treesitter/nvim-treesitter-context")
+	use("nvim-treesitter/playground")
+	use("theprimeagen/harpoon")
+	use("mbbill/undotree")
+	use("tpope/vim-surround")
+	use("tpope/vim-repeat")
 
-    use("folke/neodev.nvim")
+	use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
+	use({ "sindrets/diffview.nvim" })
 
-    use("simrat39/inlay-hints.nvim")
-    use("simrat39/rust-tools.nvim")
-    -- LSP Support
-    use({ "neovim/nvim-lspconfig" })
-    use({ "williamboman/mason.nvim" })
-    use({ 'mhartington/formatter.nvim' })
-    use({ "williamboman/mason-lspconfig.nvim" })
+	use("folke/neodev.nvim")
 
-    -- Autocompletion
-    use({ "hrsh7th/nvim-cmp" })
-    use({ "hrsh7th/cmp-buffer" })
-    use({ "hrsh7th/cmp-path" })
-    use({ "hrsh7th/cmp-emoji" })
-    use({ "saadparwaiz1/cmp_luasnip" })
-    use({ "hrsh7th/cmp-nvim-lsp" })
-    use({ "hrsh7th/cmp-nvim-lua" })
-    use({ "hrsh7th/cmp-nvim-lsp-signature-help" })
-    -- LaTeX
-    -- use({ "hrsh7th/cmp-omni" })
+	use("simrat39/inlay-hints.nvim")
+	use("simrat39/rust-tools.nvim")
+	-- LSP Support
+	use({ "neovim/nvim-lspconfig" })
+	use({ "williamboman/mason.nvim" })
+	use({ "mhartington/formatter.nvim" })
+	use({ "williamboman/mason-lspconfig.nvim" })
 
-    -- Snippets
-    use({ "L3MON4D3/LuaSnip" })
-    use({ "rafamadriz/friendly-snippets" })
-    use({ "j-hui/fidget.nvim", tag = "legacy" })
+	-- Autocompletion
+	use({ "hrsh7th/nvim-cmp" })
+	use({ "hrsh7th/cmp-buffer" })
+	use({ "hrsh7th/cmp-path" })
+	use({ "hrsh7th/cmp-emoji" })
+	use({ "saadparwaiz1/cmp_luasnip" })
+	use({ "hrsh7th/cmp-nvim-lsp" })
+	use({ "hrsh7th/cmp-nvim-lua" })
+	use({ "hrsh7th/cmp-nvim-lsp-signature-help" })
+	-- LaTeX
+	-- use({ "hrsh7th/cmp-omni" })
 
-    use("folke/zen-mode.nvim")
+	-- Snippets
+	use({ "L3MON4D3/LuaSnip" })
+	use({ "rafamadriz/friendly-snippets" })
+	use({ "j-hui/fidget.nvim", tag = "legacy" })
 
-    use("almo7aya/openingh.nvim")
+	use("folke/zen-mode.nvim")
 
-    use({
-        "m4xshen/hardtime.nvim",
-        requires = {
-            { "MunifTanjim/nui.nvim" },
-            { "nvim-lua/plenary.nvim" },
-        }
-    })
+	use("almo7aya/openingh.nvim")
 
-    use({ "tigion/nvim-asciidoc-preview" })
+	use({
+		"m4xshen/hardtime.nvim",
+		requires = {
+			{ "MunifTanjim/nui.nvim" },
+			{ "nvim-lua/plenary.nvim" },
+		},
+	})
+
+	use({ "tigion/nvim-asciidoc-preview" })
 end)

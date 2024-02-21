@@ -11,7 +11,7 @@ local function on_attach(client, bufnr)
     vim.keymap.set("n", "<leader>rr", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "<leader>td", vim.lsp.buf.type_definition, opts)
-    vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("i", "<C-j>", vim.lsp.buf.signature_help, opts)
 end
 
 require('mason').setup()

@@ -39,6 +39,18 @@ require("formatter").setup({
 		tex = { require("formatter.filetypes.latex").latexindent },
 		php = { prettier_php },
 		html = { require("formatter.filetypes.html").prettier },
+		-- ocaml = { require("formatter.filetypes.ocaml").ocamlformat },
+		ocaml = {
+			function()
+				return {
+					exe = "ocamlformat",
+					args = {
+						util.escape_path(util.get_current_buffer_file_path()),
+					},
+					stdin = true,
+				}
+			end,
+		},
 		-- Use the special "*" filetype for defining formatter configurations on
 		-- any filetype
 		["*"] = {

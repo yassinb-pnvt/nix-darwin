@@ -40,6 +40,7 @@
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
       pull.rebase = true;
+      merge.conflictstyle = "zdiff3";
     };
 
     aliases = {
