@@ -37,14 +37,13 @@ in {
     anki-bin
 
     # programming langs
-    go
+    go_1_22
     rustup
     python3
     poetry
     php83
     php83Packages.composer
-    # Why is it broken??
-    # opam
+    opam
 
     bat
     btop
