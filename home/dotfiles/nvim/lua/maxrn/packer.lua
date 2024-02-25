@@ -13,7 +13,7 @@ return require("packer").startup(function(use)
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
 		-- or                            , branch = '0.1.x',
-		requires = { { "nvim-lua/plenary.nvim" } },
+		requires = { { "nvim-lua/plenary.nvim" }, { "nvim-telescope/telescope-live-grep-args.nvim" } },
 	})
 	use({ "nvim-telescope/telescope-file-browser.nvim" })
 
@@ -38,6 +38,7 @@ return require("packer").startup(function(use)
 	use("mbbill/undotree")
 	use("tpope/vim-surround")
 	use("tpope/vim-repeat")
+	use("tpope/vim-sleuth")
 
 	use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
 	use({ "sindrets/diffview.nvim" })
@@ -67,7 +68,7 @@ return require("packer").startup(function(use)
 	-- Snippets
 	use({ "L3MON4D3/LuaSnip" })
 	use({ "rafamadriz/friendly-snippets" })
-	use({ "j-hui/fidget.nvim", tag = "legacy" })
+	use({ "j-hui/fidget.nvim" })
 
 	use("folke/zen-mode.nvim")
 
