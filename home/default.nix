@@ -65,6 +65,8 @@ in {
     jq
     gnused
     difftastic
+    hyperfine
+    yt-dlp
 
     gh
 
