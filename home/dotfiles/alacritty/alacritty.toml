@@ -1,0 +1,87 @@
+live_config_reload = true
+
+[colors.primary]
+background = "#1d1f21"
+foreground = "#c5c8c6"
+
+[font]
+size = 25.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Regular"
+
+[[hints.enabled]]
+command = "open"
+hyperlinks = true
+post_processing = true
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "ä"
+key = "A"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "Ä"
+key = "A"
+mods = "Alt|Shift"
+
+[[keyboard.bindings]]
+chars = "ü"
+key = "U"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "Ü"
+key = "U"
+mods = "Alt|Shift"
+
+[[keyboard.bindings]]
+chars = "ö"
+key = "O"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "Ö"
+key = "O"
+mods = "Alt|Shift"
+
+[[keyboard.bindings]]
+chars = "ß"
+key = "S"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "ẞ"
+key = "S"
+mods = "Alt|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001Bb"
+key = "Left"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bf"
+key = "Right"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "Harpoon4"
+key = "Semicolon"
+mods = "Control"
+
+[scrolling]
+history = 10000
+
+[window]
+decorations = "none"
+dynamic_title = false
+option_as_alt = "Both"
+startup_mode = "Maximized"
+title = "Alacritty"

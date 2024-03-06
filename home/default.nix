@@ -4,6 +4,7 @@
   pkgs-stable,
   ...
 }: let
+  # needs to be absolute path. Important!
   homeManager = /Users/maxrn/.config/nix-darwin/home;
   link = config.lib.file.mkOutOfStoreSymlink;
   l = x: link homeManager + "/${x}";
