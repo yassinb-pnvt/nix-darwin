@@ -50,6 +50,8 @@
         alias ls=eza
         bindkey -e
         ssh-add ~/.ssh/github 2> /dev/null
+
+        eval $(opam env)
       '';
     };
   };

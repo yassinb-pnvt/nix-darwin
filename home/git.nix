@@ -51,6 +51,7 @@
       diff.external = "difft";
       diff.colorMoved = "default";
       merge.tool = "nvim";
+      credential.helper = "osxkeychain";
     };
 
     aliases = {

@@ -1,8 +1,9 @@
-live_config_reload = true
+import = [
+    "/nix/store/01mjx0adpijgy3clkcll0njwpwjrbr4n-alacritty-theme/catppuccin_latte.toml",
+    "/nix/store/01mjx0adpijgy3clkcll0njwpwjrbr4n-alacritty-theme/catppuccin_frappe.toml",
+]
 
-[colors.primary]
-background = "#1d1f21"
-foreground = "#c5c8c6"
+live_config_reload = true
 
 [font]
 size = 25.0

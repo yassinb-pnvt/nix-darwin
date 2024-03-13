@@ -29,6 +29,7 @@ in {
     man-pages
 
     alacritty
+    alacritty-theme
 
     vscode
     discord
@@ -68,6 +69,7 @@ in {
     difftastic
     hyperfine
     yt-dlp
+    zld # faster linker
 
     gh
 
