@@ -1,6 +1,0 @@
--- Add "oil" to the disabled_filetypes
--- require("hardtime").setup({
---     disabled_filetypes = { "qf", "netrw", "NvimTree", "lazy", "mason", "harpoon" },
---     disabled_keys = {["j"] = {}, ["k"] = {}},
---     allow_different_key = true,
--- })
