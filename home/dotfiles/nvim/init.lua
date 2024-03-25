@@ -82,11 +82,27 @@ require("lazy").setup({
 			--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 		end,
 	},
-
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		config = function()
+			---@diagnostic disable-next-line: missing-fields
+			require("nvim-treesitter.configs").setup({
+				textobjects = {
+					select = {
+						enable = true,
+						lookahead = true,
+						keymaps = {
+							["af"] = "@function.outer",
+							["if"] = "@function.inner",
+						},
+					},
+				},
+			})
+		end,
+	},
 	{ "theprimeagen/harpoon" },
 	{ "mbbill/undotree" },
 	{ "tpope/vim-repeat" },
-	{ "tpope/vim-sleuth" },
 
 	{ "TimUntersberger/neogit", dependencies = { "nvim-lua/plenary.nvim" } },
 	{ "sindrets/diffview.nvim" },
@@ -96,7 +112,10 @@ require("lazy").setup({
 	-- LSP Support
 	{ "neovim/nvim-lspconfig" },
 	{ "williamboman/mason.nvim" },
-	{ "mhartington/formatter.nvim" },
+	{
+		"stevearc/conform.nvim",
+		opts = {},
+	},
 	{ "williamboman/mason-lspconfig.nvim" },
 
 	-- Autocompletion

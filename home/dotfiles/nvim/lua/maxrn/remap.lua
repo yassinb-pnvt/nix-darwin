@@ -20,7 +20,6 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<leader>f", "<cmd>Format<CR>")
 
 -- this requires you to set Option as Esc+ in iTerm settings
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>zz")
@@ -47,36 +46,35 @@ local function switch_header_impl()
 		local newFileName = string.gsub(bufName, ".h$", ".c")
 		if file_exists(newFileName) then
 			vim.cmd.edit(newFileName)
-            return
+			return
 		end
-        newFileName = string.gsub(bufName, ".h$", ".cc")
+		newFileName = string.gsub(bufName, ".h$", ".cc")
 		if file_exists(newFileName) then
 			vim.cmd.edit(newFileName)
-            return
+			return
 		end
-        newFileName = string.gsub(bufName, ".h$", ".cpp")
+		newFileName = string.gsub(bufName, ".h$", ".cpp")
 		if file_exists(newFileName) then
 			vim.cmd.edit(newFileName)
-            return
+			return
 		end
 	end
-
 
 	local isC = string.match(bufName, ".c$")
 	local isCc = string.match(bufName, ".cc$")
 	local isCpp = string.match(bufName, ".cpp$")
-    local isSourceFile = isC or isCc or isCpp
-    if isSourceFile then
-        print("is source file!")
-        local newFileName = string.gsub(bufName, "%..*$", ".h")
-        print("new file name is: " .. newFileName)
-        if file_exists(newFileName) then
-            vim.cmd.edit(newFileName)
-            return
-        else
-            print("file does not exist!")
-        end
-    end
+	local isSourceFile = isC or isCc or isCpp
+	if isSourceFile then
+		print("is source file!")
+		local newFileName = string.gsub(bufName, "%..*$", ".h")
+		print("new file name is: " .. newFileName)
+		if file_exists(newFileName) then
+			vim.cmd.edit(newFileName)
+			return
+		else
+			print("file does not exist!")
+		end
+	end
 end
 
 vim.keymap.set("n", "<leader>gh", switch_header_impl)

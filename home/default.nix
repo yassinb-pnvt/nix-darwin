@@ -77,6 +77,8 @@ in {
     sqlite-utils
     shellcheck
 
+    gimp
+
     # fonts
     jetbrains-mono
     ia-writer-duospace

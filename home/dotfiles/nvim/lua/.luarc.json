@@ -31,5 +31,8 @@
         "${3rd}/luassert/library",
         "/Users/maxrn/.local/share/nvim/mason/packages/lua-language-server/libexec/meta/30477b9d"
     ],
-    "workspace.checkThirdParty": false
+    "workspace.checkThirdParty": false,
+    "diagnostics.globals": [
+        "vim"
+    ]
 }
