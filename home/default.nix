@@ -28,8 +28,7 @@ in {
     # Would like to have the BSD ones for MacOS but these'll do.
     man-pages
 
-    alacritty
-    alacritty-theme
+    wezterm
 
     vscode
     discord
@@ -46,7 +45,7 @@ in {
     php83
     php83Packages.composer
     opam
-    temurin-bin-21
+    jdk21
 
     bat
     btop
@@ -79,17 +78,13 @@ in {
     shellcheck
 
     gimp
-
-    # fonts
-    jetbrains-mono
-    ia-writer-duospace
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
     ".config/tmux".source = dotfiles/tmux;
-    ".config/alacritty".source = l "dotfiles/alacritty";
+    ".config/wezterm".source = l "dotfiles/wezterm";
     ".config/goku".source = l "dotfiles/goku";
     ".config/nvim".source = l "dotfiles/nvim";
     ".config/bat".source = l "dotfiles/bat";
