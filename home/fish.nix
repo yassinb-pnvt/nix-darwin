@@ -20,14 +20,7 @@
         }
       ];
       shellInit = ''
-        set -g SDKMAN_DIR /Users/maxrn/.local/share/sdkman
-        set -g SDKMAN_CANDIDATES_DIR /Users/maxrn/.local/share/sdkman/candidates
-
         eval "$(fnm env --use-on-cd)"
-
-        function sdk
-            bass source ~/.local/share/sdkman/bin/sdkman-init.sh ';' sdk $argv
-        end
 
         set fish_greeting
 

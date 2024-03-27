@@ -11,7 +11,7 @@
 in {
   imports = [
     ./git.nix
-    ./zsh.nix
+    ./fish.nix
     ./work.nix
     ./darwin.nix
   ];
@@ -46,6 +46,7 @@ in {
     php83
     php83Packages.composer
     opam
+    temurin-bin-21
 
     bat
     btop

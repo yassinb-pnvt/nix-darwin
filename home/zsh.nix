@@ -31,9 +31,6 @@
 
         eval "$(fnm env --use-on-cd)"
 
-        export SDKMAN_DIR="/Users/maxrn/.local/share/sdkman"
-        source "$SDKMAN_DIR/bin/sdkman-init.sh"
-
         # switch to main, if it errors switch to master;
         alias gsm=" git switch main 2> /dev/null; [ $? -gt 0 ] && git switch master";
 
