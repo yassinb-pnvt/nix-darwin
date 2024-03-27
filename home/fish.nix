@@ -13,12 +13,6 @@
 
     fish = {
       enable = true;
-      plugins = [
-        {
-          name = "bass";
-          src = pkgs.fishPlugins.bass.src;
-        }
-      ];
       shellInit = ''
         eval "$(fnm env --use-on-cd)"
 
