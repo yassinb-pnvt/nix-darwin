@@ -38,5 +38,7 @@ for i, value in ipairs(keymaps) do
 end
 config.keys = keymaps
 
+config.window_decorations = "NONE | RESIZE"
+
 -- and finally, return the configuration to wezterm
 return config
