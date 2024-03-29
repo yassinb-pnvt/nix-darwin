@@ -34,6 +34,23 @@ local opts = {
 vim.opt.isfname:append("@-@")
 vim.g.mapleader = " "
 
+vim.opt_global.showtabline = 2
+function MyTabLine()
+	local tabline = ""
+	-- Nice highlighting for tab
+	tabline = tabline .. "%#TabLineSel#"
+
+	local filename = vim.fn.expand("%:t")
+
+	tabline = tabline .. " " .. filename .. " "
+
+	-- So the tab doesn't take up the entire width
+	tabline = tabline .. "%#TabLineFill#%T"
+
+	return tabline
+end
+vim.go.tabline = "%!v:lua.MyTabLine()"
+
 vim.opt.background = "dark"
 
 for opt, val in pairs(opts) do

@@ -7,8 +7,9 @@ local config = wezterm.config_builder()
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = "catppuccin-frappe"
+config.color_scheme = "Catppuccin Frappe"
 config.enable_tab_bar = false
+config.font_size = 14.0
 
 -- WezTerm bundles JetBrains mono by default (based af)
 -- https://wezfurlong.org/wezterm/config/fonts.html
@@ -37,6 +38,25 @@ for i, value in ipairs(keymaps) do
 	}
 end
 config.keys = keymaps
+
+-- TODO: doesn't work as expected :(
+-- Apparently something to do with tmux? https://github.com/wez/wezterm/issues/2003
+-- Anyway, I have to SHIFT+CLICK instead of CMD+CLICK (yikes)
+-- The config below seems to get ignored
+config.mouse_bindings = {
+	-- Bind 'Up' event of CTRL-Click to open hyperlinks
+	{
+		event = { Up = { streak = 1, button = "Left" } },
+		mods = "SUPER | SHIFT",
+		action = wezterm.action.OpenLinkAtMouseCursor,
+	},
+	-- Disable the 'Down' event of CTRL-Click to avoid weird program behaviors
+	{
+		event = { Down = { streak = 1, button = "Left" } },
+		mods = "SUPER | SHIFT",
+		action = wezterm.action.Nop,
+	},
+}
 
 config.window_decorations = "NONE | RESIZE"
 

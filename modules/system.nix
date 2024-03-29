@@ -143,9 +143,9 @@
   # # Create /etc/zshrc that loads the nix-darwin environment.
   # # this is required if you want to use darwin's default shell - zsh
   # programs.zsh.enable = true;
-  # environment.shells = [
-  #   pkgs.zsh
-  # ];
+  environment.shells = [
+    pkgs.fish
+  ];
   #
   # # Set your time zone.
   # # comment this due to the issue:

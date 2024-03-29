@@ -33,7 +33,6 @@
       # $ nix-env -qaP | grep wget
       environment = {
         systemPackages = [
-          pkgs.vim
           # Better karabiner config
           pkgs.goku
         ];
