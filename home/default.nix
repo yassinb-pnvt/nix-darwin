@@ -26,7 +26,7 @@ in {
   home.packages = with pkgs; [
     # Because for some reason they are not included by default.
     # Would like to have the BSD ones for MacOS but these'll do.
-    # man-pages
+    pkgs-stable.man-pages
 
     wezterm
 
@@ -40,7 +40,7 @@ in {
     # programming langs
     go_1_22
     rustup
-    #poetry
+    pkgs-stable.poetry
     php83
     php83Packages.composer
     opam

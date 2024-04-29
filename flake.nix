@@ -95,7 +95,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.verbose = true;
-          home-manager.extraSpecialArgs = inputs;
+          home-manager.extraSpecialArgs = specialArgs;
           home-manager.users."maxrn" = import ./home;
         }
       ];
