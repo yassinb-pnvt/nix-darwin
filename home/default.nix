@@ -26,7 +26,7 @@ in {
   home.packages = with pkgs; [
     # Because for some reason they are not included by default.
     # Would like to have the BSD ones for MacOS but these'll do.
-    man-pages
+    # man-pages
 
     wezterm
 
@@ -40,8 +40,7 @@ in {
     # programming langs
     go_1_22
     rustup
-    python3
-    poetry
+    #poetry
     php83
     php83Packages.composer
     opam
@@ -122,6 +121,7 @@ in {
     "$HOME/Library/Python/3.10/bin"
     "./node_modules/.bin"
     "$HOME/go/bin"
+    "/opt/homebrew/bin"
   ];
 
   programs = {

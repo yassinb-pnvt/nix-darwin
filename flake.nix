@@ -2,10 +2,12 @@
   description = "My nix-darwin config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
-    nix-darwin.url = "github:LnL7/nix-darwin";
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # home-manager, used for managing user configuration
     home-manager = {
@@ -15,8 +17,6 @@
       # to avoid problems caused by different versions of nixpkgs dependencies.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {
@@ -24,7 +24,6 @@
     nix-darwin,
     nixpkgs,
     home-manager,
-    nixpkgs-darwin,
     nixpkgs-stable,
     ...
   }: let
@@ -42,6 +41,13 @@
         variables = {
           GOKU_EDN_CONFIG_FILE = "$HOME/.config/goku/karabiner.edn";
         };
+      };
+
+      homebrew = {
+        enable = true;
+        taps = ["quarkusio/tap"];
+        brews = ["cowsay" "quarkus"];
+        casks = [];
       };
 
       # Auto upgrade nix package and the daemon service.
@@ -88,9 +94,8 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-
+          home-manager.verbose = true;
           home-manager.extraSpecialArgs = inputs;
-
           home-manager.users."maxrn" = import ./home;
         }
       ];
