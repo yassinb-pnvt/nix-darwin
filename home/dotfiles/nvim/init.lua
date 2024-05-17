@@ -57,16 +57,6 @@ require("lazy").setup({
 		},
 	},
 
-	{ "numToStr/Comment.nvim", opts = {} },
-
-	{ "JoosepAlviste/nvim-ts-context-commentstring" },
-	{
-		"ellisonleao/gruvbox.nvim",
-		name = "gruvbox",
-	},
-	{ "catppuccin/nvim", name = "catppuccin" },
-	{ "folke/tokyonight.nvim", name = "tokyo" },
-
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -106,7 +96,7 @@ require("lazy").setup({
 	{ "mbbill/undotree" },
 	{ "tpope/vim-repeat" },
 
-	{ "TimUntersberger/neogit", dependencies = { "nvim-lua/plenary.nvim" } },
+	{ "TimUntersberger/neogit", dependencies = { "nvim-lua/plenary.nvim" }, branch = { "nightly" } },
 	{ "sindrets/diffview.nvim" },
 	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",
@@ -154,8 +144,6 @@ require("lazy").setup({
 	{ "almo7aya/openingh.nvim" },
 	{
 		"stevearc/oil.nvim",
-		opts = {},
-		-- Optional dependencies
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 	{

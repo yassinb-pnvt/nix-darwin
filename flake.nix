@@ -77,7 +77,7 @@
         system = "aarch64-darwin";
         specialArgs = {
           pkgs-stable = import nixpkgs-stable { system = system; };
-          neovim-10 = import nixpkgs-stable { system = system; };
+          neovim-10 = import nixpkgs-master { system = system; };
         };
         modules = [
           configuration
