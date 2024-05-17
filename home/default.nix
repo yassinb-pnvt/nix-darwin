@@ -75,12 +75,11 @@ in {
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-     ".config/wezterm".source = l "dotfiles/wezterm";
-     ".config/goku".source = l "dotfiles/goku";
-     ".config/nvim".source = l "dotfiles/nvim";
-     ".config/bat".source = l "dotfiles/bat";
-   };
-
+    ".config/wezterm".source = l "dotfiles/wezterm";
+    ".config/goku".source = l "dotfiles/goku";
+    ".config/nvim".source = l "dotfiles/nvim";
+    ".config/bat".source = l "dotfiles/bat";
+  };
 
   # TODO: Maybe this belongs to nix-darwin?
   home.sessionVariables = {
