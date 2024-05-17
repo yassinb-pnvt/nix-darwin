@@ -152,4 +152,10 @@ require("lazy").setup({
 	{ "folke/zen-mode.nvim" },
 
 	{ "almo7aya/openingh.nvim" },
+	{
+		"stevearc/oil.nvim",
+		opts = {},
+		-- Optional dependencies
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
 })
