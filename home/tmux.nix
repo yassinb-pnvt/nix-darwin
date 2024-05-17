@@ -7,6 +7,7 @@
     historyLimit = 10000;
     prefix = "C-a";
     sensibleOnTop = false;
+    shell = "/run/current-system/sw/bin/fish";
     shortcut = "a";
     mouse = true;
     keyMode = "vi";
