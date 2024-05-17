@@ -1,7 +1,6 @@
 local function on_attach(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
 
-	vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 	vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
@@ -12,6 +11,11 @@ local function on_attach(client, bufnr)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 	vim.keymap.set("n", "<leader>td", vim.lsp.buf.type_definition, opts)
 	vim.keymap.set("i", "<C-j>", vim.lsp.buf.signature_help, opts)
+
+	vim.keymap.set("n", "<leader>lih", function()
+		---@diagnostic disable-next-line: missing-parameter, param-type-mismatch
+		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+	end, opts)
 end
 
 require("mason").setup()
