@@ -5,13 +5,7 @@ let
   link = config.lib.file.mkOutOfStoreSymlink;
   l = x: link homeManager + "/${x}";
 in {
-  imports = [
-    ./git.nix
-    ./fish.nix
-    ./work.nix
-    ./darwin.nix
-    # ./tmux.nix
-  ];
+  imports = [ ./git.nix ./fish.nix ./work.nix ./darwin.nix ./tmux.nix ];
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -56,7 +50,6 @@ in {
     neovim-10.neovim
     pandoc
     ripgrep
-    tmux
     tree
     tree-sitter
     nixfmt
@@ -82,12 +75,12 @@ in {
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".config/tmux".source = dotfiles/tmux;
-    ".config/wezterm".source = l "dotfiles/wezterm";
-    ".config/goku".source = l "dotfiles/goku";
-    ".config/nvim".source = l "dotfiles/nvim";
-    ".config/bat".source = l "dotfiles/bat";
-  };
+     ".config/wezterm".source = l "dotfiles/wezterm";
+     ".config/goku".source = l "dotfiles/goku";
+     ".config/nvim".source = l "dotfiles/nvim";
+     ".config/bat".source = l "dotfiles/bat";
+   };
+
 
   # TODO: Maybe this belongs to nix-darwin?
   home.sessionVariables = {
