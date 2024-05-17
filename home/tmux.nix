@@ -12,11 +12,10 @@
     mouse = true;
     keyMode = "vi";
     escapeTime = 10;
-    plugins = with pkgs;
-      [
-        tmuxPlugins.catppuccin
-
-      ];
+    plugins = with pkgs; [{
+      plugin = tmuxPlugins.catppuccin;
+      extraConfig = "set -g @catppuccin_flavour 'frappe'";
+    }];
 
     extraConfig = ''
       set-option -ga terminal-overrides ",xterm-256color:Tc"
