@@ -21,6 +21,9 @@
   {:des "Alt Gr layer" :rules [[:!Qk :!S0]]} ; )
   {:des "Alt Gr layer" :rules [[:!Ql :!Sclose_bracket]]} ; }
   {:des "Alt Gr layer" :rules [[:!Qsemicolon :close_bracket]]} ; ]
+
+  {:des "Open brace to `" :rules [[:!Qopen_bracket :non_us_backslash]]}
+  {:des "Open brace to ~" :rules [[:!QSopen_bracket :!Snon_us_backslash]]}
       ;; !  | means mandatory
     ;; #  | means optional
     ;; C  | left_command
@@ -55,6 +58,5 @@
   {:des "Left Opt to Left Cmd" :rules [[:##left_option :left_command :tmkb]]}
   {:des "Right Cmd to Right Opt" :rules [[:##right_command :right_option :tmkb]]}
   {:des "Right Opt to Right Cmd" :rules [[:##right_option :right_command :tmkb]]}
-
  ]
 }
