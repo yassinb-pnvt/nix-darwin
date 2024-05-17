@@ -1,5 +1,11 @@
 # My (new) dotfiles
 
+Steps on new system.
+
+1. Install nix. Preferably using determinate-systems installer.
+2. Setup nix-darwin first time:  `nix run nix-darwin -- switch --flake ~/.config/nix-darwin`
+3. Enjoy!
+
 Too scared to commit `work.nix` to git so instead do:
 
 ```shell
