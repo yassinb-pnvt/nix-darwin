@@ -1,4 +1,4 @@
-{pkgs, ...} @ args:
+{ pkgs, ... }@args:
 #############################################################
 #
 #  Host & Users configuration
@@ -19,5 +19,5 @@ in {
     shell = pkgs.fish;
   };
 
-  nix.settings.trusted-users = [username];
+  nix.settings.trusted-users = [ username ];
 }

@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 ###################################################################################
 #
 #  macOS's System configuration
@@ -36,9 +36,7 @@
   # Create /etc/zshrc that loads the nix-darwin environment.
   # this is required if you want to use darwin's default shell - zsh
   # programs.zsh.enable = true;
-  environment.shells = [
-    pkgs.fish
-  ];
+  environment.shells = [ pkgs.fish ];
   time.timeZone = "Europe/Berlin";
   fonts = {
     # will be removed after this PR is merged:
@@ -49,13 +47,7 @@
     #   https://github.com/LnL7/nix-darwin/pull/754
     fonts = with pkgs; [
       ia-writer-duospace
-      (nerdfonts.override {
-        fonts = [
-          "FiraCode"
-          "JetBrainsMono"
-          "Iosevka"
-        ];
-      })
+      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" "Iosevka" ]; })
     ];
   };
 }

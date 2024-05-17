@@ -1,15 +1,11 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   # TODO: Maybe this belongs to nix-darwin?
-  home.sessionVariables = {
-  };
+  home.sessionVariables = { };
 
-  home.shellAliases = {
-  };
+  home.shellAliases = { };
 
   programs = {
-    fzf = {
-      enableFishIntegration = true;
-    };
+    fzf = { enableFishIntegration = true; };
 
     fish = {
       enable = true;

@@ -1,8 +1,6 @@
-{...}: {
+{ ... }: {
   # TODO: Maybe this belongs to nix-darwin?
-  home.sessionVariables = {
-    ZSH_COMPDUMP = "$XDG_CACHE_HOME/zsh/zshcompdump";
-  };
+  home.sessionVariables = { ZSH_COMPDUMP = "$XDG_CACHE_HOME/zsh/zshcompdump"; };
 
   home.shellAliases = {
     zshconfig = "nvim ~/.zshrc";
@@ -10,21 +8,15 @@
   };
 
   programs = {
-    fzf = {
-      enableZshIntegration = true;
-    };
+    fzf = { enableZshIntegration = true; };
 
-    direnv = {
-      enableZshIntegration = true;
-    };
+    direnv = { enableZshIntegration = true; };
 
     zsh = {
       enable = true;
       enableAutosuggestions = true;
       enableCompletion = true;
-      syntaxHighlighting = {
-        enable = true;
-      };
+      syntaxHighlighting = { enable = true; };
       initExtra = ''
         autoload -Uz vcs_info
         precmd() { vcs_info }
