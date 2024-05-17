@@ -3,13 +3,13 @@ conform.setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		-- Conform will run multiple formatters sequentially
-		python = { "isort", "black" },
+		python = { "isort", "ruff_fix", "ruff_format" },
 		-- Use a sub-list to run only the first available formatter
 		javascript = { { "prettierd", "prettier" } },
 		typescript = { { "prettier" } },
 		typescriptreact = { { "prettier" } },
 		javascriptreact = { { "prettier" } },
-		nix = { { "alejandra" } },
+		nix = { "nixfmt" },
 	},
 	format_on_save = {
 		timeout_ms = 500,
