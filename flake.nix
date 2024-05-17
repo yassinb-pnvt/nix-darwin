@@ -98,9 +98,5 @@
 
       # Expose the package set, including overlays, for convenience.
       darwinPackages = self.darwinConfigurations."MB-Q5JMWQ5VFD".pkgs;
-
-      # nix code formatter
-      formatter.aarch64-darwin =
-        nixpkgs.legacyPackages.aarch64-darwin.alejandra;
     };
 }
