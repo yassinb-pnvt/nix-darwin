@@ -95,8 +95,5 @@
           }
         ];
       };
-
-      # Expose the package set, including overlays, for convenience.
-      darwinPackages = self.darwinConfigurations."MB-Q5JMWQ5VFD".pkgs;
     };
 }
