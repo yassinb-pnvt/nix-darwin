@@ -24,14 +24,7 @@
     , nixpkgs-master, ... }:
     let
       configuration = { pkgs, ... }: {
-        # List packages installed in system profile. To search by name, run:
-        # $ nix-env -qaP | grep wget
         environment = {
-          systemPackages = [
-            # Better karabiner config
-            pkgs.goku
-          ];
-
           # This doesn't work... idk why tho :(
           # Hold up... maybe???
           variables = {
@@ -42,15 +35,12 @@
         homebrew = {
           enable = true;
           taps = [ "quarkusio/tap" ];
-          brews = [ "cowsay" "quarkus" ];
+          brews = [ "quarkus" ];
           casks = [ ];
         };
 
         # Auto upgrade nix package and the daemon service.
-        services = {
-          nix-daemon.enable = true;
-          # karabiner-elements.enable = true;
-        };
+        services = { nix-daemon.enable = true; };
 
         nix.settings.experimental-features = "nix-command flakes";
         nixpkgs.config.allowUnfree = true;

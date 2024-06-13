@@ -60,6 +60,7 @@ in {
     cloc
     yt-dlp
     zld # faster linker
+    goku
 
     gh
 
