@@ -1,11 +1,24 @@
-{ config, pkgs, pkgs-stable, neovim-10, ... }:
+{
+  config,
+  pkgs,
+  pkgs-stable,
+  neovim-10,
+  ...
+}:
 let
   # needs to be absolute path. Important!
   homeManager = /Users/maxrn/.config/nix-darwin/home;
   link = config.lib.file.mkOutOfStoreSymlink;
   l = x: link homeManager + "/${x}";
-in {
-  imports = [ ./git.nix ./fish.nix ./work.nix ./darwin.nix ./tmux.nix ];
+in
+{
+  imports = [
+    ./git.nix
+    ./fish.nix
+    ./work.nix
+    ./darwin.nix
+    ./tmux.nix
+  ];
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -52,7 +65,7 @@ in {
     ripgrep
     tree
     tree-sitter
-    nixfmt
+    nixfmt-rfc-style
     jq
     gnused
     difftastic
@@ -120,7 +133,9 @@ in {
   ];
 
   programs = {
-    fzf = { enable = true; };
+    fzf = {
+      enable = true;
+    };
 
     direnv = {
       enable = true;
@@ -129,10 +144,14 @@ in {
 
     home-manager.enable = true;
 
-    eza = { enable = true; };
+    eza = {
+      enable = true;
+    };
   };
 
-  nixpkgs.config = { allowUnfree = true; };
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
   fonts.fontconfig.enable = true;
 }

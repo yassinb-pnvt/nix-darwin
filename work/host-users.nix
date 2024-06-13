@@ -7,7 +7,8 @@
 let
   hostname = "MB-Q5JMWQ5VFD";
   username = "maxrn";
-in {
+in
+{
   networking.hostName = hostname;
   networking.computerName = hostname;
   system.defaults.smb.NetBIOSName = hostname;

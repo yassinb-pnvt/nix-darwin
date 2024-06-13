@@ -20,46 +20,59 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nixpkgs-stable
-    , nixpkgs-master, ... }:
+  outputs =
+    inputs@{
+      self,
+      nix-darwin,
+      nixpkgs,
+      home-manager,
+      nixpkgs-stable,
+      nixpkgs-master,
+      ...
+    }:
     let
-      configuration = { pkgs, ... }: {
-        environment = {
-          # This doesn't work... idk why tho :(
-          # Hold up... maybe???
-          variables = {
-            GOKU_EDN_CONFIG_FILE = "$HOME/.config/goku/karabiner.edn";
+      configuration =
+        { pkgs, ... }:
+        {
+          environment = {
+            # This doesn't work... idk why tho :(
+            # Hold up... maybe???
+            variables = {
+              GOKU_EDN_CONFIG_FILE = "$HOME/.config/goku/karabiner.edn";
+            };
           };
+
+          homebrew = {
+            enable = true;
+            taps = [ "quarkusio/tap" ];
+            brews = [ "quarkus" ];
+            casks = [ ];
+          };
+
+          # Auto upgrade nix package and the daemon service.
+          services = {
+            nix-daemon.enable = true;
+          };
+
+          nix.settings.experimental-features = "nix-command flakes";
+          nixpkgs.config.allowUnfree = true;
+
+          # Create /etc/zshrc that loads the nix-darwin environment.
+          programs.zsh.enable = true; # default shell on catalina
+          programs.fish.enable = true; # default shell on catalina
+
+          # Set Git commit hash for darwin-version.
+          system.configurationRevision = self.rev or self.dirtyRev or null;
+
+          # Used for backwards compatibility, please read the changelog before changing.
+          # $ darwin-rebuild changelog
+          system.stateVersion = 4;
+
+          # The platform the configuration will be used on.
+          nixpkgs.hostPlatform = "aarch64-darwin";
         };
-
-        homebrew = {
-          enable = true;
-          taps = [ "quarkusio/tap" ];
-          brews = [ "quarkus" ];
-          casks = [ ];
-        };
-
-        # Auto upgrade nix package and the daemon service.
-        services = { nix-daemon.enable = true; };
-
-        nix.settings.experimental-features = "nix-command flakes";
-        nixpkgs.config.allowUnfree = true;
-
-        # Create /etc/zshrc that loads the nix-darwin environment.
-        programs.zsh.enable = true; # default shell on catalina
-        programs.fish.enable = true; # default shell on catalina
-
-        # Set Git commit hash for darwin-version.
-        system.configurationRevision = self.rev or self.dirtyRev or null;
-
-        # Used for backwards compatibility, please read the changelog before changing.
-        # $ darwin-rebuild changelog
-        system.stateVersion = 4;
-
-        # The platform the configuration will be used on.
-        nixpkgs.hostPlatform = "aarch64-darwin";
-      };
-    in {
+    in
+    {
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#MB-Q5JMWQ5VFD
       # rec used to refer to system in specialArgs
@@ -69,21 +82,31 @@
           pkgs-stable = import nixpkgs-stable { system = system; };
           neovim-10 = import nixpkgs-master { system = system; };
         };
+        # homeModule = home-manager.darwinModules.home-manager {
+        #   home-manager.useGlobalPkgs = true;
+        #   home-manager.useUserPackages = true;
+        #   home-manager.verbose = true;
+        #   home-manager.users.maxrn = import ./home;
+        #   home-manager.extraSpecialArgs = specialArgs;
+        # };
         modules = [
           configuration
           ./darwin/system.nix
           ./work/host-users.nix
           ./modules/fish-fix.nix
 
+          # homeModule
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.verbose = true;
+            home-manager.users.maxrn = import ./home;
             home-manager.extraSpecialArgs = specialArgs;
-            home-manager.users."maxrn" = import ./home;
           }
         ];
       };
+
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
     };
 }

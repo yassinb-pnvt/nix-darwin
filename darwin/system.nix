@@ -47,7 +47,13 @@
     #   https://github.com/LnL7/nix-darwin/pull/754
     fonts = with pkgs; [
       ia-writer-duospace
-      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" "Iosevka" ]; })
+      (nerdfonts.override {
+        fonts = [
+          "FiraCode"
+          "JetBrainsMono"
+          "Iosevka"
+        ];
+      })
     ];
   };
 }
