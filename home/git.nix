@@ -20,7 +20,7 @@
       ".DS_Store"
       ".durl.config"
       "fetch_token.sh"
-      ".draci_response.txt."
+      ".draci_response.txt"
       ".envrc"
       ".direnv/"
     ];
@@ -53,6 +53,8 @@
       diff.colorMoved = "default";
       merge.tool = "nvim";
       credential.helper = "osxkeychain";
+      core.excludesFile = "/Users/maxrn/.config/git/ignore";
+      rerere.enabled = true;
     };
 
     aliases = {
