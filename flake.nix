@@ -2,7 +2,11 @@
   description = "NixOS and nix-darwin configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    # apparently it goes like this from fresh to stale:
+    # nixos/nixpkgs/master == nixoks/nixpkgs
+    # nixos/nixpkgs/nixpkgs-unstable
+    # nixos/nixpkgs/nixos-2x.xx
+    nixpkgs.url = "github:nixos/nixpkgs/master";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
