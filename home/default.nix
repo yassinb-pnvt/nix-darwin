@@ -57,6 +57,7 @@ in {
     gnused
     difftastic
     hyperfine
+    cloc
     yt-dlp
     zld # faster linker
 
@@ -70,6 +71,7 @@ in {
     minikube
     gimp
     sioyek
+    flyctl
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
