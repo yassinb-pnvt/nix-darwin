@@ -81,8 +81,8 @@
         };
         modules = [
           configuration
-          ./modules/system.nix
-          ./modules/host-users.nix
+          ./darwin/system.nix
+          ./work/host-users.nix
           ./modules/fish-fix.nix
 
           home-manager.darwinModules.home-manager
