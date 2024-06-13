@@ -2,7 +2,6 @@
   config,
   pkgs,
   pkgs-stable,
-  neovim-10,
   ...
 }:
 let
@@ -60,7 +59,7 @@ in
     kubectl
     kubernetes-helm
     neofetch
-    neovim-10.neovim
+    neovim
     pandoc
     ripgrep
     tree

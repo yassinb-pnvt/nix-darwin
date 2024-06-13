@@ -1,10 +1,9 @@
 {
-  description = "My nix-darwin config";
+  description = "NixOS and nix-darwin configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
-    nixpkgs-master.url = "github:nixos/nixpkgs";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,7 +26,6 @@
       nixpkgs,
       home-manager,
       nixpkgs-stable,
-      nixpkgs-master,
       ...
     }:
     let
@@ -59,7 +57,7 @@
 
           # Create /etc/zshrc that loads the nix-darwin environment.
           programs.zsh.enable = true; # default shell on catalina
-          programs.fish.enable = true; # default shell on catalina
+          programs.fish.enable = true;
 
           # Set Git commit hash for darwin-version.
           system.configurationRevision = self.rev or self.dirtyRev or null;
@@ -68,19 +66,15 @@
           # $ darwin-rebuild changelog
           system.stateVersion = 4;
 
-          # The platform the configuration will be used on.
           nixpkgs.hostPlatform = "aarch64-darwin";
         };
     in
     {
-      # Build darwin flake using:
-      # $ darwin-rebuild build --flake .#MB-Q5JMWQ5VFD
       # rec used to refer to system in specialArgs
       darwinConfigurations."MB-Q5JMWQ5VFD" = nix-darwin.lib.darwinSystem rec {
         system = "aarch64-darwin";
         specialArgs = {
           pkgs-stable = import nixpkgs-stable { system = system; };
-          neovim-10 = import nixpkgs-master { system = system; };
         };
         # homeModule = home-manager.darwinModules.home-manager {
         #   home-manager.useGlobalPkgs = true;
