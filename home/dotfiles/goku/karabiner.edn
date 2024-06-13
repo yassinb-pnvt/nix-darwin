@@ -58,5 +58,6 @@
   {:des "Left Opt to Left Cmd" :rules [[:##left_option :left_command :tmkb]]}
   {:des "Right Cmd to Right Opt" :rules [[:##right_command :right_option :tmkb]]}
   {:des "Right Opt to Right Cmd" :rules [[:##right_option :right_command :tmkb]]}
+  {:des "Escape to tilde/backticks" :rules [[:##escape :non_us_backslash :tmkb]]}
  ]
 }
