@@ -97,7 +97,7 @@ require("lazy").setup({
 	{ "mbbill/undotree" },
 	{ "tpope/vim-repeat" },
 
-	{ "TimUntersberger/neogit", dependencies = { "nvim-lua/plenary.nvim" }, branch = { "nightly" } },
+	{ "TimUntersberger/neogit", dependencies = { "nvim-lua/plenary.nvim" } },
 	{ "sindrets/diffview.nvim" },
 	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",
@@ -111,6 +111,7 @@ require("lazy").setup({
 			},
 		},
 	},
+	{ "tpope/vim-fugitive" },
 
 	{ "folke/neodev.nvim" },
 
@@ -124,23 +125,30 @@ require("lazy").setup({
 	{ "williamboman/mason-lspconfig.nvim" },
 
 	-- Autocompletion
-	{ "hrsh7th/nvim-cmp" },
-	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/cmp-path" },
-	{ "hrsh7th/cmp-emoji" },
-	{ "saadparwaiz1/cmp_luasnip" },
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-nvim-lua" },
-	{ "hrsh7th/cmp-nvim-lsp-signature-help" },
-	-- LaTeX
-	-- use({ "hrsh7th/cmp-omni" })
 
-	-- Snippets
-	{ "L3MON4D3/LuaSnip" },
-	{ "rafamadriz/friendly-snippets" },
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"onsails/lspkind.nvim", --pretty icons for completion menu
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-emoji",
+			"hrsh7th/cmp-nvim-lsp",
+
+			"L3MON4D3/LuaSnip",
+
+			-- TODO: Do I need these?
+			-- "rafamadriz/friendly-snippets",
+			-- "saadparwaiz1/cmp_luasnip",
+			-- "hrsh7th/cmp-nvim-lua",
+			-- "hrsh7th/cmp-nvim-lsp-signature-help",
+		},
+	},
+
 	{ "j-hui/fidget.nvim" },
 
-	{ "folke/zen-mode.nvim" },
+	-- { "folke/zen-mode.nvim" },
+	{ "shortcuts/no-neck-pain.nvim" },
 
 	{ "almo7aya/openingh.nvim" },
 	{
@@ -158,5 +166,16 @@ require("lazy").setup({
 			-- You can configure highlights by doing something like:
 			vim.cmd.hi("Comment gui=none")
 		end,
+	},
+
+	{
+		"mfussenegger/nvim-dap",
+		dependencies = {
+			"leoluz/nvim-dap-go",
+			"rcarriga/nvim-dap-ui",
+			"theHamsta/nvim-dap-virtual-text",
+			"nvim-neotest/nvim-nio",
+			"williamboman/mason.nvim",
+		},
 	},
 })

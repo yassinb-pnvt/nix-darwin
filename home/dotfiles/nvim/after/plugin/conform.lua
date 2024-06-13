@@ -7,13 +7,16 @@ conform.setup({
 		-- Use a sub-list to run only the first available formatter
 		javascript = { { "prettierd", "prettier" } },
 		typescript = { { "prettier" } },
+		html = { { "prettierd", "prettier" } },
 		typescriptreact = { { "prettier" } },
 		javascriptreact = { { "prettier" } },
 		nix = { "nixfmt" },
+		astro = { { "prettierd", "prettier" } },
+		php = {},
 	},
 	format_on_save = {
 		timeout_ms = 500,
-		lsp_fallback = true,
+		lsp_fallback = false,
 	},
 })
 
