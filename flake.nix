@@ -13,7 +13,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # home-manager, used for managing user configuration
     home-manager = {
       url = "github:nix-community/home-manager/master";
       # The `follows` keyword in inputs is used for inheritance.
@@ -78,22 +77,16 @@
       darwinConfigurations."MB-Q5JMWQ5VFD" = nix-darwin.lib.darwinSystem rec {
         system = "aarch64-darwin";
         specialArgs = {
-          pkgs-stable = import nixpkgs-stable { system = system; };
+          pkgs-stable = import nixpkgs-stable { system = "aarch64-darwin"; };
         };
-        # homeModule = home-manager.darwinModules.home-manager {
-        #   home-manager.useGlobalPkgs = true;
-        #   home-manager.useUserPackages = true;
-        #   home-manager.verbose = true;
-        #   home-manager.users.maxrn = import ./home;
-        #   home-manager.extraSpecialArgs = specialArgs;
-        # };
+
         modules = [
           configuration
+
           ./darwin/system.nix
           ./work/host-users.nix
           ./modules/fish-fix.nix
 
-          # homeModule
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
