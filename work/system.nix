@@ -1,9 +1,16 @@
 {
   nix-darwin,
   nixpkgs-stable,
-  configuration,
+  nixpkgs,
   home-manager,
+  self,
 }:
+let
+  configuration = import ./configuration.nix {
+    pkgs = nixpkgs;
+    self = self;
+  };
+in
 nix-darwin.lib.darwinSystem rec {
   system = "aarch64-darwin";
   specialArgs = {
