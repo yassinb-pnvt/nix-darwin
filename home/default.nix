@@ -17,7 +17,7 @@ in
     ./fish.nix
     ./darwin.nix
     ./tmux.nix
-    ../work/default.nix
+    ../work/home.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
