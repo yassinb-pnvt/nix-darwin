@@ -74,30 +74,7 @@
     in
     {
       # rec used to refer to system in specialArgs
-      darwinConfigurations."MB-Q5JMWQ5VFD" = nix-darwin.lib.darwinSystem rec {
-        system = "aarch64-darwin";
-        specialArgs = {
-          pkgs-stable = import nixpkgs-stable { system = "aarch64-darwin"; };
-          work-module = ./work/default.nix;
-        };
-
-        modules = [
-          configuration
-
-          ./darwin/system.nix
-          ./work/host-users.nix
-          ./modules/fish-fix.nix
-
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.verbose = true;
-            home-manager.users.maxrn = import ./home;
-            home-manager.extraSpecialArgs = specialArgs;
-          }
-        ];
-      };
+      darwinConfigurations."MB-Q5JMWQ5VFD" = import ./work/system.nix;
 
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
     };
