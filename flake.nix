@@ -78,6 +78,7 @@
         system = "aarch64-darwin";
         specialArgs = {
           pkgs-stable = import nixpkgs-stable { system = "aarch64-darwin"; };
+          work-module = ./work/default.nix;
         };
 
         modules = [

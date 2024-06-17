@@ -32,7 +32,6 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "q:", ":q", { desc = "I'm monke and sometimes misstype." })
-vim.keymap.set("n", "<Esc><Esc>", "<cmd>q<CR>", { desc = "quick leave" })
 
 local function file_exists(name)
 	local f = io.open(name, "r")

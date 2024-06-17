@@ -8,6 +8,7 @@
     # Docker replacement
     colima
     docker-client
+    imagemagick
   ];
 
   home.sessionVariables = {
@@ -18,9 +19,10 @@
     # export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
     # export TESTCONTAINERS_HOST_OVERRIDE=$(colima ls -j | jq -r '.address')
     # export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
-    TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE = "/var/run/docker.sock";
-    TESTCONTAINERS_HOST_OVERRIDE = "$(colima ls -j | jq -r '.address')";
-    DOCKER_HOST = "unix://$HOME/.colima/default/docker.sock";
+    # I just linked .colima/default/docker.sock to /var/run/docker.sock -> easiest solution ever
+    # TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE = "/var/run/docker.sock";
+    # TESTCONTAINERS_HOST_OVERRIDE = "$(colima ls -j | jq -r '.address')";
+    # DOCKER_HOST = "unix://$HOME/.colima/default/docker.sock";
 
     # Old version in case testcontainers act up again
     # TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE = "/var/run/docker.sock";

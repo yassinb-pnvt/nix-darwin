@@ -12,7 +12,7 @@ conform.setup({
 		javascriptreact = { { "prettier" } },
 		nix = { "nixfmt" },
 		astro = { { "prettierd", "prettier" } },
-		php = {},
+		go = { "gofmt" },
 	},
 	format_on_save = {
 		timeout_ms = 500,

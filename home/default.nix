@@ -2,6 +2,7 @@
   config,
   pkgs,
   pkgs-stable,
+  work-module,
   ...
 }:
 let
@@ -14,9 +15,9 @@ in
   imports = [
     ./git.nix
     ./fish.nix
-    ./work.nix
     ./darwin.nix
     ./tmux.nix
+    ../work/default.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
