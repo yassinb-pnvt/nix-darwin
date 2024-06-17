@@ -1,26 +1,30 @@
-{nix-darwin, ...}:
-{nix-darwin.lib.darwinSystem rec {
-        system = "aarch64-darwin";
-        specialArgs = {
-          pkgs-stable = import nixpkgs-stable { system = "aarch64-darwin"; };
-          work-module = ./work/default.nix;
-        };
+{
+  nix-darwin,
+  nixpkgs-stable,
+  configuration,
+  home-manager,
+}:
+nix-darwin.lib.darwinSystem rec {
+  system = "aarch64-darwin";
+  specialArgs = {
+    pkgs-stable = import nixpkgs-stable { system = "aarch64-darwin"; };
+    work-module = ./work/default.nix;
+  };
 
-        modules = [
-          configuration
+  modules = [
+    configuration
 
-          ./darwin/system.nix
-          ./work/host-users.nix
-          ./modules/fish-fix.nix
+    ../darwin/system.nix
+    ./host-users.nix
+    ../modules/fish-fix.nix
 
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.verbose = true;
-            home-manager.users.maxrn = import ./home;
-            home-manager.extraSpecialArgs = specialArgs;
-          }
-        ];
-      }
+    home-manager.darwinModules.home-manager
+    {
+      home-manager.useGlobalPkgs = true;
+      home-manager.useUserPackages = true;
+      home-manager.verbose = true;
+      home-manager.users.maxrn = import ../home;
+      home-manager.extraSpecialArgs = specialArgs;
+    }
+  ];
 }

@@ -74,7 +74,12 @@
     in
     {
       # rec used to refer to system in specialArgs
-      darwinConfigurations."MB-Q5JMWQ5VFD" = import ./work/system.nix;
+      darwinConfigurations."MB-Q5JMWQ5VFD" = import ./work/system.nix {
+        nix-darwin = nix-darwin;
+        nixpkgs-stable = nixpkgs-stable;
+        configuration = configuration;
+        home-manager = home-manager;
+      };
 
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
     };
