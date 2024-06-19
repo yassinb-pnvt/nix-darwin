@@ -43,9 +43,7 @@
     {
       darwinConfigurations = (
         import ./work {
-          inherit (nixpkgs) lib;
           inherit
-            inputs
             nixpkgs
             home-manager
             nix-darwin
