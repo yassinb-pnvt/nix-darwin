@@ -30,6 +30,16 @@
       nixpkgs-stable,
       ...
     }:
+    let
+      # System types to support.
+      supportedSystems = [
+        "x86_64-linux"
+        "aarch64-darwin"
+      ];
+
+      # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+    in
     {
       darwinConfigurations = (
         import ./work {
@@ -44,6 +54,6 @@
         }
       );
 
-      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
     };
 }
