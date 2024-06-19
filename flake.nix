@@ -31,13 +31,18 @@
       ...
     }:
     {
-      darwinConfigurations."MB-Q5JMWQ5VFD" = import ./work/system.nix {
-        nix-darwin = nix-darwin;
-        nixpkgs-stable = nixpkgs-stable;
-        nixpkgs = nixpkgs;
-        home-manager = home-manager;
-        self = self;
-      };
+      darwinConfigurations = (
+        import ./work {
+          inherit (nixpkgs) lib;
+          inherit
+            inputs
+            nixpkgs
+            home-manager
+            nix-darwin
+            nixpkgs-stable
+            ;
+        }
+      );
 
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
     };
