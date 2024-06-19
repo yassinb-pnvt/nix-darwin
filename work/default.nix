@@ -20,7 +20,6 @@ in
       configuration
 
       ../darwin/system.nix
-      ./host-users.nix
       ../modules/fish-fix.nix
 
       home-manager.darwinModules.home-manager
