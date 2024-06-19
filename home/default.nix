@@ -2,7 +2,6 @@
   config,
   pkgs,
   pkgs-stable,
-  work-module,
   ...
 }:
 let
