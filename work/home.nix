@@ -3,12 +3,13 @@
   home.packages = with pkgs; [
     python311Packages.weasyprint
     glab
-    # azure-cli
+    azure-cli
 
-    # Docker replacement
     colima
     docker-client
     imagemagick
+    gnupg
+    sops
   ];
 
   home.sessionVariables = {

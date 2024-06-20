@@ -87,4 +87,6 @@ require("lspconfig").ruff.setup({
 	end,
 })
 
+require("lspconfig").nixd.setup({})
+
 require("fidget").setup({})

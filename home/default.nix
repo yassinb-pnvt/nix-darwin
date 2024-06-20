@@ -48,6 +48,7 @@ in
     php83Packages.composer
     opam
     jdk21
+    nixd
 
     bat
     btop
