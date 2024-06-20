@@ -42,7 +42,7 @@
     in
     {
       darwinConfigurations = (
-        import ./work {
+        import ./hosts/work {
           inherit
             nixpkgs
             home-manager

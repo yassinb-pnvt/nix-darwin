@@ -4,7 +4,7 @@ let
   username = "maxrn";
 in
 {
-  imports = [ ../shared/configuration.nix ];
+  imports = [ ../../shared/configuration.nix ];
   environment = {
     # This doesn't work... idk why tho :(
     # Hold up... maybe???

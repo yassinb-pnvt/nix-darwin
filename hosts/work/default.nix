@@ -18,15 +18,15 @@ in
     modules = [
       configuration
 
-      ../darwin/system.nix
-      ../modules/fish-fix.nix
+      ../../darwin/system.nix
+      ../../modules/fish-fix.nix
 
       home-manager.darwinModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.verbose = true;
-        home-manager.users.maxrn = import ../home;
+        home-manager.users.maxrn = import ../../home;
         home-manager.extraSpecialArgs = specialArgs;
       }
     ];
