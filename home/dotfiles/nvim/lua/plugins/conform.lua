@@ -1,5 +1,4 @@
-local conform = require("conform")
-conform.setup({
+local opts = {
 	formatters_by_ft = {
 		lua = { "stylua" },
 		-- Conform will run multiple formatters sequentially
@@ -18,8 +17,21 @@ conform.setup({
 		timeout_ms = 500,
 		lsp_fallback = false,
 	},
-})
+}
 
-vim.keymap.set("n", "<leader>f", function()
-	conform.format({ bufnr = vim.api.nvim_get_current_buf() })
-end)
+return {
+	{
+		"stevearc/conform.nvim",
+		event = { "BufWritePre" },
+		cmd = { "ConformInfo" },
+		keys = {
+			{
+				"<leader>f",
+				function()
+					require("conform").format({ async = true, lsp_format = "fallback" })
+				end,
+			},
+		},
+		opts = opts,
+	},
+}

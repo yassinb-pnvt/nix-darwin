@@ -54,10 +54,6 @@ return {
 	-- LSP Support
 	{ "neovim/nvim-lspconfig" },
 	{ "williamboman/mason.nvim" },
-	{
-		"stevearc/conform.nvim",
-		opts = {},
-	},
 	{ "williamboman/mason-lspconfig.nvim" },
 
 	-- Autocompletion
@@ -80,7 +76,6 @@ return {
 			-- "hrsh7th/cmp-nvim-lsp-signature-help",
 		},
 	},
-	{ "almo7aya/openingh.nvim" },
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
