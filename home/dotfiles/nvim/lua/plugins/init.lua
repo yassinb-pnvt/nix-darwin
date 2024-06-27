@@ -31,24 +31,6 @@ return {
 			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 		},
 	},
-	{
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		config = function()
-			---@diagnostic disable-next-line: missing-fields
-			require("nvim-treesitter.configs").setup({
-				textobjects = {
-					select = {
-						enable = true,
-						lookahead = true,
-						keymaps = {
-							["af"] = "@function.outer",
-							["if"] = "@function.inner",
-						},
-					},
-				},
-			})
-		end,
-	},
 	{ "theprimeagen/harpoon" },
 	{ "tpope/vim-repeat" },
 
@@ -98,29 +80,7 @@ return {
 			-- "hrsh7th/cmp-nvim-lsp-signature-help",
 		},
 	},
-
-	{ "j-hui/fidget.nvim" },
-
-	{ "shortcuts/no-neck-pain.nvim" },
-
 	{ "almo7aya/openingh.nvim" },
-	{
-		"stevearc/oil.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
-	{
-		"catppuccin/nvim",
-		priority = 1000,
-		name = "catppuccin",
-		init = function()
-			-- Load the colorscheme here.
-			vim.cmd.colorscheme("catppuccin-frappe")
-
-			-- You can configure highlights by doing something like:
-			vim.cmd.hi("Comment gui=none")
-		end,
-	},
-
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
