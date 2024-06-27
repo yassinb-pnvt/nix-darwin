@@ -1,14 +1,5 @@
 return {
 	{
-		"echasnovski/mini.nvim",
-		config = function()
-			require("mini.surround").setup()
-			require("mini.statusline").setup({ use_icons = vim.g.have_nerd_font })
-			-- require("mini.tabline").setup({})
-		end,
-	},
-
-	{
 		"nvim-telescope/telescope.nvim",
 		event = "VimEnter",
 		branch = "0.1.x",
@@ -40,24 +31,6 @@ return {
 			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 		},
 	},
-
-	{ -- Highlight, edit, and navigate code
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-		config = function(_, opts)
-			-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-
-			---@diagnostic disable-next-line: missing-fields
-			require("nvim-treesitter.configs").setup(opts)
-
-			-- There are additional nvim-treesitter modules that you can use to interact
-			-- with nvim-treesitter. You should go explore a few and see what interests you:
-			--
-			--    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-			--    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-			--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-		end,
-	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		config = function()
@@ -79,7 +52,6 @@ return {
 	{ "theprimeagen/harpoon" },
 	{ "tpope/vim-repeat" },
 
-	{ "TimUntersberger/neogit", dependencies = { "nvim-lua/plenary.nvim" } },
 	{ "sindrets/diffview.nvim" },
 	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",

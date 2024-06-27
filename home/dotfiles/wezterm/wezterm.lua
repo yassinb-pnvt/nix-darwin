@@ -37,6 +37,8 @@ for i, value in ipairs(keymaps) do
 		action = wezterm.action.SendString(value.string),
 	}
 end
+table.insert(keymaps, { key = ";", mods = "CTRL", action = wezterm.action.SendString("Harpoon4") })
+
 config.keys = keymaps
 
 -- TODO: doesn't work as expected :(
