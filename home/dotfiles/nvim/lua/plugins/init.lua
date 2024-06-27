@@ -55,35 +55,4 @@ return {
 	{ "neovim/nvim-lspconfig" },
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
-
-	-- Autocompletion
-
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			"onsails/lspkind.nvim", --pretty icons for completion menu
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-emoji",
-			"hrsh7th/cmp-nvim-lsp",
-
-			"L3MON4D3/LuaSnip",
-
-			-- TODO: Do I need these?
-			-- "rafamadriz/friendly-snippets",
-			-- "saadparwaiz1/cmp_luasnip",
-			-- "hrsh7th/cmp-nvim-lua",
-			-- "hrsh7th/cmp-nvim-lsp-signature-help",
-		},
-	},
-	{
-		"mfussenegger/nvim-dap",
-		dependencies = {
-			"leoluz/nvim-dap-go",
-			"rcarriga/nvim-dap-ui",
-			"theHamsta/nvim-dap-virtual-text",
-			"nvim-neotest/nvim-nio",
-			"williamboman/mason.nvim",
-		},
-	},
 }
