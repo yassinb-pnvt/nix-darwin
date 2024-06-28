@@ -1,3 +1,9 @@
 return {
-	{ "j-hui/fidget.nvim" },
+	{
+		"j-hui/fidget.nvim",
+		lazy = false,
+		config = function()
+			require("fidget").setup({})
+		end,
+	},
 }
