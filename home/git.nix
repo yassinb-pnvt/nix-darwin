@@ -27,7 +27,7 @@
 
     includes = [
       {
-        # use diffrent email & name for work
+        # use different email & name for work
         path = "~/work/.gitconfig";
         condition = "gitdir:~/work/";
       }
@@ -46,10 +46,12 @@
       merge.conflictstyle = "zdiff3";
       diff.algorithm = "histogram";
       branch.sort = "-committerdate";
+
       diff.tool = "difftastic";
       difftool.prompt = false;
+      difftool.difftastic = "difft \"$LOCAL\" \"$REMOTE\"";
       pager.difftool = true;
-      diff.external = "difft";
+
       diff.colorMoved = "default";
       merge.tool = "nvim";
       credential.helper = "osxkeychain";
@@ -63,6 +65,9 @@
       ca = "commit -am";
       cn = "commit --amend --no-edit";
       dc = "diff --cached";
+
+      dft = "difftool";
+      dlog = "-c diff.external=difft log -p --ext-diff";
 
       # aliases for submodule
       update = "submodule update --init --recursive";
