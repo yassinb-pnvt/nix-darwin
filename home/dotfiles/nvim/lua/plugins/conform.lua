@@ -25,6 +25,8 @@ return {
 				nix = { "nixfmt" },
 				astro = { { "prettierd", "prettier" } },
 				go = { "gofmt" },
+				markdown = { { "prettierd", "prettier" } },
+				ocaml = { "ocamlformat" },
 			},
 			format_on_save = {
 				timeout_ms = 500,

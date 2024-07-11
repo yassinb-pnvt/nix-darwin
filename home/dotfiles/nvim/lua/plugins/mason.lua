@@ -1,5 +1,6 @@
 return {
 	{ "neovim/nvim-lspconfig" },
+	{ "williamboman/mason-lspconfig.nvim" },
 	{
 		"williamboman/mason.nvim",
 		config = function()
@@ -40,9 +41,6 @@ return {
 			--  If you want to override the default filetypes that your language server will attach to you can
 			--  define the property 'filetypes' to the map in question.
 			local servers = {
-				ocamllsp = {
-					cmd = { "ocamllsp" },
-				},
 				html = { filetypes = { "html", "twig", "hbs" } },
 				pyright = {
 					pyright = {
@@ -98,7 +96,7 @@ return {
 			})
 
 			require("lspconfig").nixd.setup({})
+			require("lspconfig").ocamllsp.setup({})
 		end,
 	},
-	{ "williamboman/mason-lspconfig.nvim" },
 }

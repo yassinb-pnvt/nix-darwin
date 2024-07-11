@@ -23,6 +23,7 @@
       ".draci_response.txt"
       ".envrc"
       ".direnv/"
+      ".quarkus/"
     ];
 
     includes = [

@@ -2,7 +2,6 @@ require("maxrn.set")
 require("maxrn.remap")
 
 local augroup = vim.api.nvim_create_augroup
-local ThePrimeagenGroup = augroup("ThePrimeagen", {})
 
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup("HighlightYank", {})
@@ -20,12 +19,6 @@ autocmd("TextYankPost", {
 			timeout = 40,
 		})
 	end,
-})
-
-autocmd({ "BufWritePre" }, {
-	group = ThePrimeagenGroup,
-	pattern = "*",
-	command = [[%s/\s\+$//e]],
 })
 
 vim.g.netrw_browse_split = 0

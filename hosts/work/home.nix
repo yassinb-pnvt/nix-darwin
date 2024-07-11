@@ -13,6 +13,7 @@
   ];
 
   home.sessionVariables = {
+    # LINK colima docker sock to /var/run/docker.sock
     # For testcontainers
     # https://java.testcontainers.org/supported_docker_environment/#colima
 
