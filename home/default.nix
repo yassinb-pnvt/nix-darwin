@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  pkgs-stable,
-  ...
-}:
+{ config, pkgs, ... }:
 let
   # needs to be absolute path. Important!
   homeManager = /Users/maxrn/.config/nix-darwin/home;
@@ -29,7 +24,6 @@ in
   home.packages = with pkgs; [
     # Because for some reason they are not included by default.
     # Would like to have the BSD ones for MacOS but these'll do.
-    pkgs-stable.man-pages
 
     wezterm
 
@@ -43,7 +37,7 @@ in
     # programming langs
     go_1_22
     rustup
-    pkgs-stable.poetry
+    poetry
     php83
     php83Packages.composer
     opam
@@ -83,8 +77,6 @@ in
 
     devenv
     minikube
-    gimp
-    sioyek
     flyctl
     lnav
   ];
