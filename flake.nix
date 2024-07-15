@@ -19,11 +19,16 @@
       # to avoid problems caused by different versions of nixpkgs dependencies.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     inputs@{
       self,
+      lix-module,
       nix-darwin,
       nixpkgs,
       home-manager,
@@ -48,7 +53,9 @@
             home-manager
             nix-darwin
             nixpkgs-stable
+            lix-module
             ;
+
         }
       );
 

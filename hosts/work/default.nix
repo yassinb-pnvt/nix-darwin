@@ -3,6 +3,7 @@
   nixpkgs-stable,
   nixpkgs,
   home-manager,
+  lix-module,
   ...
 }:
 let
@@ -17,6 +18,7 @@ in
 
     modules = [
       configuration
+      lix-module.nixosModules.default
 
       ../../darwin/system.nix
       ../../modules/fish-fix.nix
