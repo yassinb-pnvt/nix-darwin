@@ -10,6 +10,7 @@
     imagemagick
     gnupg
     sops
+    quarkus
   ];
 
   home.sessionVariables = {

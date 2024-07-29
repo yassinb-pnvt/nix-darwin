@@ -15,8 +15,14 @@ in
 
   homebrew = {
     enable = true;
-    taps = [ "quarkusio/tap" ];
-    brews = [ "quarkus" ];
+    taps = [ ];
+    brews = [
+      "pcre"
+      "gmp"
+      "openssl"
+      "libev"
+      "pkg-config"
+    ];
     casks = [ ];
   };
 
