@@ -18,6 +18,10 @@
         plugin = tmuxPlugins.catppuccin;
         extraConfig = "set -g @catppuccin_flavour 'frappe'";
       }
+      {
+        plugin = tmuxPlugins.tokyo-night-tmux;
+        extraConfig = "set -g @tokyo-night-tmux_theme 'night'";
+      }
     ];
 
     extraConfig = ''

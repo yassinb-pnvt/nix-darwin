@@ -11,6 +11,7 @@
     gnupg
     sops
     quarkus
+    caddy
   ];
 
   home.sessionVariables = {

@@ -3,7 +3,7 @@
 
   inputs = {
     # apparently it goes like this from fresh to stale:
-    # nixos/nixpkgs/master == nixoks/nixpkgs
+    # nixos/nixpkgs/master == nixos/nixpkgs
     # nixos/nixpkgs/nixpkgs-unstable
     # nixos/nixpkgs/nixos-2x.xx
     nixpkgs.url = "github:nixos/nixpkgs/master";

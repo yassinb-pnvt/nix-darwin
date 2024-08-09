@@ -18,10 +18,3 @@ require("cmp").setup.buffer({
 
 vim.g.spellang = "en-us"
 vim.opt.colorcolumn = ""
-
-require("zen-mode").setup {
-    window = {
-        width = 150,
-    },
-}
-
