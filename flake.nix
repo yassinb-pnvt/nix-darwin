@@ -27,7 +27,6 @@
 
   outputs =
     inputs@{
-      self,
       lix-module,
       nix-darwin,
       nixpkgs,
