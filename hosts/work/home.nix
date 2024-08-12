@@ -12,6 +12,7 @@
     sops
     quarkus
     caddy
+    yq
   ];
 
   home.sessionVariables = {

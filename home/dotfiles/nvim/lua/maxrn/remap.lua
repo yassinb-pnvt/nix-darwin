@@ -7,6 +7,9 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("x", ":W", "w")
+-- best remap ever
+vim.api.nvim_create_user_command("W", "w", {})
 
 -- greatest remap ever from prime
 vim.keymap.set("x", "<leader>p", [["_dP]])
