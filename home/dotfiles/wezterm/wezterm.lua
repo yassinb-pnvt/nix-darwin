@@ -10,7 +10,7 @@ local config = wezterm.config_builder()
 -- config.color_scheme = "Catppuccin Frappe"
 config.color_scheme = "tokyonight"
 config.enable_tab_bar = false
-config.font_size = 12.0
+config.font_size = 15.0
 
 -- WezTerm bundles JetBrains mono by default (based af)
 -- https://wezfurlong.org/wezterm/config/fonts.html

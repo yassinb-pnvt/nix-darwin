@@ -1,3 +1,4 @@
+local prettier_config = { "prettierd", "prettier", stop_after_first = true }
 return {
 	{
 		"stevearc/conform.nvim",
@@ -17,15 +18,15 @@ return {
 				-- Conform will run multiple formatters sequentially
 				python = { "isort", "ruff_fix", "ruff_format" },
 				-- Use a sub-list to run only the first available formatter
-				javascript = { { "prettierd", "prettier" } },
-				typescript = { { "prettier" } },
-				html = { { "prettierd", "prettier" } },
-				typescriptreact = { { "prettier" } },
-				javascriptreact = { { "prettier" } },
+				javascript = prettier_config,
+				typescript = prettier_config,
+				html = prettier_config,
+				typescriptreact = prettier_config,
+				javascriptreact = prettier_config,
 				nix = { "nixfmt" },
-				astro = { { "prettierd", "prettier" } },
+				astro = prettier_config,
 				go = { "gofmt" },
-				markdown = { { "prettierd", "prettier" } },
+				markdown = prettier_config,
 				ocaml = { "ocamlformat" },
 			},
 			format_on_save = {
