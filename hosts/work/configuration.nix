@@ -23,7 +23,7 @@ in
       "libev"
       "pkg-config"
     ];
-    casks = [ ];
+    casks = [ "nikitabobko/tap/aerospace" ];
   };
 
   # Create /etc/zshrc that loads the nix-darwin environment.
