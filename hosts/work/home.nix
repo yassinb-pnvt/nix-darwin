@@ -5,7 +5,7 @@
     glab
     azure-cli
 
-    colima
+    # colima --> install via brew for up-to-date version
     docker-client
     imagemagick
     gnupg
