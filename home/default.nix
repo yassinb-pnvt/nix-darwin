@@ -51,8 +51,8 @@ in
     fd
     ffmpeg
     fnm
-    kubectl
-    kubernetes-helm
+    # kubectl --> using rancher on work machine
+    # kubernetes-helm --> using rancher on work machine
     neofetch
     neovim
     pandoc
@@ -124,6 +124,7 @@ in
     "./node_modules/.bin"
     "$HOME/go/bin"
     "/opt/homebrew/bin"
+    "$HOME/.rd/bin"
   ];
 
   programs = {

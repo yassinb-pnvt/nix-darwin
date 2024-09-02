@@ -5,8 +5,8 @@
     glab
     azure-cli
 
-    # colima --> install via brew for up-to-date version
-    docker-client
+    # colima --> using rancher desktop for now
+    # docker-client --> using rancher desktop for now
     imagemagick
     gnupg
     sops

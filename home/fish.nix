@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   # TODO: Maybe this belongs to nix-darwin?
   home.sessionVariables = { };
