@@ -24,6 +24,7 @@
       ".envrc"
       ".direnv/"
       ".quarkus/"
+      ".venv/"
     ];
 
     includes = [
