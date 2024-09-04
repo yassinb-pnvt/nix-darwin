@@ -59,5 +59,10 @@
   {:des "Right Cmd to Right Opt" :rules [[:##right_command :right_option :tmkb]]}
   {:des "Right Opt to Right Cmd" :rules [[:##right_option :right_command :tmkb]]}
   {:des "Escape to tilde/backticks" :rules [[:##escape :non_us_backslash :tmkb]]}
+
+  {:des "Right ctrl + s to down_arrow" :rules [[:!Ws :down_arrow :tmkb]]}
+  {:des "Right ctrl + d to up_arrow" :rules [[:!Wd :up_arrow :tmkb]]}
+  {:des "Right ctrl + a to left_arrow" :rules [[:!Wa :left_arrow :tmkb]]}
+  {:des "Right ctrl + f to right_arrow" :rules [[:!Wf :right_arrow :tmkb]]}
  ]
 }
