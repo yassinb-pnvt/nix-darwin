@@ -13,6 +13,7 @@
     quarkus
     caddy
     yq
+    cosign
   ];
 
   home.sessionVariables = {
