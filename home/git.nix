@@ -15,12 +15,11 @@
     userName = "Max Große";
     userEmail = "max12.gro@gmail.com";
 
+    delta.enable = true; # try new differ https://github.com/dandavison/delta
+
     ignores = [
       "workspace.code-workspace"
       ".DS_Store"
-      ".durl.config"
-      "fetch_token.sh"
-      ".draci_response.txt"
       ".envrc"
       ".direnv/"
       ".quarkus/"
@@ -48,11 +47,6 @@
       merge.conflictstyle = "zdiff3";
       diff.algorithm = "histogram";
       branch.sort = "-committerdate";
-
-      diff.tool = "difftastic";
-      difftool.prompt = false;
-      difftool.difftastic = "difft \"$LOCAL\" \"$REMOTE\"";
-      pager.difftool = true;
 
       diff.colorMoved = "default";
       merge.tool = "nvim";
