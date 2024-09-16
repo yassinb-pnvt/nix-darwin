@@ -13,6 +13,24 @@
     fish = {
       enable = true;
       shellInit = ''
+        function ghrepo
+            git init 2&> /dev/null
+
+            set project_name (basename (pwd))
+            if test (count $argv) -eq 1 && $argv[1] == "public"
+                gh repo create "maxrn/$project_name" --source . --push --public
+            end
+            gh repo create "maxrn/$project_name" --source . --push --private
+        end
+
+        abbr --add k kubectl
+
+        # get .. / ... / .... functionality
+        function multicd
+            echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
+        end
+        abbr --add dotdot --regex '^\.\.+$' --function multicd
+
         eval "$(fnm env --use-on-cd)"
 
         set fish_greeting
@@ -54,8 +72,6 @@
                 start_agent
             end
         end
-
-        # ssh-add ~/.ssh/github 2> /dev/null
       '';
     };
   };
