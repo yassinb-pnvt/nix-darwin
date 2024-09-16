@@ -25,6 +25,10 @@
 
         abbr --add k kubectl
 
+        function nshell
+            nix shell "nixpkgs/nixpkgs-24.05-darwin#$argv[1]"
+        end
+
         # get .. / ... / .... functionality
         function multicd
             echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
