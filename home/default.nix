@@ -64,7 +64,7 @@ in
     gnused
     difftastic
     hyperfine
-    cloc
+    tokei # better SLOC estimater than cloc
     yt-dlp
     zld # faster linker
     goku
