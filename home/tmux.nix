@@ -25,8 +25,7 @@
             set-option -g default-terminal "tmux-256color"
 
             # bind == bind-key
-            bind-key -r f run-shell "~/.config/nix-darwin/home/dotfiles/scripts/tmux-sessionizer.sh"
-            bind-key R run-shell "~/.config/nix-darwin/home/dotfiles/scripts/make-root.sh"
+            bind-key f run-shell "~/.config/nix-darwin/home/dotfiles/scripts/tmux-sessionizer.sh"
             bind-key c new-window -c "#{pane_current_path}"
 
             # setw -g mode-keys vi
