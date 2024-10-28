@@ -2,7 +2,13 @@ return {
 	"folke/tokyonight.nvim",
 	lazy = false,
 	priority = 1000,
-	opts = {},
+	opts = {
+		transparent = true,
+		styles = {
+			sidebars = "transparent",
+			floats = "transparent",
+		},
+	},
 	init = function()
 		-- Load the colorscheme here.
 		vim.cmd.colorscheme("tokyonight-storm")

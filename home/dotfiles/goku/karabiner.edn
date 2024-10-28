@@ -3,6 +3,7 @@
             :masterkeys [{:vendor_id 9494 :product_id 60}]
             :superlight [{:vendor_id 1133 :product_id 50509}]
             :tmkb [{:vendor_id 6700 :product_id 39941}]
+            :mage [{:vendor_id 12815 :product_id 20565}]
            }
  :main
  [
@@ -44,25 +45,17 @@
   {:des "Forwards" :rules [[{:pkey :button5} :!Cclose_bracket ]]}
 
   ; For windows keyboards
-  {:des "Don't ask (makes (`~) work)" :rules [[:grave_accent_and_tilde :non_us_backslash :masterkeys]]}
+  {:des "Don't ask (makes (`~) work)" :rules [[:grave_accent_and_tilde :non_us_backslash :mage]]}
   ; Needs to be left_option for rcmd to work
-  {:des "Left Cmd to Left Opt" :rules [[:##left_command :left_option :masterkeys]]}
-  {:des "Left Opt to Left Cmd" :rules [[:##left_option :left_command :masterkeys]]}
-  {:des "Right Cmd to Right Opt" :rules [[:##right_command :right_option :masterkeys]]}
-  {:des "Right Opt to Right Cmd" :rules [[:##right_option :right_command :masterkeys]]}
+  {:des "Left Cmd to Left Opt" :rules [[:##left_command :left_option :mage]]}
+  {:des "Left Opt to Left Cmd" :rules [[:##left_option :left_command :mage]]}
+  {:des "Right Cmd to Right Opt" :rules [[:##right_command :right_option :mage]]}
+  {:des "Right Opt to Right Cmd" :rules [[:##right_option :right_command :mage]]}
+  {:des "Escape to tilde/backticks" :rules [[:##escape :non_us_backslash :mage]]}
 
-  ; For windows keyboards
-  {:des "Don't ask (makes (`~) work)" :rules [[:grave_accent_and_tilde :non_us_backslash :tmkb]]}
-  ; Needs to be left_option for rcmd to work
-  {:des "Left Cmd to Left Opt" :rules [[:##left_command :left_option :tmkb]]}
-  {:des "Left Opt to Left Cmd" :rules [[:##left_option :left_command :tmkb]]}
-  {:des "Right Cmd to Right Opt" :rules [[:##right_command :right_option :tmkb]]}
-  {:des "Right Opt to Right Cmd" :rules [[:##right_option :right_command :tmkb]]}
-  {:des "Escape to tilde/backticks" :rules [[:##escape :non_us_backslash :tmkb]]}
-
-  {:des "Right ctrl + s to down_arrow" :rules [[:!Ws :down_arrow :tmkb]]}
-  {:des "Right ctrl + d to up_arrow" :rules [[:!Wd :up_arrow :tmkb]]}
-  {:des "Right ctrl + a to left_arrow" :rules [[:!Wa :left_arrow :tmkb]]}
-  {:des "Right ctrl + f to right_arrow" :rules [[:!Wf :right_arrow :tmkb]]}
+  {:des "Right ctrl + s to down_arrow" :rules [[:!Ws :down_arrow :mage]]}
+  {:des "Right ctrl + d to up_arrow" :rules [[:!Wd :up_arrow :mage]]}
+  {:des "Right ctrl + a to left_arrow" :rules [[:!Wa :left_arrow :mage]]}
+  {:des "Right ctrl + f to right_arrow" :rules [[:!Wf :right_arrow :mage]]}
  ]
 }

@@ -24,6 +24,7 @@
       ".direnv/"
       ".quarkus/"
       ".venv/"
+      "draci-sessionizer.sh"
     ];
 
     includes = [

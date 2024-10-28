@@ -87,7 +87,7 @@ return {
 			})
 
 			require("lspconfig").ruff.setup({
-				on_attach = function(client, bufnr)
+				on_attach = function(client, _)
 					if client.name == "ruff" then
 						-- Disable hover in favor of Pyright
 						client.server_capabilities.hoverProvider = false
@@ -96,7 +96,35 @@ return {
 			})
 
 			require("lspconfig").nixd.setup({})
-			require("lspconfig").ocamllsp.setup({})
+			require("lspconfig").ocamllsp.setup({
+				on_attach = function()
+					vim.keymap.set("n", "<leader>ii", function()
+						local documentUri = vim.lsp.util.make_text_document_params(0).uri
+						vim.lsp.buf_request(0, "ocamllsp/switchImplIntf", documentUri, function(err, result, _, _)
+							if err then
+								print("Error:", err)
+								return
+							end
+
+							-- Handle the result here
+							print("Result:", vim.inspect(result))
+						end)
+					end, {})
+				end,
+
+				-- cmd = { "dune", "tools", "exec", "ocamllsp" },
+				cmd = { "dune", "tools", "exec", "ocamllsp" },
+			})
+
+			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+				border = "rounded",
+			})
+
+			vim.diagnostic.config({
+				float = {
+					border = "single",
+				},
+			})
 		end,
 	},
 }

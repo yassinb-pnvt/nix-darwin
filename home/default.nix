@@ -28,7 +28,6 @@ in
     wezterm
 
     vscode
-    discord
 
     texliveFull
 
@@ -80,6 +79,9 @@ in
     flyctl
     lnav
     atuin
+
+    dive # because everytime I need it I have to re-download it again
+    # and nix NEVER caches the stupid flake WHAT
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -89,6 +91,7 @@ in
     ".config/goku".source = l "dotfiles/goku";
     ".config/nvim".source = l "dotfiles/nvim";
     ".config/bat".source = l "dotfiles/bat";
+    ".config/aerospace".source = l "dotfiles/aerospace";
   };
 
   # TODO: Maybe this belongs to nix-darwin?

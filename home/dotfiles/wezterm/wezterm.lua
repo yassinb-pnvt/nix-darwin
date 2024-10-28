@@ -10,7 +10,8 @@ local config = wezterm.config_builder()
 -- config.color_scheme = "Catppuccin Frappe"
 config.color_scheme = "tokyonight"
 config.enable_tab_bar = false
-config.font_size = 15.0
+config.font_size = 12
+config.window_background_opacity = 0.9
 
 -- WezTerm bundles JetBrains mono by default (based af)
 -- https://wezfurlong.org/wezterm/config/fonts.html
@@ -38,7 +39,7 @@ for i, value in ipairs(keymaps) do
 		action = wezterm.action.SendString(value.string),
 	}
 end
-table.insert(keymaps, { key = ";", mods = "CTRL", action = wezterm.action.SendString("Harpoon4") })
+table.insert(keymaps, { key = "f", mods = "CMD", action = wezterm.action.DisableDefaultAssignment })
 
 config.keys = keymaps
 
@@ -69,6 +70,8 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
+
+-- config.default_prog = { "/etc/profiles/per-user/maxrn/bin/tmux" }
 
 -- and finally, return the configuration to wezterm
 return config

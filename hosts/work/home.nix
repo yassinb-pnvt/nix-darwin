@@ -17,6 +17,10 @@
   ];
 
   home.sessionVariables = {
+    # ************************** for using rancher **************************************
+    # sudo ln -s ~/.rd/docker.sock /var/run/docker.sock
+
+    # ************************ For using colima ***************************************************
     # LINK colima docker sock to /var/run/docker.sock
     # For testcontainers
     # https://java.testcontainers.org/supported_docker_environment/#colima

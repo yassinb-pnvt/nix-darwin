@@ -25,9 +25,9 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "Q", "<nop>")
 
 -- this requires you to set Option as Esc+ in iTerm settings
-vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "]q", "<cmd>cnext<CR>zz")
 -- this requires you to set Option as Esc+ in iTerm settings
-vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "[q", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
@@ -83,3 +83,18 @@ local function switch_header_impl()
 end
 
 vim.keymap.set("n", "<leader>gh", switch_header_impl)
+
+local function goto_properties()
+	local bufName = vim.api.nvim_buf_get_name(0)
+	local _, _, serviceName = string.find(bufName, "(%a+)-service")
+	if serviceName then
+		local valuesName = string.gsub(bufName, "deploy/", serviceName .. "/src/main/resources/")
+		valuesName = string.gsub(valuesName, "yaml", "properties")
+		valuesName = string.gsub(valuesName, "values", "application")
+		vim.cmd.edit(valuesName)
+	else
+		print("no service name!")
+	end
+end
+
+vim.keymap.set("n", "<leader>gtp", goto_properties)
