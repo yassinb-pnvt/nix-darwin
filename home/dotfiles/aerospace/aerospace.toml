@@ -9,7 +9,9 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
+after-startup-command = [
+    'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
+]
 
 # Start AeroSpace at login
 start-at-login = false
@@ -81,9 +83,9 @@ outer.right =      8
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
 # You can uncomment the following lines to open up terminal with alt + enter shortcut (like in i3)
 # alt-enter = '''exec-and-forget osascript -e '
-# tell application "Terminal"
-#     do script
+# tell application "WezTerm"
 #     activate
+#     keystroke "n" using control down
 # end tell'
 # '''
 
@@ -146,6 +148,8 @@ esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 s = ['exec-and-forget ~/.config/nix-darwin/home/dotfiles/scripts/make-root.sh', 'mode main']
+b = ['balance-sizes', 'mode main']
+x = ['fullscreen', 'mode main']
 backspace = ['close-all-windows-but-current', 'mode main']
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2

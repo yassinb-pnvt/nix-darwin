@@ -65,12 +65,13 @@ config.mouse_bindings = {
 config.window_decorations = "NONE | RESIZE"
 
 config.window_padding = {
-	left = 0,
-	right = 0,
-	top = 0,
-	bottom = 0,
+	left = 8,
+	right = 8,
+	top = 8,
+	bottom = 8,
 }
 
+-- this breaks tmux sessionizer?!
 -- config.default_prog = { "/etc/profiles/per-user/maxrn/bin/tmux" }
 
 -- and finally, return the configuration to wezterm

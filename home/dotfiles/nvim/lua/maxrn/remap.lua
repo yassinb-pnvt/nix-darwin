@@ -24,9 +24,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
 
--- this requires you to set Option as Esc+ in iTerm settings
 vim.keymap.set("n", "]q", "<cmd>cnext<CR>zz")
--- this requires you to set Option as Esc+ in iTerm settings
 vim.keymap.set("n", "[q", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")

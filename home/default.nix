@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  pkgs-stable,
+  ...
+}:
 let
   # needs to be absolute path. Important!
   homeManager = /Users/maxrn/.config/nix-darwin/home;
@@ -21,67 +26,64 @@ in
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  home.packages = with pkgs; [
-    # Because for some reason they are not included by default.
-    # Would like to have the BSD ones for MacOS but these'll do.
+  home.packages = [
+    pkgs.wezterm
 
-    wezterm
+    pkgs.vscode
 
-    vscode
+    pkgs.texliveFull
+    pkgs.sioyek
 
-    texliveFull
-
-    anki-bin
+    pkgs.anki-bin
 
     # programming langs
-    go_1_22
-    rustup
-    poetry
-    php83
-    php83Packages.composer
-    opam
-    jdk21
-    nixd
+    pkgs.go_1_22
+    pkgs.rustup
+    pkgs.poetry
+    pkgs.opam
+    pkgs.jdk21
+    pkgs.nixd
 
-    bat
-    btop
-    curl
-    wget
-    fd
-    ffmpeg
-    fnm
+    pkgs.bat
+    pkgs.btop
+    pkgs.curl
+    pkgs.wget
+    pkgs.fd
+    pkgs.ffmpeg
+    pkgs.fnm
     # kubectl --> using rancher on work machine
     # kubernetes-helm --> using rancher on work machine
-    neofetch
-    neovim
-    pandoc
-    ripgrep
-    tree
-    tree-sitter
-    nixfmt-rfc-style
-    jq
-    gnused
-    difftastic
-    hyperfine
-    tokei # better SLOC estimater than cloc
-    yt-dlp
-    zld # faster linker
-    goku
+    pkgs.neofetch
+    pkgs.neovim
+    pkgs.pandoc
+    pkgs.ripgrep
+    pkgs.tree
+    pkgs.tree-sitter
+    pkgs.nixfmt-rfc-style
+    pkgs.jq
+    pkgs.gnused
+    pkgs.difftastic
+    pkgs.hyperfine
+    pkgs.tokei # better SLOC estimater than cloc
+    pkgs.yt-dlp
+    pkgs.zld # faster linker
+    pkgs.goku
 
-    gh
+    pkgs.gh
 
-    sqlite
-    sqlite-utils
-    shellcheck
+    pkgs.sqlite
+    pkgs.sqlite-utils
+    pkgs.shellcheck
 
-    devenv
-    minikube
-    flyctl
-    lnav
-    atuin
+    pkgs.devenv
+    pkgs.minikube
+    pkgs.flyctl
+    pkgs.lnav
+    pkgs.atuin
 
-    dive # because everytime I need it I have to re-download it again
+    pkgs.dive # because everytime I need it I have to re-download it again
     # and nix NEVER caches the stupid flake WHAT
+    # pkgs-stable.valgrind
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -102,6 +104,8 @@ in
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
     SUMO_HOME = "/opt/homebrew/opt/sumo/share/sumo";
+    # Ugly hack to get man working correctly. Yes, I know there is doubling in there. Yes, I know I have hardcoded my user name.
+    MANPATH = "/Users/maxrn/.local/state/fnm_multishells/68242_1731052803936/share/man:/etc/profiles/per-user/maxrn/share/man:/run/current-system/sw/share/man:/nix/var/nix/profiles/default/share/man:/usr/local/share/man:/System/Cryptexes/App/usr/share/man:/usr/share/man:/opt/X11/share/man:/Library/TeX/texbin/man:/Users/maxrn/.local/state/fnm_multishells/44311_1730708868618/share/man:/Users/maxrn/Library/Python/3.10/share/man:/opt/homebrew/share/man:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/share/man:/Applications/Xcode.app/Contents/Developer/usr/share/man:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/share/man:/Users/maxrn/.local/state/fnm_multishells/68242_1731052803936/share/man:/etc/profiles/per-user/maxrn/share/man:/run/current-system/sw/share/man:/nix/var/nix/profiles/default/share/man:/usr/local/share/man:/System/Cryptexes/App/usr/share/man:/usr/share/man:/opt/X11/share/man:/Library/TeX/texbin/man:/Users/maxrn/.local/state/fnm_multishells/44311_1730708868618/share/man:/Users/maxrn/Library/Python/3.10/share/man:/opt/homebrew/share/man:echo:/Users/maxrn/.local/state/fnm_multishells/68242_1731052803936/share/man:/etc/profiles/per-user/maxrn/share/man:/run/current-system/sw/share/man:/nix/var/nix/profiles/default/share/man:/usr/local/share/man:/System/Cryptexes/App/usr/share/man:/usr/share/man:/opt/X11/share/man:/Library/TeX/texbin/man:/Users/maxrn/.local/state/fnm_multishells/44311_1730708868618/share/man:/Users/maxrn/Library/Python/3.10/share/man:/opt/homebrew/share/man:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/share/man:/Applications/Xcode.app/Contents/Developer/usr/share/man:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/share/man:/Users/maxrn/.local/state/fnm_multishells/68242_1731052803936/share/man:/etc/profiles/per-user/maxrn/share/man:/run/current-system/sw/share/man:/nix/var/nix/profiles/default/share/man:/usr/local/share/man:/System/Cryptexes/App/usr/share/man:/usr/share/man:/opt/X11/share/man:/Library/TeX/texbin/man:/Users/maxrn/.local/state/fnm_multishells/44311_1730708868618/share/man:/Users/maxrn/Library/Python/3.10/share/man:/opt/homebrew/share/man";
   };
 
   home.shellAliases = {
