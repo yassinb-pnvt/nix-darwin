@@ -26,65 +26,70 @@ in
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  home.packages = [
-    pkgs.wezterm
+  home.packages =
+    let
+      stable = with pkgs-stable; [ opam ];
+      unstable = with pkgs; [
+        wezterm
 
-    pkgs.vscode
+        vscode
 
-    pkgs.texliveFull
-    pkgs.sioyek
+        texliveFull
+        sioyek
 
-    pkgs.anki-bin
+        anki-bin
 
-    # programming langs
-    pkgs.go_1_22
-    pkgs.rustup
-    pkgs.poetry
-    pkgs.opam
-    pkgs.jdk21
-    pkgs.nixd
+        # programming langs
+        go_1_22
+        rustup
+        poetry
+        jdk21
+        nixd
 
-    pkgs.bat
-    pkgs.btop
-    pkgs.curl
-    pkgs.wget
-    pkgs.fd
-    pkgs.ffmpeg
-    pkgs.fnm
-    # kubectl --> using rancher on work machine
-    # kubernetes-helm --> using rancher on work machine
-    pkgs.neofetch
-    pkgs.neovim
-    pkgs.pandoc
-    pkgs.ripgrep
-    pkgs.tree
-    pkgs.tree-sitter
-    pkgs.nixfmt-rfc-style
-    pkgs.jq
-    pkgs.gnused
-    pkgs.difftastic
-    pkgs.hyperfine
-    pkgs.tokei # better SLOC estimater than cloc
-    pkgs.yt-dlp
-    pkgs.zld # faster linker
-    pkgs.goku
+        bat
+        btop
+        curl
+        wget
+        fd
+        ffmpeg
+        fnm
+        deno
+        # kubectl --> using rancher on work machine
+        # kubernetes-helm --> using rancher on work machine
+        neofetch
+        neovim
+        pandoc
+        ripgrep
+        tree
+        tree-sitter
+        nixfmt-rfc-style
+        jq
+        gnused
+        difftastic
+        hyperfine
+        tokei # better SLOC estimater than cloc
+        yt-dlp
+        zld # faster linker
+        goku
 
-    pkgs.gh
+        gh
 
-    pkgs.sqlite
-    pkgs.sqlite-utils
-    pkgs.shellcheck
+        sqlite
+        sqlite-utils
+        shellcheck
 
-    pkgs.devenv
-    pkgs.minikube
-    pkgs.flyctl
-    pkgs.lnav
-    pkgs.atuin
+        devenv
+        minikube
+        flyctl
+        lnav
+        atuin
 
-    pkgs.dive # because everytime I need it I have to re-download it again
-    # and nix NEVER caches the stupid flake WHAT
-    # pkgs-stable.valgrind
-  ];
+        dive # because everytime I need it I have to re-download it again
+        # and nix NEVER caches the stupid flake WHAT
+        # pkgs-stable.valgrind
+      ];
+    in
+    stable ++ unstable;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

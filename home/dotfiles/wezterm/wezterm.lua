@@ -7,8 +7,8 @@ local config = wezterm.config_builder()
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
--- config.color_scheme = "Catppuccin Frappe"
-config.color_scheme = "tokyonight"
+config.color_scheme = "Catppuccin Mocha"
+-- config.color_scheme = "tokyonight"
 config.enable_tab_bar = false
 config.font_size = 12
 config.window_background_opacity = 0.9
@@ -18,8 +18,8 @@ config.window_background_opacity = 0.9
 -- config.font = wezterm.font 'Fira Code'
 -- -- You can specify some parameters to influence the font selection;
 -- -- for example, this selects a Bold, Italic font variant.
--- config.font =
---   wezterm.font('JetBrains Mono', { weight = 'Bold', italic = true })
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+config.font = wezterm.font("JetBrains Mono")
 
 local keymaps = {
 	{ key = "a", string = "ä" },

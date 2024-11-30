@@ -10,21 +10,25 @@
   {:des "fn to Ctrl" :rules [[:fn :left_control]]}
   {:des "Caps Lock to Esc if alone, else Ctrl" :rules [[:##caps_lock :left_control nil {:alone :escape}]]}
 
+
+  ;; Used to have this layer for inputing braces and brackets on home row.
+  ;; Trying to use the normal setup for a bit and see if how that works out for me.
+
   ;; New layout: [{(fghj)}]
 
-  {:des "Alt Gr layer" :rules [[:!Qa :open_bracket]]} ; [
-  {:des "Alt Gr layer" :rules [[:!Qs :!Sopen_bracket]]} ; {
-  {:des "Alt Gr layer" :rules [[:!Qd :!S9]]} ; (
+  ; {:des "Alt Gr layer" :rules [[:!Qa :open_bracket]]} ; [
+  ; {:des "Alt Gr layer" :rules [[:!Qs :!Sopen_bracket]]} ; {
+  ; {:des "Alt Gr layer" :rules [[:!Qd :!S9]]} ; (
  ;; f
  ;; g
  ;; h
  ;; j
-  {:des "Alt Gr layer" :rules [[:!Qk :!S0]]} ; )
-  {:des "Alt Gr layer" :rules [[:!Ql :!Sclose_bracket]]} ; }
-  {:des "Alt Gr layer" :rules [[:!Qsemicolon :close_bracket]]} ; ]
+  ; {:des "Alt Gr layer" :rules [[:!Qk :!S0]]} ; )
+  ; {:des "Alt Gr layer" :rules [[:!Ql :!Sclose_bracket]]} ; }
+  ; {:des "Alt Gr layer" :rules [[:!Qsemicolon :close_bracket]]} ; ]
 
-  {:des "Open brace to `" :rules [[:!Qopen_bracket :non_us_backslash]]}
-  {:des "Open brace to ~" :rules [[:!QSopen_bracket :!Snon_us_backslash]]}
+  ; {:des "Open brace to `" :rules [[:!Qopen_bracket :non_us_backslash]]}
+  ; {:des "Open brace to ~" :rules [[:!QSopen_bracket :!Snon_us_backslash]]}
       ;; !  | means mandatory
     ;; #  | means optional
     ;; C  | left_command
@@ -53,9 +57,10 @@
   {:des "Right Opt to Right Cmd" :rules [[:##right_option :right_command :mage]]}
   {:des "Escape to tilde/backticks" :rules [[:##escape :non_us_backslash :mage]]}
 
-  {:des "Right ctrl + s to down_arrow" :rules [[:!Ws :down_arrow :mage]]}
-  {:des "Right ctrl + d to up_arrow" :rules [[:!Wd :up_arrow :mage]]}
-  {:des "Right ctrl + a to left_arrow" :rules [[:!Wa :left_arrow :mage]]}
-  {:des "Right ctrl + f to right_arrow" :rules [[:!Wf :right_arrow :mage]]}
+  ;; I think this was my best idea yet.
+  {:des "arrowkeys" :rules [[:!Rf :down_arrow :mage]]}
+  {:des "arrowkeys" :rules [[:!Rd :up_arrow :mage]]}
+  {:des "arrowkeys" :rules [[:!Rg :right_arrow :mage]]}
+  {:des "arrowkeys" :rules [[:!Rs :left_arrow :mage]]}
  ]
 }
