@@ -65,7 +65,7 @@ in
         ffmpeg
         # kubectl --> using rancher on work machine
         # kubernetes-helm --> using rancher on work machine
-        neovim
+	neovim
         pandoc
         tree-sitter
         gnused
