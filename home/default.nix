@@ -28,65 +28,58 @@ in
 
   home.packages =
     let
-      stable = with pkgs-stable; [ opam ];
+      stable = with pkgs-stable; [
+        opam
+        sioyek
+        anki-bin
+      ];
       unstable = with pkgs; [
         wezterm
-
-        vscode
-
         texliveFull
-        sioyek
-
-        anki-bin
 
         # programming langs
-        go_1_22
+        go
         rustup
         poetry
         jdk21
         nixd
+        fnm
+        deno
+        nixfmt-rfc-style
 
+        # CLIs
         bat
         btop
         curl
         wget
         fd
-        ffmpeg
-        fnm
-        deno
-        # kubectl --> using rancher on work machine
-        # kubernetes-helm --> using rancher on work machine
         neofetch
-        neovim
-        pandoc
         ripgrep
         tree
-        tree-sitter
-        nixfmt-rfc-style
         jq
-        gnused
         difftastic
         hyperfine
         tokei # better SLOC estimater than cloc
+
+        # other tools
+        ffmpeg
+        # kubectl --> using rancher on work machine
+        # kubernetes-helm --> using rancher on work machine
+        neovim
+        pandoc
+        tree-sitter
+        gnused
         yt-dlp
         zld # faster linker
         goku
-
+        minikube
+        flyctl
+        dive # because everytime I need it I have to re-download it again
+        # and nix NEVER caches the stupid flake WHAT
         gh
-
         sqlite
         sqlite-utils
         shellcheck
-
-        devenv
-        minikube
-        flyctl
-        lnav
-        atuin
-
-        dive # because everytime I need it I have to re-download it again
-        # and nix NEVER caches the stupid flake WHAT
-        # pkgs-stable.valgrind
       ];
     in
     stable ++ unstable;

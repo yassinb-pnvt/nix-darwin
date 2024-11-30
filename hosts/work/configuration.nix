@@ -30,7 +30,7 @@ in
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs = {
     zsh.enable = true; # default shell on catalina
-    fish.enable = true;
+    # fish.enable = true;
   };
 
   # Used for backwards compatibility, please read the changelog before changing.
@@ -51,7 +51,7 @@ in
   users.users."${username}" = {
     home = "/Users/${username}";
     description = username;
-    shell = pkgs.fish;
+    # shell = pkgs.fish;
   };
 
   nix.settings.trusted-users = [ username ];
