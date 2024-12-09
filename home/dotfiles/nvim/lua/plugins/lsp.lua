@@ -14,10 +14,6 @@ return {
 				},
 			},
 		},
-	},
-	{ "williamboman/mason-lspconfig.nvim" },
-	{
-		"williamboman/mason.nvim",
 		config = function()
 			local function on_attach(client, bufnr)
 				local opts = { buffer = bufnr, remap = false }
@@ -43,9 +39,6 @@ return {
 					vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 				end, opts)
 			end
-
-			require("mason").setup()
-			require("mason-lspconfig").setup()
 
 			-- Enable the following language servers
 			--  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -80,23 +73,6 @@ return {
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-			-- Ensure the servers above are installed
-			local mason_lspconfig = require("mason-lspconfig")
-
-			mason_lspconfig.setup({
-				ensure_installed = vim.tbl_keys(servers),
-			})
-
-			mason_lspconfig.setup_handlers({
-				function(server_name)
-					require("lspconfig")[server_name].setup({
-						capabilities = capabilities,
-						on_attach = on_attach,
-						settings = servers[server_name],
-						filetypes = (servers[server_name] or {}).filetypes,
-					})
-				end,
-			})
 
 			require("lspconfig").ruff.setup({
 				on_attach = function(client, _)

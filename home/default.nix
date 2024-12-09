@@ -45,6 +45,7 @@ in
         fnm
         deno
         nixfmt-rfc-style
+        lua-language-server
 
         # CLIs
         bat
