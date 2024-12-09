@@ -7,11 +7,30 @@ local config = wezterm.config_builder()
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = "Catppuccin Mocha"
--- config.color_scheme = "tokyonight"
-config.enable_tab_bar = false
+-- config.color_scheme = "Catppuccin Mocha"
+config.color_scheme = "tokyonight"
+config.enable_tab_bar = true
 config.font_size = 12
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.8
+
+-- wezterm.gui is not available to the mux server, so take care to
+-- do something reasonable when this config is evaluated by the mux
+local function get_appearance()
+  if wezterm.gui then
+    return wezterm.gui.get_appearance()
+  end
+  return 'Dark'
+end
+
+local function scheme_for_appearance(appearance)
+  if appearance:find 'Dark' then
+    return 'Builtin Solarized Dark'
+  else
+    return 'Builtin Solarized Light'
+  end
+end
+
+-- config.color_scheme = scheme_for_appearance(get_appearance())
 
 -- WezTerm bundles JetBrains mono by default (based af)
 -- https://wezfurlong.org/wezterm/config/fonts.html

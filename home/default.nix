@@ -2,6 +2,7 @@
   config,
   pkgs,
   pkgs-stable,
+  neovim-nightly-overlay,
   ...
 }:
 let
@@ -65,7 +66,6 @@ in
         ffmpeg
         # kubectl --> using rancher on work machine
         # kubernetes-helm --> using rancher on work machine
-	neovim
         pandoc
         tree-sitter
         gnused
@@ -82,7 +82,7 @@ in
         shellcheck
       ];
     in
-    stable ++ unstable;
+    stable ++ unstable ++ [ neovim-nightly-overlay.packages.${pkgs.system}.default ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

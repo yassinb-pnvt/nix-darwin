@@ -23,6 +23,7 @@
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs =
@@ -32,6 +33,7 @@
       nixpkgs,
       home-manager,
       nixpkgs-stable,
+      neovim-nightly-overlay,
       ...
     }:
     let
@@ -46,11 +48,10 @@
             nix-darwin
             nixpkgs-stable
             lix-module
+            neovim-nightly-overlay
             ;
-
         }
       );
-
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
     };
 }

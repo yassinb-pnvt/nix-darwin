@@ -1,6 +1,7 @@
 return {
 	{
 		"hrsh7th/nvim-cmp",
+        enabled = false,
 		dependencies = {
 			"onsails/lspkind.nvim", --pretty icons for completion menu
 			"hrsh7th/cmp-buffer",
@@ -9,12 +10,6 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 
 			"L3MON4D3/LuaSnip",
-
-			-- TODO: Do I need these?
-			-- "rafamadriz/friendly-snippets",
-			-- "saadparwaiz1/cmp_luasnip",
-			-- "hrsh7th/cmp-nvim-lua",
-			-- "hrsh7th/cmp-nvim-lsp-signature-help",
 		},
 		config = function()
 			local cmp = require("cmp")
