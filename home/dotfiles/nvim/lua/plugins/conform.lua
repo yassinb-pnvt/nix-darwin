@@ -29,9 +29,6 @@ return {
 				markdown = prettier_config,
 				ocaml = { "ocamlformat" },
 			},
-			formatters = {
-				ocamlformat = { command = "/Users/maxrn/.opam/default/bin/ocamlformat", inherit = true },
-			},
 		},
 	},
 }

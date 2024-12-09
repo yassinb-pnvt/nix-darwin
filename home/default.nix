@@ -29,7 +29,6 @@ in
   home.packages =
     let
       stable = with pkgs-stable; [
-        opam
         sioyek
         anki-bin
       ];

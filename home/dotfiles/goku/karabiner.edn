@@ -10,6 +10,13 @@
   {:des "fn to Ctrl" :rules [[:fn :left_control]]}
   {:des "Caps Lock to Esc if alone, else Ctrl" :rules [[:##caps_lock :left_control nil {:alone :escape}]]}
 
+  ;; I think this was my best idea yet.
+  ;; The idea was great, but that time isn't right. Also I just
+  ;; started using the right shift key for real.
+  ; {:des "arrowkeys" :rules [[:!Rf :down_arrow]]}
+  ; {:des "arrowkeys" :rules [[:!Rd :up_arrow]]}
+  ; {:des "arrowkeys" :rules [[:!Rg :right_arrow]]}
+  ; {:des "arrowkeys" :rules [[:!Rs :left_arrow]]}
 
   ;; Used to have this layer for inputing braces and brackets on home row.
   ;; Trying to use the normal setup for a bit and see if how that works out for me.
@@ -57,10 +64,5 @@
   {:des "Right Opt to Right Cmd" :rules [[:##right_option :right_command :mage]]}
   {:des "Escape to tilde/backticks" :rules [[:##escape :non_us_backslash :mage]]}
 
-  ;; I think this was my best idea yet.
-  {:des "arrowkeys" :rules [[:!Rf :down_arrow :mage]]}
-  {:des "arrowkeys" :rules [[:!Rd :up_arrow :mage]]}
-  {:des "arrowkeys" :rules [[:!Rg :right_arrow :mage]]}
-  {:des "arrowkeys" :rules [[:!Rs :left_arrow :mage]]}
  ]
 }
