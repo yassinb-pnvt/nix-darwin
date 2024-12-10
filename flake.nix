@@ -7,7 +7,7 @@
     # nixos/nixpkgs/nixpkgs-unstable
     # nixos/nixpkgs/nixos-2x.xx
     nixpkgs.url = "github:nixos/nixpkgs/master";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-24.05-darwin";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
