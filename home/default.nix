@@ -30,7 +30,6 @@ in
   home.packages =
     let
       stable = with pkgs-stable; [
-        sioyek
         anki-bin
       ];
       unstable = with pkgs; [
