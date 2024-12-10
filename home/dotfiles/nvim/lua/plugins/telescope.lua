@@ -38,12 +38,13 @@ return {
                     fzf = {}
                 }
             })
-            vim.keymap.set("n", "<leader>sd", require("telescope.builtin").find_files)
+            vim.keymap.set("n", "<leader>sd", require("telescope.builtin").find_files,
+                { desc = "[S]earch [d]irectory using Telescope." })
             vim.keymap.set("n", "<leader>sc", function()
                 require("telescope.builtin").find_files {
                     cwd = vim.fn.stdpath("config")
                 }
-            end)
+            end, { desc = "[S]earch [c]onfig using Telescope." })
             vim.keymap.set("n", "<leader>sg", require("telescope.builtin").live_grep,
                 { desc = "[S]earch by [G]rep Telescope" })
 
@@ -51,10 +52,10 @@ return {
                 "n",
                 "<leader>so",
                 require("telescope.builtin").oldfiles,
-                { desc = '[S]earch Recent Files ("." for repeat) Telescope' }
+                { desc = '[S]earch [o]ld files using Telescope' }
             )
             vim.keymap.set("n", "<leader>sb", require("telescope.builtin").buffers,
-                { desc = "[ ] Find existing buffers Telescope" })
+                { desc = "[S] [b]uffers using Telescope." })
         end
     },
 }
