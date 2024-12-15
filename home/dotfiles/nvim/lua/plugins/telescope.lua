@@ -38,6 +38,9 @@ return {
                     fzf = {}
                 }
             })
+
+            require("telescope").load_extension("fzf")
+
             vim.keymap.set("n", "<leader>sd", require("telescope.builtin").find_files,
                 { desc = "[S]earch [d]irectory using Telescope." })
             vim.keymap.set("n", "<leader>sc", function()
@@ -56,6 +59,7 @@ return {
             )
             vim.keymap.set("n", "<leader>sb", require("telescope.builtin").buffers,
                 { desc = "[S] [b]uffers using Telescope." })
+            vim.keymap.set("n", "<C-p>", require("telescope.builtin").git_files, { desc = "Search through git files Telescope." })
         end
     },
 }

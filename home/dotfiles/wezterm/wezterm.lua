@@ -9,9 +9,9 @@ local config = wezterm.config_builder()
 -- For example, changing the color scheme:
 -- config.color_scheme = "Catppuccin Mocha"
 config.color_scheme = "tokyonight"
-config.enable_tab_bar = true
-config.font_size = 12
-config.window_background_opacity = 0.8
+config.enable_tab_bar = false
+config.font_size = 14
+config.window_background_opacity = 1
 
 -- wezterm.gui is not available to the mux server, so take care to
 -- do something reasonable when this config is evaluated by the mux
@@ -89,9 +89,6 @@ config.window_padding = {
 	top = 8,
 	bottom = 8,
 }
-
--- this breaks tmux sessionizer?!
--- config.default_prog = { "/etc/profiles/per-user/maxrn/bin/tmux" }
 
 -- and finally, return the configuration to wezterm
 return config
