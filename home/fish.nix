@@ -26,7 +26,8 @@
         abbr --add k kubectl
 
         function nshell
-            nix shell "nixpkgs/nixpkgs-24.05-darwin#$argv[1]"
+            # nixpkgs-24.11-darwin as of 2024-12-15
+            nix shell "nixpkgs/cf14ff3b4e8e716346d6f1e8ee6d811c0c0838a7#$argv[1]"
         end
 
         # get .. / ... / .... functionality
@@ -38,6 +39,8 @@
         eval "$(fnm env --use-on-cd)"
 
         set fish_greeting
+
+        # Setting up for using SSH. Am I using this wrong?
 
         setenv SSH_ENV $HOME/.ssh/environment
 
