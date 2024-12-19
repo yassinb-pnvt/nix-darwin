@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 
 require("config.lazy")
-require("my-plugins.switchToHeader")
 
 vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>")
 vim.keymap.set("n", "<leader>x", ":.lua<CR>")
