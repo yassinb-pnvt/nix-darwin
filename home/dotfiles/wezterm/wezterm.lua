@@ -10,7 +10,7 @@ local config = wezterm.config_builder()
 -- config.color_scheme = "Catppuccin Mocha"
 config.color_scheme = "tokyonight"
 config.enable_tab_bar = false
-config.font_size = 14
+config.font_size = 15
 config.window_background_opacity = 1
 
 -- wezterm.gui is not available to the mux server, so take care to

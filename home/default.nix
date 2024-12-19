@@ -29,9 +29,7 @@ in
 
   home.packages =
     let
-      stable = with pkgs-stable; [
-        anki-bin
-      ];
+      stable = with pkgs-stable; [ ];
       unstable = with pkgs; [
         wezterm
         texliveFull
