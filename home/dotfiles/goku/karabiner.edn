@@ -1,4 +1,4 @@
-{
+{:simlayers {:semicolon-mode {:key :semicolon}}
   :devices {
             :masterkeys [{:vendor_id 9494 :product_id 60}]
             :superlight [{:vendor_id 1133 :product_id 50509}]
@@ -9,6 +9,14 @@
  [
   {:des "fn to Ctrl" :rules [[:fn :left_control]]}
   {:des "Caps Lock to Esc if alone, else Ctrl" :rules [[:##caps_lock :left_control nil {:alone :escape}]]}
+  {:des "semicolon mode"
+    :rules [
+            [:a :!O1 :semicolon-mode]
+            [:s :!O2 :semicolon-mode]
+            [:d :!O3 :semicolon-mode]
+            [:f :!O4 :semicolon-mode]
+            ]}
+  ; {:des "Hold ; for option" :rules [[:##semicolon :left_option nil {:alone :semicolon}]]}
 
   ;; I think this was my best idea yet.
   ;; The idea was great, but that time isn't right. Also I just
