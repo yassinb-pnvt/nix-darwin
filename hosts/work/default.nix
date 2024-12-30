@@ -15,7 +15,7 @@ in
     system = "aarch64-darwin";
     specialArgs = {
       pkgs-stable = import nixpkgs-stable { system = "aarch64-darwin"; };
-      neovim-nightly-overlay = neovim-nightly-overlay;
+      inherit neovim-nightly-overlay;
     };
 
     modules = [

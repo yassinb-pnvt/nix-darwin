@@ -3,7 +3,6 @@
   pkgs,
   pkgs-stable,
   neovim-nightly-overlay,
-  ghostty,
   ...
 }:
 let
@@ -81,7 +80,6 @@ in
       ];
     in
     stable ++ unstable ++ [ neovim-nightly-overlay.packages.${pkgs.system}.default ];
-  # ++ [ ghostty.packages.${pkgs.system}.default ]
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
