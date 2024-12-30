@@ -79,6 +79,8 @@
                 start_agent
             end
         end
+
+        source "$GHOSTTY_RESOURCES_DIR/shell-integration/fish/vendor_conf.d/ghostty-shell-integration.fish"
       '';
     };
   };
