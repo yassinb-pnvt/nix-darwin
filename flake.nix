@@ -24,6 +24,9 @@
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
   };
 
   outputs =
@@ -34,6 +37,7 @@
       home-manager,
       nixpkgs-stable,
       neovim-nightly-overlay,
+      ghostty,
       ...
     }:
     let
@@ -49,6 +53,7 @@
             nixpkgs-stable
             lix-module
             neovim-nightly-overlay
+            ghostty
             ;
         }
       );
