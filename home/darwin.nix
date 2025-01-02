@@ -6,7 +6,7 @@ let
 in
 {
   home.shellAliases = {
-    skim = "open -a /Applications/Skim.app";
+    tailscale = "/Applications/Tailscale.app/Contents/MacOS/Tailscale";
   };
 
   home.file = {
