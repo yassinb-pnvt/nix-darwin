@@ -31,9 +31,6 @@ in
     let
       stable = with pkgs-stable; [ ];
       unstable = with pkgs; [
-        wezterm
-        texliveFull
-
         # programming langs
         go
         rustup
