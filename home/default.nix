@@ -43,7 +43,7 @@ in
         lua-language-server
 
         # CLIs
-        bat
+        bat # cat++
         btop
         curl
         wget
@@ -54,6 +54,7 @@ in
         jq
         difftastic
         hyperfine
+        zoxide # cd++
         tokei # better SLOC estimater than cloc
 
         # other tools
