@@ -54,7 +54,6 @@ in
         jq
         difftastic
         hyperfine
-        zoxide # cd++
         tokei # better SLOC estimater than cloc
 
         # other tools
@@ -142,6 +141,9 @@ in
 
     eza = {
       enable = true;
+    };
+    zoxide = {
+        enable = true;
     };
   };
 
