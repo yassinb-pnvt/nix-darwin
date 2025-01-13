@@ -27,6 +27,7 @@ return {
                 go = { "gofmt" },
                 markdown = prettier_config,
                 ocaml = { "ocamlformat" },
+                templ = { "templ fmt", lsp_format = "prefer" },
             },
         },
     },

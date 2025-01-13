@@ -115,6 +115,7 @@ in
     fzvim = "fzf | xargs nvim";
     ll = "ls -lah";
     k = "kubectl";
+    aerospace = "~/code/AeroSpace/.build/debug/aerospace";
   };
 
   home.sessionPath = [
@@ -144,7 +145,7 @@ in
       enable = true;
     };
     zoxide = {
-        enable = true;
+      enable = true;
     };
   };
 

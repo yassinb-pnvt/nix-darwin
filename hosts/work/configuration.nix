@@ -11,11 +11,12 @@ in
     variables = {
       GOKU_EDN_CONFIG_FILE = "$HOME/.config/goku/karabiner.edn";
     };
-    launchAgents = {
-      aerospace = {
-        source = ./com.maxrn.aerospace.plist;
-      };
-    };
+    # Seems to be broken at the moment: https://github.com/LnL7/nix-darwin/issues/1255
+    # launchAgents = {
+    #   aerospace = {
+    #     source = ./com.maxrn.aerospace.plist;
+    #   };
+    # };
   };
 
   homebrew = {
@@ -29,7 +30,7 @@ in
       "pkg-config"
       "borders"
     ];
-    casks = [ "nikitabobko/tap/aerospace" ];
+    # casks = [ "nikitabobko/tap/aerospace" ];
   };
 
   # Create /etc/zshrc that loads the nix-darwin environment.

@@ -3,6 +3,18 @@ local function file_exists(name)
     return f ~= nil and io.close(f)
 end
 
+local function get_ext(file)
+    --find index of last . in name
+    local j = -1
+    for i = string.len(file), 1, -1 do
+        if string.match(string.sub(file, i, i), "%.") then
+            j = i
+            break
+        end
+    end
+    return string.sub(file, j + 1)
+end
+
 local mappings = {
     h = { "c", "cc", "cpp" },
     c = { "h" },
@@ -14,20 +26,21 @@ local mappings = {
 
 local function switch_header_impl()
     local bufName = vim.api.nvim_buf_get_name(0)
-    for key, val in pairs(mappings) do
-        -- If we have a match
-        local file_ext = key .. "$"
-        if string.match(bufName, file_ext) then
-            -- try mappings...
-            for i = 1, #val do
-                local new_file_name = string.gsub(bufName, file_ext, val[i])
-                -- if header/implementation exists
-                if file_exists(new_file_name) then
-                    -- switch to it
-                    vim.cmd.edit(new_file_name)
-                    return
-                end
-            end
+    local extension = get_ext(bufName)
+    local extensions = mappings[extension]
+    if not extensions then
+        print("have no extensions for " .. extension)
+        return
+    end
+    -- try mappings...
+    for i = 1, #extensions do
+        local new_file_name = string.gsub(bufName, extension .. "$", extensions[i])
+        print("new file name: " .. new_file_name)
+        -- if header/implementation exists
+        if file_exists(new_file_name) then
+            -- switch to it
+            vim.cmd.edit(new_file_name)
+            return
         end
     end
 end

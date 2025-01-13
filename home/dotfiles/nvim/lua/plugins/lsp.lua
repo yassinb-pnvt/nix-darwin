@@ -20,6 +20,8 @@ return {
                 lua_ls = {},
                 gopls = {},
                 nixd = {},
+                templ = {},
+                ts_ls = {},
             },
         },
         config = function(_, opts)
