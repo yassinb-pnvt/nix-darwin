@@ -31,3 +31,12 @@ Monitor aerospace:
 sudo mkdir -p /Library/Preferences/FeatureFlags/Domain
 sudo /usr/libexec/PlistBuddy -c "Add 'redesigned_text_cursor:Enabled' bool false" /Library/Preferences/FeatureFlags/Domain/UIKit.plist
 ```
+
+## Manual steps
+
+Some steps still need to be done by hand:
+
+### Enable aerospace service
+
+1. Copy `./hosts/work/com.maxrn.aerospace.plist` to `~/Library/LaunchAgents/`.
+2. Run `launchctl load ~/Library/LaunchAgents/com.maxrn.aerospace.plist`

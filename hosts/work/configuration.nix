@@ -11,6 +11,11 @@ in
     variables = {
       GOKU_EDN_CONFIG_FILE = "$HOME/.config/goku/karabiner.edn";
     };
+    launchAgents = {
+      aerospace = {
+        source = ./com.maxrn.aerospace.plist;
+      };
+    };
   };
 
   homebrew = {

@@ -62,6 +62,7 @@ in
         # kubernetes-helm --> using rancher on work machine
         pandoc
         tree-sitter
+        coreutils
         gnused
         yt-dlp
         zld # faster linker
