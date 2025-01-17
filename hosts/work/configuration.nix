@@ -23,11 +23,6 @@ in
     enable = true;
     taps = [ "FelixKratz/formulae" ];
     brews = [
-      "pcre"
-      "gmp"
-      "openssl"
-      "libev"
-      "pkg-config"
       "borders"
     ];
     # casks = [ "nikitabobko/tap/aerospace" ];
