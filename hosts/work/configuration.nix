@@ -23,7 +23,7 @@ in
     enable = true;
     taps = [ "FelixKratz/formulae" ];
     brews = [
-      "borders"
+      # "borders"
     ];
     # casks = [ "nikitabobko/tap/aerospace" ];
   };
