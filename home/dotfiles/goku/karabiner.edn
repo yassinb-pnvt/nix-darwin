@@ -1,10 +1,11 @@
-{:simlayers {:semicolon-mode {:key :semicolon}}
+{:simlayers {
+             :semicolon-mode {:key :semicolon}
+             :backslash-mode {:key :backslash}}
   :devices {
             :masterkeys [{:vendor_id 9494 :product_id 60}]
             :superlight [{:vendor_id 1133 :product_id 50509}]
             :tmkb [{:vendor_id 6700 :product_id 39941}]
-            :mage [{:vendor_id 12815 :product_id 20565}]
-           }
+            :mage [{:vendor_id 12815 :product_id 20565}]}
  :main
  [
   {:des "fn to Ctrl" :rules [[:fn :left_control]]}
@@ -14,37 +15,15 @@
             [:a :!O1 :semicolon-mode]
             [:s :!O2 :semicolon-mode]
             [:d :!O3 :semicolon-mode]
-            [:f :!O4 :semicolon-mode]
-            ]}
-  ; {:des "Hold ; for option" :rules [[:##semicolon :left_option nil {:alone :semicolon}]]}
+            [:f :!O4 :semicolon-mode]]}
+  {:des "\\ mode -- Use sdfg as arrow keys when baskslash key is held down"
+    :rules [
+            [:g :right_arrow :backslash-mode]
+            [:s :left_arrow :backslash-mode]
+            [:d :up_arrow :backslash-mode]
+            [:f :down_arrow :backslash-mode]]}
 
-  ;; I think this was my best idea yet.
-  ;; The idea was great, but that time isn't right. Also I just
-  ;; started using the right shift key for real.
-  ; {:des "arrowkeys" :rules [[:!Rf :down_arrow]]}
-  ; {:des "arrowkeys" :rules [[:!Rd :up_arrow]]}
-  ; {:des "arrowkeys" :rules [[:!Rg :right_arrow]]}
-  ; {:des "arrowkeys" :rules [[:!Rs :left_arrow]]}
-
-  ;; Used to have this layer for inputing braces and brackets on home row.
-  ;; Trying to use the normal setup for a bit and see if how that works out for me.
-
-  ;; New layout: [{(fghj)}]
-
-  ; {:des "Alt Gr layer" :rules [[:!Qa :open_bracket]]} ; [
-  ; {:des "Alt Gr layer" :rules [[:!Qs :!Sopen_bracket]]} ; {
-  ; {:des "Alt Gr layer" :rules [[:!Qd :!S9]]} ; (
- ;; f
- ;; g
- ;; h
- ;; j
-  ; {:des "Alt Gr layer" :rules [[:!Qk :!S0]]} ; )
-  ; {:des "Alt Gr layer" :rules [[:!Ql :!Sclose_bracket]]} ; }
-  ; {:des "Alt Gr layer" :rules [[:!Qsemicolon :close_bracket]]} ; ]
-
-  ; {:des "Open brace to `" :rules [[:!Qopen_bracket :non_us_backslash]]}
-  ; {:des "Open brace to ~" :rules [[:!QSopen_bracket :!Snon_us_backslash]]}
-      ;; !  | means mandatory
+    ;; !  | means mandatory
     ;; #  | means optional
     ;; C  | left_command
     ;; T  | left_control
@@ -70,7 +49,7 @@
   {:des "Left Opt to Left Cmd" :rules [[:##left_option :left_command :mage]]}
   {:des "Right Cmd to Right Opt" :rules [[:##right_command :right_option :mage]]}
   {:des "Right Opt to Right Cmd" :rules [[:##right_option :right_command :mage]]}
+  {:des "Right Ctrl to Left Opt" :rules [[:##right_control :left_option :mage]]}
   {:des "Escape to tilde/backticks" :rules [[:##escape :non_us_backslash :mage]]}
-
  ]
 }

@@ -5,15 +5,14 @@ macos-titlebar-style = tabs
 macos-option-as-alt=true
 
 shell-integration = fish
-#keybind = global:ctrl+grave_accent=toggle_quick_terminal
 
 # make it behave like tmux
-#keybind = ctrl+a>c=new_tab
-#keybind = ctrl+a>p=previous_tab
-#keybind = ctrl+a>n=next_tab
-#keybind = ctrl+a>l=goto_split:right
-#keybind = ctrl+a>h=goto_split:left
-#keybind = ctrl+a>k=goto_split:top
-#keybind = ctrl+a>j=goto_split:bottom
-#keybind = ctrl+a>shift+5=new_split:right
-#keybind = ctrl+a>shift+'=new_split:down
+keybind = ctrl+a>c=new_tab
+keybind = ctrl+a>p=previous_tab
+keybind = ctrl+a>n=next_tab
+keybind = ctrl+a>l=goto_split:right
+keybind = ctrl+a>h=goto_split:left
+keybind = ctrl+a>k=goto_split:top
+keybind = ctrl+a>j=goto_split:bottom
+keybind = ctrl+a>shift+5=new_split:right
+keybind = ctrl+a>shift+'=new_split:down
