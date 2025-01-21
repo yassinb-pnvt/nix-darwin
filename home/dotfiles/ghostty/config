@@ -4,7 +4,20 @@ unfocused-split-opacity = 1
 macos-titlebar-style = tabs
 macos-option-as-alt=true
 
+background-opacity = 0.85
+background-blur-radius = 20
+
 shell-integration = fish
+
+keybind = ctrl+1=goto_tab:1
+keybind = ctrl+2=goto_tab:2
+keybind = ctrl+3=goto_tab:3
+keybind = ctrl+4=goto_tab:4
+keybind = ctrl+5=goto_tab:5
+keybind = ctrl+6=goto_tab:6
+keybind = ctrl+7=goto_tab:7
+keybind = ctrl+8=goto_tab:8
+keybind = ctrl+9=goto_tab:9
 
 # make it behave like tmux
 keybind = ctrl+a>c=new_tab
@@ -16,3 +29,12 @@ keybind = ctrl+a>k=goto_split:top
 keybind = ctrl+a>j=goto_split:bottom
 keybind = ctrl+a>shift+5=new_split:right
 keybind = ctrl+a>shift+'=new_split:down
+keybind = ctrl+a>1=goto_tab:1
+keybind = ctrl+a>2=goto_tab:2
+keybind = ctrl+a>3=goto_tab:3
+keybind = ctrl+a>4=goto_tab:4
+keybind = ctrl+a>5=goto_tab:5
+keybind = ctrl+a>6=goto_tab:6
+keybind = ctrl+a>7=goto_tab:7
+keybind = ctrl+a>8=goto_tab:8
+keybind = ctrl+a>9=goto_tab:9

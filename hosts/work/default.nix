@@ -11,7 +11,7 @@ let
   configuration = import ./configuration.nix { pkgs = nixpkgs; };
 in
 {
-  "MB-Q5JMWQ5VFD" = nix-darwin.lib.darwinSystem rec {
+  spren = nix-darwin.lib.darwinSystem rec {
     system = "aarch64-darwin";
     specialArgs = {
       pkgs-stable = import nixpkgs-stable { system = "aarch64-darwin"; };
