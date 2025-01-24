@@ -219,15 +219,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1729302939,
-        "narHash": "sha256-slp0zWHKvbCzhiBwwe6VX6jODEY+PKhHyiAoHgM5Bdc=",
-        "rev": "6478f624b2a00367e0e3d750a2c7a9f3afb72712",
+        "lastModified": 1732605668,
+        "narHash": "sha256-DN5/166jhiiAW0Uw6nueXaGTueVxhfZISAkoxasmz/g=",
+        "rev": "f19bd752910bbe3a861c9cad269bd078689d50fe",
         "type": "tarball",
-        "url": "https://git.lix.systems/api/v1/repos/lix-project/nixos-module/archive/6478f624b2a00367e0e3d750a2c7a9f3afb72712.tar.gz?rev=6478f624b2a00367e0e3d750a2c7a9f3afb72712"
+        "url": "https://git.lix.systems/api/v1/repos/lix-project/nixos-module/archive/f19bd752910bbe3a861c9cad269bd078689d50fe.tar.gz?rev=f19bd752910bbe3a861c9cad269bd078689d50fe"
       },
       "original": {
         "type": "tarball",
-        "url": "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1.tar.gz"
+        "url": "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-2.tar.gz"
       }
     },
     "neovim-nightly-overlay": {

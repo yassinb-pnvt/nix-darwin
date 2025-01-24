@@ -36,6 +36,7 @@ in
         rustup
         poetry
         jdk21
+        nixd
         fnm
         deno
         nixfmt-rfc-style
