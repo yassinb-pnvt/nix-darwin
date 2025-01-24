@@ -40,18 +40,32 @@
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
     in
     {
-      darwinConfigurations = (
-        import ./hosts/work {
-          inherit
-            nixpkgs
-            home-manager
-            nix-darwin
-            nixpkgs-stable
-            lix-module
-            neovim-nightly-overlay
-            ;
-        }
-      );
+      darwinConfigurations = {
+        spren = nix-darwin.lib.darwinSystem rec {
+          system = "aarch64-darwin";
+          specialArgs = {
+            pkgs-stable = import nixpkgs-stable { system = "aarch64-darwin"; };
+            inherit neovim-nightly-overlay;
+          };
+
+          modules = [
+            ./hosts/work/configuration.nix
+            lix-module.nixosModules.default
+
+            ./darwin/system.nix
+            ./modules/fish-fix.nix
+
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.verbose = true;
+              home-manager.users.maxrn = import ./home;
+              home-manager.extraSpecialArgs = specialArgs;
+            }
+          ];
+        };
+      };
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
     };
 }
