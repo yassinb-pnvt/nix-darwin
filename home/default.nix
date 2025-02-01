@@ -37,6 +37,7 @@ in
         poetry
         jdk21
         nixd
+        typescript-language-server
         fnm
         deno
         nixfmt-rfc-style

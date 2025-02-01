@@ -25,6 +25,11 @@
       ".quarkus/"
       ".venv/"
       "draci-sessionizer.sh"
+      "__pycache__/"
+      # please noone look here
+      "LOCAL Testing.bru"
+      "DEV Testing.bru"
+      "INT Testing.bru"
     ];
 
     includes = [

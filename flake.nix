@@ -27,7 +27,7 @@
   };
 
   outputs =
-    inputs@{
+    {
       lix-module,
       nix-darwin,
       nixpkgs,
@@ -60,7 +60,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.verbose = true;
-              home-manager.users.maxrn = import ./home;
+              home-manager.users.maxrn = ./home;
               home-manager.extraSpecialArgs = specialArgs;
             }
           ];
