@@ -35,7 +35,6 @@ local function switch_header_impl()
     -- try mappings...
     for i = 1, #extensions do
         local new_file_name = string.gsub(bufName, extension .. "$", extensions[i])
-        print("new file name: " .. new_file_name)
         -- if header/implementation exists
         if file_exists(new_file_name) then
             -- switch to it
