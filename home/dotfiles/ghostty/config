@@ -1,5 +1,5 @@
-theme = tokyonight
-#theme = dark:tokyonight,light:tokyonight-day
+#theme = tokyonight
+theme = dark:tokyonight,light:tokyonight-day
 unfocused-split-opacity = 1
 macos-titlebar-style = tabs
 macos-option-as-alt=true
