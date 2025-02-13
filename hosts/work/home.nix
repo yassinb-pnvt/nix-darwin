@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    python311Packages.weasyprint
+    # python311Packages.weasyprint
     glab
     azure-cli
 

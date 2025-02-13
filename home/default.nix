@@ -56,6 +56,7 @@ in
         difftastic
         hyperfine
         tokei # better SLOC estimater than cloc
+        lazygit
 
         # other tools
         ffmpeg

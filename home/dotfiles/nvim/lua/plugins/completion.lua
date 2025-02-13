@@ -1,9 +1,11 @@
 return {
     'saghen/blink.cmp',
+
     lazy = false, -- lazy loading handled internally
     dependencies = 'rafamadriz/friendly-snippets',
 
-    build = 'nix run .#build-plugin',
+    -- build = 'nix run .#build-plugin',
+    version = '*',
 
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config

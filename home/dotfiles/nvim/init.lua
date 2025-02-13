@@ -8,12 +8,14 @@ vim.keymap.set("v", "<leader>x", ":lua<CR>")
 
 -- vim.keymap.set("n", "<C-d>", "<C-d>zz")
 -- vim.keymap.set("n", "<C-u>", "<C-u>zz")
+--
 -- vim.keymap.set("n", "n", "nzzzv")
--- vim.keymap.set("n", "N", "Nzzzv")
-vim.keymap.set("x", ":W", "w")
+-- keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "Q", "<nop>", { desc = "I hate this and never used it. Ever." })
 vim.keymap.set("n", "q:", ":q", { desc = "I'm monke and sometimes misstype." })
+vim.keymap.set("n", "<leader>d", "\"_d")
+vim.keymap.set("x", "<leader>d", "\"_d")
 
 vim.opt.relativenumber = true
 vim.opt.nu = true
