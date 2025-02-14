@@ -1,8 +1,9 @@
-#theme = tokyonight
 theme = dark:tokyonight,light:tokyonight-day
 unfocused-split-opacity = 1
 macos-titlebar-style = tabs
-macos-option-as-alt=true
+macos-option-as-alt = true
+font-family = Pixel Code Medium
+#font-thicken = true
 
 # background-opacity = 0.85
 # background-blur-radius = 20

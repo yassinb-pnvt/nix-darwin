@@ -13,7 +13,6 @@ vim.keymap.set("v", "<leader>x", ":lua<CR>")
 -- keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "Q", "<nop>", { desc = "I hate this and never used it. Ever." })
-vim.keymap.set("n", "q:", ":q", { desc = "I'm monke and sometimes misstype." })
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("x", "<leader>d", "\"_d")
 
