@@ -20,6 +20,15 @@ keybind = ctrl+7=goto_tab:7
 keybind = ctrl+8=goto_tab:8
 keybind = ctrl+9=goto_tab:9
 
+keybind = opt+a=text:ä
+keybind = opt+u=text:ü
+keybind = opt+o=text:ö
+keybind = opt+A=text:Ä
+keybind = opt+U=text:Ü
+keybind = opt+O=text:Ö
+keybind = opt+s=text:ß
+keybind = opt+S=text:ẞ
+
 # make it behave like tmux
 keybind = ctrl+a>c=new_tab
 keybind = ctrl+a>p=previous_tab
