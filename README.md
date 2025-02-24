@@ -1,28 +1,10 @@
 # My (new) dotfiles
 
-Steps on new system.
+Steps on system, very based on the one that https://github.com/maxRN/nix-darwin did, in a very lightish way to avoid any bug. It will be changed as I learn nix and improve the whole repo to my needs. 
 
-1. Install nix. Preferably using determinate-systems installer.
-2. Setup nix-darwin first time: `nix run nix-darwin -- switch --flake ~/.config/nix-darwin`
+1. Install nix.
+2. Setup nix-darwin first time: `nix run nix-darwin -- switch --flake ~/.config/nix-darwin` <- I had to add --impure and allow unsupported platforms in the configuration to make it work.
 3. Enjoy!
-Too scared to commit `work.nix` to git so instead do:
-
-```shell
-git add --intent-to-add work.nix
-```
-
-and
-
-```shell
-git update-index --assume-unchanged work.nix
-```
-
-Undo: https://stackoverflow.com/questions/62444728/how-to-undo-git-add-intent-to-add
-
-Monitor aerospace:
-
-- https://github.com/nikitabobko/AeroSpace/issues/253
-- https://github.com/nikitabobko/AeroSpace/issues/149#issuecomment-1928127037
 
 ## MacOS settings
 
@@ -31,12 +13,3 @@ Monitor aerospace:
 sudo mkdir -p /Library/Preferences/FeatureFlags/Domain
 sudo /usr/libexec/PlistBuddy -c "Add 'redesigned_text_cursor:Enabled' bool false" /Library/Preferences/FeatureFlags/Domain/UIKit.plist
 ```
-
-## Manual steps
-
-Some steps still need to be done by hand:
-
-### Enable aerospace service
-
-1. Copy `./hosts/work/com.maxrn.aerospace.plist` to `~/Library/LaunchAgents/`.
-2. Run `launchctl load ~/Library/LaunchAgents/com.maxrn.aerospace.plist`
