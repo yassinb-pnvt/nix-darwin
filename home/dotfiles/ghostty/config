@@ -346,7 +346,7 @@ freetype-load-flags = hinting,force-autohint,monochrome,autohint
 # 
 #   - macOS: titlebar tabs style is not updated when switching themes.
 # 
-theme = macOS
+theme = atom
 
 # Background color for the window.
 background = #282c34
@@ -762,11 +762,10 @@ mouse-scroll-multiplier = 1
 # The opacity level (opposite of transparency) of the background. A value of
 # 1 is fully opaque and a value of 0 is fully transparent. A value less than 0
 # or greater than 1 will be clamped to the nearest valid value.
-# 
 # On macOS, background opacity is disabled when the terminal enters native
 # fullscreen. This is because the background becomes gray and it can cause
 # widgets to show through which isn't generally desirable.
-background-opacity = 0,8
+background-opacity = 0.8
 
 # A positive value enables blurring of the background when background-opacity
 # is less than 1. The value is the blur radius to apply. A value of 20
@@ -814,7 +813,7 @@ unfocused-split-fill =
 # arguments. For example, `ghostty -e fish --with --custom --args`.
 # This flag sets the `initial-command` configuration, see that for more
 # information.
-command = zsh
+command = /etc/profiles/per-user/yassin.bousaadi/bin/fish --login --interactive
 
 # This is the same as "command", but only applies to the first terminal
 # surface created when Ghostty starts. Subsequent terminal surfaces will use
