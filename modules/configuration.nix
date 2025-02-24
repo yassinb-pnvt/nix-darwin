@@ -12,6 +12,7 @@
       automatic = true;
     };
   };
+  ids.gids.nixbld = 350;
   nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "Europe/Berlin";
