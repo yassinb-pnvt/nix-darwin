@@ -13,3 +13,10 @@ Steps on system, very based on the one that https://github.com/maxRN/nix-darwin 
 sudo mkdir -p /Library/Preferences/FeatureFlags/Domain
 sudo /usr/libexec/PlistBuddy -c "Add 'redesigned_text_cursor:Enabled' bool false" /Library/Preferences/FeatureFlags/Domain/UIKit.plist
 ```
+
+## Next steps:
+
+- []: Correctly debug why Ghostty can't find fish without full path
+- []: Adapt fish to a nix file rather than a full config folder added 
+- []: Fix fzf (doesn't work in nvim and terminal) with fish for my functions 
+- []: Adapt the aliases from fish config to nix
