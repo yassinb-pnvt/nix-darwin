@@ -1,8 +1,6 @@
 { lib, ... }:
 {
-  # `programs.git` will generate the config file: ~/.config/git/config
-  # to make git use this config file, `~/.gitconfig` should not exist!
-  #
+
   #    https://git-scm.com/docs/git-config#Documentation/git-config.txt---global
   home.activation.removeExistingGitconfig = lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''
     rm -f ~/.gitconfig
@@ -12,8 +10,8 @@
     enable = true;
     lfs.enable = true;
 
-    userName = "Max Große";
-    userEmail = "max12.gro@gmail.com";
+    userName = "Yassin Bousaadi";
+    userEmail = "Yassin.Bousaadi@gmail.com";
 
     delta.enable = true; # try new differ https://github.com/dandavison/delta
 
@@ -22,14 +20,8 @@
       ".DS_Store"
       ".envrc"
       ".direnv/"
-      ".quarkus/"
       ".venv/"
-      "draci-sessionizer.sh"
       "__pycache__/"
-      # please noone look here
-      "LOCAL Testing.bru"
-      "DEV Testing.bru"
-      "INT Testing.bru"
     ];
 
     includes = [
@@ -57,7 +49,7 @@
       diff.colorMoved = "default";
       merge.tool = "nvim";
       credential.helper = "osxkeychain";
-      core.excludesFile = "/Users/maxrn/.config/git/ignore";
+      core.excludesFile = "/Users/yassin.bousaadi/.config/git/ignore";
       rerere.enabled = true;
     };
 
@@ -77,3 +69,4 @@
     };
   };
 }
+
