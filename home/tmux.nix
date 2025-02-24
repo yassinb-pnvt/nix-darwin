@@ -6,7 +6,7 @@
     clock24 = true;
     disableConfirmationPrompt = true;
     historyLimit = 10000;
-    prefix = "C-a";
+    prefix = "C-b";
     sensibleOnTop = false;
     shell = "/run/current-system/sw/bin/fish";
     shortcut = "a";
