@@ -1,17 +1,17 @@
 { config, pkgs, ... }:
 let
-  homeManagerHome = "/Users/maxrn/.config/home-manager";
-  link = config.lib.file.mkOutOfStoreSymlink;
-  linkHome = x: link "${homeManagerHome}" + "/${x}";
+#  homemanagerhome = "/users/yassin.bousaadi/.config/home-manager";
+#  link = config.lib.file.mkoutofstoresymlink;
+#  linkhome = x: link "${homemanagerhome}" + "/${x}";
 in
 {
-  home.shellAliases = {
-    tailscale = "/Applications/Tailscale.app/Contents/MacOS/Tailscale";
-  };
+  # home.shellaliases = {
+  #   tailscale = "/applications/tailscale.app/contents/macos/tailscale";
+  # };
 
-  home.file = {
-    ".config/goku/karabiner.edn".source = linkHome "dotfiles/goku/karabiner.edn";
-  };
+  # home.file = {
+  #   ".config/goku/karabiner.edn".source = linkhome "dotfiles/goku/karabiner.edn";
+  # };
 
   home.packages = with pkgs; [ gnupatch ];
 }

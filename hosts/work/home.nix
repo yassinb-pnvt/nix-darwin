@@ -1,19 +1,92 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    # python311Packages.weasyprint
-    glab
-    azure-cli
-
-    # colima --> using rancher desktop for now
-    # docker-client --> using rancher desktop for now
-    imagemagick
     gnupg
-    sops
-    quarkus
-    caddy
     yq
-    cosign
+
+      # Home setup
+        pet
+        ffmpeg
+        curl
+        awscli2
+        wireshark
+        alacritty
+        direnv
+        bat
+        fzf
+        jq
+        jqp
+        fd
+        yq
+        zoxide
+        tree
+        wget
+
+      # Fish
+        fish
+
+      # - TODO [ ]: Add the plugins and refer them in the fish-fix
+        # fishPlugins.fzf
+        # fishPlugins.fzf-fish
+        # fishPlugins.bobthefish
+        # fishPlugins.bass
+        # fishPlugins.done
+      
+      # Shell tools 
+        fastfetch
+
+        vim
+        lunarvim
+        neovim
+
+        delta
+        htop
+        ranger
+        bitwarden-cli
+        tmux
+        pandoc
+        rsync
+        ipcalc
+        inetutils
+        trivy
+        gnupg
+        ripgrep
+        lnav
+
+      # DevOps tools
+        tailscale
+        ansible
+        lazydocker
+        colima
+        libvirt
+        linuxkit
+        docker-buildx
+        docker-compose
+        podman
+        qemu
+
+      # Languages
+        uv
+        just
+        rustc
+        rustup
+        just
+        php
+        go
+        ktlint
+        ripgrep
+
+      # Versioning
+        lazygit
+        commitlint
+        gh
+        git
+
+      # universal-ctags
+      # non free pckgs
+        packer
+        terraform
+        docker
   ];
 
   home.sessionVariables = {
