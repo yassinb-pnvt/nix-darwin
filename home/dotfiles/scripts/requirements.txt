@@ -1,3 +1,0 @@
-iterm2==2.7
-protobuf==4.23.1
-websockets==11.0.3
