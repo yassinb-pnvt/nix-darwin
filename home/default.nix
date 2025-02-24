@@ -14,7 +14,6 @@ in
 {
   imports = [
     ./git.nix
-    ./fish.nix
     ./darwin.nix
     ./tmux.nix
     ../hosts/work/home.nix
@@ -29,7 +28,9 @@ in
   # plain files is through 'home.file'.
   home.file = {
     ".config/lvim".source = l "dotfiles/lvim";
-    ".config/aerospace".source = l "dotfiles/aerospace";
+    ".config/fish".source = l "dotfiles/fish";
+    ".config/gh".source = l "dotfiles/gh";
+    ".config/bat".source = l "dotfiles/bat";
     ".config/ghostty".source = l "dotfiles/ghostty";
   };
   
@@ -44,15 +45,16 @@ in
         ansible
         lazydocker
         colima
-        libvirt
         linuxkit
         docker-buildx
         docker-compose
 
-        # non free pckgs
+        # non free pckgs <- Not actually sorted yet, idk which is free or not lol
         packer
         terraform
         docker
+        bitwarden-cli
+        _1password-cli
 
         # CLIs
         curl
@@ -85,7 +87,6 @@ in
         neovim
         ranger
         tailscale
-        bitwarden-cli
         tmux
         pandoc
         rsync
@@ -119,11 +120,10 @@ in
     in
     stable ++ unstable ++ [ neovim-nightly-overlay.packages.${pkgs.system}.default ];
 
-  
-
   # TODO: Maybe this belongs to nix-darwin?
   home.sessionVariables = {
     EDITOR = "nvim";
+    SHELL = "/etc/profiles/per-user/yassin.bousaadi/bin/fish";
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_CACHE_HOME = "$HOME/.cache";
     XDG_DATA_HOME = "$HOME/.local/share";
@@ -159,5 +159,5 @@ in
     allowUnsupportedSystem = true;
   };
 
-  # fonts.fontconfig.enable = true;
+  fonts.fontconfig.enable = true;
 }
