@@ -11,7 +11,7 @@
     lfs.enable = true;
 
     userName = "Yassin Bousaadi";
-    userEmail = "Yassin.Bousaadi@gmail.com";
+    userEmail = "Yassin.Bousaadi@paynovate.com";
 
     delta.enable = true; # try new differ https://github.com/dandavison/delta
 
@@ -26,13 +26,8 @@
 
     includes = [
       {
-        # use different email & name for work
         path = "~/work/.gitconfig";
         condition = "gitdir:~/work/";
-      }
-      {
-        condition = "gitdir:~/uni/";
-        path = "~/uni/.gitconfig";
       }
     ];
 
