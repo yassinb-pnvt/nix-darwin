@@ -14,9 +14,9 @@ in
     enable = true;
     taps = [ "FelixKratz/formulae" ];
     brews = [
-      # "borders"
+      "borders"
     ];
-    # casks = [ "nikitabobko/tap/aerospace" ];
+    casks = [ "nikitabobko/tap/aerospace" ];
   };
 
   # Create /etc/zshrc that loads the nix-darwin environment.
@@ -44,8 +44,6 @@ in
     description = username;
     shell = pkgs.fish;
   };
-
-	 nixpkgs.config.allowUnsupportedSystem = true; 
 
   nix.settings.trusted-users = [ username ];
 }
