@@ -15,6 +15,7 @@ in
   imports = [
     ./git.nix
     ./darwin.nix
+    ./fish.nix
     ./tmux.nix
     ../hosts/work/home.nix
   ];
@@ -28,7 +29,7 @@ in
   # plain files is through 'home.file'.
   home.file = {
     ".config/lvim".source = l "dotfiles/lvim";
-    ".config/fish".source = l "dotfiles/fish";
+    # ".config/fish".source = l "dotfiles/fish";
     ".config/gh".source = l "dotfiles/gh";
     ".config/bat".source = l "dotfiles/bat";
     ".config/ghostty".source = l "dotfiles/ghostty";
@@ -49,6 +50,16 @@ in
         docker-buildx
         docker-compose
 
+        # - TODO [ ]: Add the plugins and refer them in the fish-fix
+        fish
+        fishPlugins.grc
+        # fishPlugins.fzf
+        # fishPlugins.fzf-fish
+        # fishPlugins.bobthefish
+        # fishPlugins.bass
+        # fishPlugins.done
+ 
+
         # non free pckgs <- Not actually sorted yet, idk which is free or not lol
         packer
         terraform
@@ -57,46 +68,19 @@ in
         _1password-cli
 
         # CLIs
-        curl
         awscli2
         wireshark
         alacritty
         direnv
-
-        # fish
-        fish
-        fzf
-        jq
-        jqp
-        fd
-        yq
-        zoxide
-        tree
-        wget
-        bat 
         btop
         curl
         wget
-        ripgrep
-        tree
         bashInteractive 
         delta
-        fastfetch
-        vim
         lunarvim
-        neovim
-        ranger
-        tailscale
-        tmux
         pandoc
-        rsync
         commitlint
-        ipcalc
-        htop
-        inetutils
         trivy
-        ripgrep
-        gnupg
         lnav
 
         # Languages
@@ -115,7 +99,6 @@ in
         # other tools
         tree-sitter
         coreutils
-        gnused
       ];
     in
     stable ++ unstable ++ [ neovim-nightly-overlay.packages.${pkgs.system}.default ];
