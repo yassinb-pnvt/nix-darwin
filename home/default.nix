@@ -39,8 +39,28 @@ in
 
   home.packages =
     let
-      stable = with pkgs-stable; [ ];
-      unstable = with pkgs; [
+      stable = with pkgs-stable; [ 
+        # SHELL
+        # - TODO [ ]: Add the plugins and refer them in the fish-fix
+        fish
+
+        # SHELL TOOLS 
+        direnv
+        btop
+        curl
+        wget
+        bashInteractive 
+        delta
+        pandoc
+
+        # Versioning
+        git
+        lazygit
+        gh
+        commitlint
+        trivy
+        lnav
+
         # DevOps
         podman
         ansible
@@ -50,38 +70,9 @@ in
         docker-buildx
         docker-compose
 
-        # - TODO [ ]: Add the plugins and refer them in the fish-fix
-        fish
-        grc
-        # fishPlugins.fzf
-        # fishPlugins.fzf-fish
-        # fishPlugins.bobthefish
-        # fishPlugins.bass
-        # fishPlugins.done
- 
-
-        # non free pckgs <- Not actually sorted yet, idk which is free or not lol
-        packer
-        terraform
-        docker
-        bitwarden-cli
-        _1password-cli
-
         # CLIs
         awscli2
-        wireshark
-        alacritty
-        direnv
-        btop
-        curl
-        wget
-        bashInteractive 
-        delta
         lunarvim
-        pandoc
-        commitlint
-        trivy
-        lnav
 
         # Languages
         just
@@ -91,10 +82,22 @@ in
         go
         ktlint
 
-        # Versioning
-        git
-        lazygit
-        gh
+      ];
+      unstable = with pkgs; [
+        
+        grc
+        # fishPlugins.fzf
+        # fishPlugins.fzf-fish
+        # fishPlugins.bobthefish
+        # fishPlugins.bass
+        # fishPlugins.done
+
+        # non free pckgs <- Not actually sorted yet, idk which is free or not lol
+        packer
+        terraform
+        docker
+        bitwarden-cli
+        _1password-cli
 
         # other tools
         tree-sitter
