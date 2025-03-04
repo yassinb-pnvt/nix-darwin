@@ -42,6 +42,11 @@ abbr tfp "terraform plan"
 abbr tff "terraform fmt"
 abbr tfi "terraform init"
 
+# Ts abbrevations
+abbr ts "tailscale"
+abbr tss "tailscale status"
+abbr tsw "tailscale whois"
+
 # Aliases
 alias l "lvim"
 alias cat "bat -p"
