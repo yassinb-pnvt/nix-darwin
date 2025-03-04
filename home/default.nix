@@ -15,7 +15,7 @@ in
   imports = [
     ./git.nix
     ./darwin.nix
-    ./fish.nix
+    # ./fish.nix
     ./tmux.nix
     ../hosts/work/home.nix
   ];
@@ -29,7 +29,7 @@ in
   # plain files is through 'home.file'.
   home.file = {
     ".config/lvim".source = l "dotfiles/lvim";
-    # ".config/fish".source = l "dotfiles/fish";
+    ".config/fish".source = l "dotfiles/fish";
     ".config/gh".source = l "dotfiles/gh";
     ".config/bat".source = l "dotfiles/bat";
     ".config/ghostty".source = l "dotfiles/ghostty";
@@ -52,7 +52,7 @@ in
 
         # - TODO [ ]: Add the plugins and refer them in the fish-fix
         fish
-        fishPlugins.grc
+        grc
         # fishPlugins.fzf
         # fishPlugins.fzf-fish
         # fishPlugins.bobthefish
