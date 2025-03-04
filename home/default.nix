@@ -34,6 +34,10 @@ in
     ".config/bat".source = l "dotfiles/bat";
     ".config/ghostty".source = l "dotfiles/ghostty";
   };
+
+  services.ollama = {
+    enable = true;
+  };
   
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
@@ -102,6 +106,9 @@ in
         # other tools
         tree-sitter
         coreutils
+
+        # AI 
+        ollama
       ];
     in
     stable ++ unstable ++ [ neovim-nightly-overlay.packages.${pkgs.system}.default ];
