@@ -16,7 +16,10 @@ in
     brews = [
       "borders"
     ];
-    casks = [ "nikitabobko/tap/aerospace" ];
+    casks = [ 
+    "nikitabobko/tap/aerospace"
+     "librewolf"
+     ];
   };
 
   # Create /etc/zshrc that loads the nix-darwin environment.
