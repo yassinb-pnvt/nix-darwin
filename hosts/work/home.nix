@@ -1,6 +1,13 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    sshpass
+    # DevOps
+    lazydocker
+    linuxkit
+    docker-buildx
+    docker-compose
+
     # Home setup
     tailscale
     gnupg
@@ -18,6 +25,7 @@
     wget
 
     # Shell tools 
+    bashInteractive 
     fastfetch
     vim
     neovim
