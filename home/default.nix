@@ -49,30 +49,18 @@ in
         fish
 
         # SHELL TOOLS 
-        direnv
         btop
-        curl
-        wget
-        bashInteractive 
-        delta
         pandoc
 
         # Versioning
-        git
         lazygit
-        gh
         commitlint
-        trivy
         lnav
 
         # DevOps
-        podman
-        ansible
-        lazydocker
         colima
-        linuxkit
-        docker-buildx
-        docker-compose
+        ansible
+        qemu
 
         # CLIs
         awscli2
@@ -88,8 +76,11 @@ in
 
       ];
       unstable = with pkgs; [
-        
+        delta
+        direnv
         grc
+
+        trivy
         # fishPlugins.fzf
         # fishPlugins.fzf-fish
         # fishPlugins.bobthefish
