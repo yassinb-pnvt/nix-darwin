@@ -11,7 +11,7 @@
     lfs.enable = true;
 
     userName = "Yassin Bousaadi";
-    userEmail = "Yassin.Bousaadi@paynovate.com";
+    userEmail = "yassin.bousaadi@paynovate.com";
 
     delta.enable = true; # try new differ https://github.com/dandavison/delta
 
