@@ -16,8 +16,8 @@
     plugins = with pkgs; [
       {
         plugin = tmuxPlugins.catppuccin;
-        # extraConfig = "set -g @catppuccin_flavour 'latte'";
-        extraConfig = "set -g @catppuccin_flavour 'mocha'";
+        extraConfig = "set -g @catppuccin_flavour 'latte'";
+        # extraConfig = "set -g @catppuccin_flavour 'mocha'";
       }
     ];
 
