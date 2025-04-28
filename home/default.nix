@@ -15,7 +15,7 @@ in
   imports = [
     ./git.nix
     ./darwin.nix
-    # ./fish.nix
+    ./fish.nix
     ./tmux.nix
     ../hosts/work/home.nix
   ];
@@ -29,24 +29,19 @@ in
   # plain files is through 'home.file'.
   home.file = {
     ".config/lvim".source = l "dotfiles/lvim";
-    ".config/fish".source = l "dotfiles/fish";
+    # ".config/fish".source = l "dotfiles/fish";
     ".config/gh".source = l "dotfiles/gh";
     ".config/bat".source = l "dotfiles/bat";
     ".config/ghostty".source = l "dotfiles/ghostty";
   };
-
-  services.ollama = {
-    enable = true;
-  };
-  
+    
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
   home.packages =
     let
       stable = with pkgs-stable; [ 
-        # SHELL
-        # - TODO [ ]: Add the plugins and refer them in the fish-fix
-        fish
+        gum
+        sesh 
 
         # SHELL TOOLS 
         btop
@@ -73,7 +68,8 @@ in
         just
         go
         ktlint
-
+        python3Full
+        python312Packages.datadog
       ];
       unstable = with pkgs; [
         delta
@@ -90,6 +86,7 @@ in
         # non free pckgs <- Not actually sorted yet, idk which is free or not lol
         packer
         terraform
+        vault
         docker
         bitwarden-cli
         _1password-cli
@@ -97,9 +94,6 @@ in
         # other tools
         tree-sitter
         coreutils
-
-        # AI 
-        ollama
       ];
     in
     stable ++ unstable ++ [ neovim-nightly-overlay.packages.${pkgs.system}.default ];
@@ -122,20 +116,7 @@ in
   ];
 
   programs = {
-    fzf = {
-      enable = true;
-    };
-
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-
     home-manager.enable = true;
-
-    zoxide = {
-      enable = true;
-    };
   };
 
   nixpkgs.config = {
