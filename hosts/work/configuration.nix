@@ -15,6 +15,7 @@ in
     taps = [ "FelixKratz/formulae" ];
     brews = [
       "borders"
+      "freerdp"
     ];
     casks = [ 
     "nikitabobko/tap/aerospace"
