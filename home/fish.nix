@@ -22,6 +22,9 @@
     fish = {
       enable = true;
       shellInit = ''
+        # vi mode
+        set fish_vi_key_bindings
+
         source "$GHOSTTY_RESOURCES_DIR/shell-integration/fish/vendor_conf.d/ghostty-shell-integration.fish"
 
         set DOCKER_CLI_EXPERIMENTAL enabled

@@ -16,7 +16,7 @@ in
     ./git.nix
     ./darwin.nix
     ./fish.nix
-    ./tmux.nix
+    # ./tmux.nix
     ../hosts/work/home.nix
   ];
 
@@ -77,12 +77,6 @@ in
         grc
 
         trivy
-        # fishPlugins.fzf
-        # fishPlugins.fzf-fish
-        # fishPlugins.bobthefish
-        # fishPlugins.bass
-        # fishPlugins.done
-
         # non free pckgs <- Not actually sorted yet, idk which is free or not lol
         packer
         terraform
