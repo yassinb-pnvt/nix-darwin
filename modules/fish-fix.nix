@@ -15,15 +15,6 @@
           lib.concatMapStringsSep " " dquote (makeBinPathList config.environment.profiles)
         }
         set fish_user_paths $fish_user_paths
-
-        # Tooling 
-        direnv hook fish | source
-        zoxide init fish | source
-        fzf --fish | source
-        op completion fish | source
-
-        # vi mode
-        set fish_vi_key_bindings
       '';
     
     };
