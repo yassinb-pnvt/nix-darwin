@@ -16,7 +16,6 @@
   };
   ids.gids.nixbld = 350;
   nixpkgs.config.allowUnfree = true;
-
   time.timeZone = "Europe/Brussels";
   fonts.packages = [ pkgs.pixel-code ];
 }

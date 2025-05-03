@@ -1881,7 +1881,7 @@ macos-titlebar-style = transparent
 # Therefore, to make this work after changing the setting, you must
 # usually `cd` to a different directory, open a different file in an
 # editor, etc.
-macos-titlebar-proxy-icon = visible
+macos-titlebar-proxy-icon = hidden
 
 # macOS doesn't have a distinct "alt" key and instead has the "option"
 # key which behaves slightly differently. On macOS by default, the
@@ -1993,7 +1993,7 @@ macos-icon = official
 #  * `chrome` - A shiny chrome frame.
 # 
 # This only has an effect when `macos-icon` is set to `custom-style`.
-macos-icon-frame = aluminum
+macos-icon-frame = beige
 
 # The color of the ghost in the macOS app icon.
 # 

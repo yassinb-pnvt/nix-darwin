@@ -41,7 +41,13 @@ in
     let
       stable = with pkgs-stable; [ 
         gum
+        hurl
         sesh 
+
+        oh-my-fish
+        delta
+        direnv
+        grc
 
         # SHELL TOOLS 
         btop
@@ -49,7 +55,6 @@ in
 
         # Versioning
         lazygit
-        commitlint
         lnav
 
         # DevOps
@@ -62,6 +67,7 @@ in
         lunarvim
 
         # Languages
+        nodejs
         just
         rustc
         rustup
@@ -70,31 +76,30 @@ in
         ktlint
         python3Full
         python312Packages.datadog
-      ];
-      unstable = with pkgs; [
-        delta
-        direnv
-        grc
-
-        trivy
-        # non free pckgs <- Not actually sorted yet, idk which is free or not lol
-        packer
-        terraform
-        vault
-        docker
-        bitwarden-cli
-        _1password-cli
 
         # other tools
         tree-sitter
         coreutils
       ];
+      unstable = with pkgs; [
+
+        trivy
+        # non free pckgs <- Not actually sorted yet, idk which is free or not lol
+        vault
+        docker
+        # bitwarden-cli
+        _1password-cli
+
+      ];
     in
     stable ++ unstable ++ [ neovim-nightly-overlay.packages.${pkgs.system}.default ];
 
+    
+
   # TODO: Maybe this belongs to nix-darwin?
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = "lvim";
+    TERM = "xterm-256color";
     SHELL = "/etc/profiles/per-user/yassin.bousaadi/bin/fish";
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_CACHE_HOME = "$HOME/.cache";

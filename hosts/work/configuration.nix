@@ -36,7 +36,7 @@ in
   };
 
   nixpkgs.hostPlatform = "aarch64-darwin";
-
+  nixpkgs.config.allowUnfree = true;
   networking = {
     hostName = hostname;
     computerName = hostname;

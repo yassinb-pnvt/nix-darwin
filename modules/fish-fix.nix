@@ -14,7 +14,7 @@
         fish_add_path --move --prepend --path ${
           lib.concatMapStringsSep " " dquote (makeBinPathList config.environment.profiles)
         }
-        set fish_user_paths $fish_user_paths
+        set fish_user_paths $fish_user_path
       '';
     
     };

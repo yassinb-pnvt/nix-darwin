@@ -8,6 +8,7 @@
 
   programs = {
     fzf = {
+      enable = true;
       enableFishIntegration = true;
     };
 
@@ -17,20 +18,37 @@
     };
     zoxide = {
       enable = true;
+      enableFishIntegration = true;
+    };
+    ghostty = {
+      enableFishIntegration = true;
     };
 
     fish = {
       enable = true;
-      shellInit = ''
+      interactiveShellInit = ''
         # vi mode
         set fish_vi_key_bindings
-
+      '';
+      shellInit = ''
         source "$GHOSTTY_RESOURCES_DIR/shell-integration/fish/vendor_conf.d/ghostty-shell-integration.fish"
 
-        set DOCKER_CLI_EXPERIMENTAL enabled
-        set XDG_CONFIG_HOME /Users/yassin.bousaadi
-        set -gx EDITOR (which lvim)
+        # Tooling 
+        fzf --fish | source
+        op completion fish | source
       '';
+      functions = {
+        # TODO : Add more use cases with args like ssh'ing into other users if necessary or change the user.
+        # TODO : Make a better fzf window with tmux, maybe with ts status, test ping, add other functionalities with other fzf binds
+        ssh-ts=''
+          set fzfcmd "enter:become(ssh {}),alt-enter:become(ssh root@{} ),ctrl-e:change-preview(echo {\$json_ip} | jq '.Peer[]  | select( .HostName == \"{}\") ' | bat --style=numbers --color=always --language=json),ctrl-r:change-preview-label(Testing connection: {})+change-preview( ping {})"
+          set -Ux json_ip (tailscale status --json) && echo $json_ip | jq '. | .Peer[] | .HostName' --raw-output | fzf --multi --preview "echo {\$json_ip} | jq '.Peer[]  | select( .HostName == \"{}\" ) | { Name: .HostName, OS:.OS, DNSName:.DNSName, IPs: .TailscaleIPs, Online: .Online }' | bat --style=numbers --color=always --language=json" --bind $fzfcmd --tmux 60%; set -e json_ip
+        '' ;
+        # Small function to update all the repos from the current dir (projects or project/paynovate)
+        update-repos=''
+          fd . --maxdepth 1 -x sh -c " echo 'Updating repo {}' && cd {} && git pull"
+        '';
+      };
       plugins = [
         { name = "grc"; src = pkgs.fishPlugins.grc.src; }
         { name = "fzf"; src = pkgs.fishPlugins.fzf.src; }
