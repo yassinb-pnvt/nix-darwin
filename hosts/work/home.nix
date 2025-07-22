@@ -8,6 +8,11 @@
     docker-buildx
     docker-compose
 
+    ansible
+    awscli2
+    _1password-cli 
+
+    (python3.withPackages ( ps: [ ps.datadog ps.requests ps.botocore ps.boto3 ps.pyyaml ps.tox ps.pytest ps.pip]))
     # Home setup
     tailscale
     gnupg
