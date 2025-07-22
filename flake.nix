@@ -3,10 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/master";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
 
     nix-darwin = {
-      url = "github:LnL7/nix-darwin";
+      url = "github:LnL7/nix-darwin"; 
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -25,7 +25,6 @@
 
   outputs = {
     nixpkgs,
-    nixpkgs-stable,
     nix-darwin,
     home-manager,
     lix-module,
@@ -35,14 +34,6 @@
   let
     system = "aarch64-darwin";
 
-    nodeOverlay = final: prev: {
-      nodejs = prev.nodejs_22;
-      nodejs-slim = prev.nodejs-slim_22;
-
-      nodejs_20 = prev.nodejs_22;
-      nodejs-slim_20 = prev.nodejs-slim_22;
-    };
-
 
     pkgs = import nixpkgs {
       inherit system;
@@ -50,12 +41,8 @@
         allowUnfree = true;
         allowUnsupportedSystem = true;
       };
-      overlays = [ nodeOverlay ];
     };
-
-    pkgs-stable = import nixpkgs-stable {
-      inherit system;
-    };
+    pkgs-stable = pkgs;
 
     forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
 
@@ -64,7 +51,7 @@
       inherit system;
 
       specialArgs = {
-        inherit pkgs pkgs-stable neovim-nightly-overlay;
+        inherit pkgs neovim-nightly-overlay;
       };
 
       modules = [
@@ -84,7 +71,6 @@
           };
         }
 
-        # Optional: reapply allowUnfree at system level just in case
         {
           nixpkgs.config = {
             allowUnfree = true;
