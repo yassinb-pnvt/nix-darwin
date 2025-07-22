@@ -16,7 +16,7 @@ in
     ./git.nix
     ./darwin.nix
     ./fish.nix
-    # ./tmux.nix
+    ./tmux.nix
     ../hosts/work/home.nix
   ];
 
@@ -35,15 +35,19 @@ in
     ".config/ghostty".source = l "dotfiles/ghostty";
   };
     
-  home.stateVersion = "24.11"; # Please read the comment before changing.
+  home.stateVersion = "25.05"; # Please read the comment before changing.
 
   home.packages =
     let
       stable = with pkgs-stable; [ 
+        ansible
+        (python3.withPackages ( ps: [ ps.datadog ps.requests ps.botocore ps.boto3 ps.pyyaml ps.tox ps.pytest ps.pip]))
         gum
+        gnused
         hurl
         sesh 
 
+        choose-gui
         oh-my-fish
         delta
         direnv
@@ -52,12 +56,15 @@ in
         # SHELL TOOLS 
         btop
         pandoc
+        dive
+        lazydocker
 
         # Versioning
         lazygit
         lnav
 
         # DevOps
+        opentofu
         colima
         ansible
         qemu
@@ -74,29 +81,28 @@ in
         just
         go
         ktlint
-        python3Full
-        python312Packages.datadog
 
         # other tools
         tree-sitter
         coreutils
+        gitleaks
       ];
       unstable = with pkgs; [
-
         trivy
         # non free pckgs <- Not actually sorted yet, idk which is free or not lol
+        inframap
+        terraform 
+        terraformer
+        packer
         vault
         docker
         # bitwarden-cli
         _1password-cli
-
       ];
     in
     stable ++ unstable ++ [ neovim-nightly-overlay.packages.${pkgs.system}.default ];
 
     
-
-  # TODO: Maybe this belongs to nix-darwin?
   home.sessionVariables = {
     EDITOR = "lvim";
     TERM = "xterm-256color";
