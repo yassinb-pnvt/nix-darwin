@@ -47,6 +47,7 @@ in
         hurl
         sesh 
 
+        docker
         choose-gui
         oh-my-fish
         delta
@@ -95,7 +96,6 @@ in
         terraformer
         packer
         vault
-        docker
         # bitwarden-cli
         _1password-cli
       ];
