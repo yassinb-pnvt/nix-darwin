@@ -31,11 +31,11 @@ in
     brews = [
       "borders"
       "freerdp"
+      "spotifyd"
     ];
     casks = [ 
     "nikitabobko/tap/aerospace"
      "librewolf"
-     "spotifyd"
      ];
   };
 
