@@ -9,6 +9,10 @@
 vim.opt.laststatus = 3
 
 lvim.plugins = {
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    enabled = false,
+  },
   'github/copilot.vim',
   'hashivim/vim-terraform',
   'vim-syntastic/syntastic',
