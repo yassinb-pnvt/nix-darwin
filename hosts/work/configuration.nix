@@ -9,20 +9,6 @@ in
     variables = {
 
     };
-    systemPackages =  [
-      pkgs.ansible
-      pkgs.awscli2
-      pkgs._1password-cli 
-      (pkgs.python3.withPackages (ps: [
-        ps.boto3
-        ps.datadog
-        ps.requests
-        ps.botocore
-        ps.boto3
-        ps.pyyaml
-      ]))
-    ];
-
   };
 
   homebrew = {
@@ -43,6 +29,8 @@ in
   programs = {
     zsh.enable = true; 
     fish.enable = true;
+    _1password-gui.enable = true;
+    _1password.enable = true;
   };
 
   # Used for backwards compatibility, please read the changelog before changing.
@@ -83,13 +71,23 @@ in
        NSAutomaticSpellingCorrectionEnabled = false;
        NSNavPanelExpandedStateForSaveMode = true;
        NSNavPanelExpandedStateForSaveMode2 = true;
+       NSWindowShouldDragOnGesture = true;
        _HIHideMenuBar = true;
+     };
+     # Customize settings that not supported by nix-darwin directly
+     CustomUserPreferences = {
+       "com.apple.desktopservices" = {
+         # Avoid creating .DS_Store files on network or USB volumes
+         DSDontWriteNetworkStores = true;
+         DSDontWriteUSBStores = true;
+       };
      };
     };
   };
 
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowBroken = true;
 
   networking = {
     hostName = hostname;

@@ -65,7 +65,7 @@
       
       run-shell ${pkgs.tmuxPlugins.cpu}/share/tmux-plugins/cpu/cpu.tmux
       run-shell ${pkgs.tmuxPlugins.battery}/share/tmux-plugins/battery/battery.tmux
-      run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/tmux/catppuccin.tmux`
+      run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/tmux/catppuccin.tmux
     '';
   };
 }

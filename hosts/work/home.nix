@@ -1,52 +1,108 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-stable, neovim-nightly-overlay, ... }:
 {
-  home.packages = with pkgs; [
-    sshpass
-    # DevOps
-    lazydocker
-    linuxkit
-    docker-buildx
-    docker-compose
+  home.packages = 
+    let
+      stable = with pkgs-stable; [
+        # CLI tools
+        ansible
+        gum
+        gnused
+        hurl
+        sesh
+        choose-gui
 
-    ansible
-    awscli2
-    _1password-cli 
+        # Docker
+        docker
+        
+        # Shell enhancements
+        oh-my-fish
+        # delta - configured via programs
+        # direnv - configured via programs
+        grc
 
-    (python3.withPackages ( ps: [ ps.datadog ps.requests ps.botocore ps.boto3 ps.pyyaml ps.tox ps.pytest ps.pip]))
-    # Home setup
-    tailscale
-    gnupg
-    gnused
-    ffmpeg
-    curl
-    bat
-    fzf
-    jq
-    jqp
-    fd
-    yq
-    zoxide
-    tree
-    wget
+        # Shell tools
+        btop
+        pandoc
+        dive
+        lazydocker
 
-    # Shell tools 
-    bashInteractive 
-    fastfetch
-    vim
-    neovim
-    htop
-    ranger
-    tmux
-    rsync
-    ipcalc
-    inetutils
-    trivy
-    ripgrep
+        # Versioning
+        lazygit
+        lnav
 
-    # Versioning
-    gh
-    git
-  ];
+        # DevOps
+        opentofu
+        colima
+        qemu
+
+        # CLIs
+        awscli2
+        lunarvim
+
+        # Languages
+        nodejs
+        just
+        rustc
+        rustup
+        go
+        ktlint
+
+        # Other tools
+        tree-sitter
+        coreutils
+        gitleaks
+
+        # Python with packages
+        (python3.withPackages ( ps: [ ps.datadog ps.requests ps.botocore ps.boto3 ps.pyyaml ps.tox ps.pytest ps.pip]))
+      ];
+      unstable = with pkgs; [
+        # DevOps tools
+        trivy
+        inframap
+        terraform 
+        terraformer
+        packer
+        vault
+        _1password-cli
+
+        # Shell tools
+        sshpass
+        docker-buildx
+        docker-compose
+        tailscale
+        gnupg
+        ffmpeg
+        curl
+        bat
+        # fzf - configured via programs
+        jq
+        jqp
+        fd
+        yq
+        # zoxide - configured via programs
+        tree
+        wget
+        bashInteractive
+        fastfetch
+        vim
+        neovim
+        htop
+        ranger
+        # tmux - configured via programs
+        rsync
+        ipcalc
+        inetutils
+        ripgrep
+
+        # Versioning
+        gh
+        # git - configured via programs
+
+        # Neovim nightly - temporarily disabled due to build issues
+        # neovim-nightly-overlay.packages.${pkgs.system}.default
+      ];
+    in
+    stable ++ unstable;
 
   home.sessionVariables = {
     # ************************** for using rancher **************************************

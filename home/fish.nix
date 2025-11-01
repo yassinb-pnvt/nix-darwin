@@ -31,10 +31,7 @@
         set fish_vi_key_bindings
       '';
       shellInit = ''
-        source "$GHOSTTY_RESOURCES_DIR/shell-integration/fish/vendor_conf.d/ghostty-shell-integration.fish"
-
-        # Tooling 
-        fzf --fish | source
+        # Tooling
         op completion fish | source
       '';
       functions = {

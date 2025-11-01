@@ -11,7 +11,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager"; 
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -20,11 +20,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     nixpkgs,
+    nixpkgs-stable,
     nix-darwin,
     home-manager,
     lix-module,
@@ -34,15 +38,23 @@
   let
     system = "aarch64-darwin";
 
-
     pkgs = import nixpkgs {
       inherit system;
       config = {
         allowUnfree = true;
         allowUnsupportedSystem = true;
+        allowBroken = true;
       };
     };
-    pkgs-stable = pkgs;
+
+    pkgs-stable = import nixpkgs-stable {
+      inherit system;
+      config = {
+        allowUnfree = true;
+        allowUnsupportedSystem = true;
+        allowBroken = true;
+      };
+    };
 
     forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
 
@@ -83,4 +95,5 @@
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
   };
 }
+
 

@@ -20,8 +20,7 @@ in
     ../hosts/work/home.nix
   ];
 
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
+  # Home Manager needs a bit of information about you and the paths it should manage.
   home.username = "yassin.bousaadi";
   home.homeDirectory = "/Users/yassin.bousaadi";
   
@@ -36,72 +35,6 @@ in
   };
     
   home.stateVersion = "25.05"; # Please read the comment before changing.
-
-  home.packages =
-    let
-      stable = with pkgs-stable; [ 
-        ansible
-        (python3.withPackages ( ps: [ ps.datadog ps.requests ps.botocore ps.boto3 ps.pyyaml ps.tox ps.pytest ps.pip]))
-        gum
-        gnused
-        hurl
-        sesh 
-
-        docker
-        choose-gui
-        oh-my-fish
-        delta
-        direnv
-        grc
-
-        # SHELL TOOLS 
-        btop
-        pandoc
-        dive
-        lazydocker
-
-        # Versioning
-        lazygit
-        lnav
-
-        # DevOps
-        opentofu
-        colima
-        ansible
-        qemu
-
-        # CLIs
-        awscli2
-        lunarvim
-
-        # Languages
-        nodejs
-        just
-        rustc
-        rustup
-        just
-        go
-        ktlint
-
-        # other tools
-        tree-sitter
-        coreutils
-        gitleaks
-      ];
-      unstable = with pkgs; [
-        trivy
-        # non free pckgs <- Not actually sorted yet, idk which is free or not lol
-        inframap
-        terraform 
-        terraformer
-        packer
-        vault
-        # bitwarden-cli
-        _1password-cli
-      ];
-    in
-    stable ++ unstable ++ [ neovim-nightly-overlay.packages.${pkgs.system}.default ];
-
     
   home.sessionVariables = {
     EDITOR = "lvim";
