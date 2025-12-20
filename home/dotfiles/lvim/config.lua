@@ -8,6 +8,20 @@
 -- Recommanded for avante
 vim.opt.laststatus = 3
 
+-- Enable transparency in tmux
+-- This allows the terminal background to show through
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "NonText", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "Folded", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE" })
+  end,
+})
+
 lvim.plugins = {
   {
     "lukas-reineke/indent-blankline.nvim",
