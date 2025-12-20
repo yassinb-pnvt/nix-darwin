@@ -124,6 +124,10 @@ in
       
       # Network tools
       "wireshark-app"
+      
+      # Terminal emulators (alternatives to ghostty)
+      "iterm2"
+      "wezterm"
     ];
   };
   

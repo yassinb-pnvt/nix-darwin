@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- iTerm2 Configuration for transparency and tmux support -->
+	<!-- This is a basic configuration - you can customize further in iTerm2 preferences -->
+	<key>New Bookmarks</key>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string>Default</string>
+			<key>Transparency</key>
+			<real>0.2</real>
+			<key>Blur</key>
+			<real>0.5</real>
+			<key>Background Color</key>
+			<dict>
+				<key>Red Component</key>
+				<real>0.0</real>
+				<key>Green Component</key>
+				<real>0.0</real>
+				<key>Blue Component</key>
+				<real>0.0</real>
+			</dict>
+			<key>Use Transparency</key>
+			<true/>
+			<key>Terminal Type</key>
+			<string>xterm-256color</string>
+		</dict>
+	</array>
+</dict>
+</plist>
+

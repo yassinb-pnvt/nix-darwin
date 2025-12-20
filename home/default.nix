@@ -34,6 +34,9 @@ in
     ".config/gh".source = l "dotfiles/gh";
     ".config/bat".source = l "dotfiles/bat";
     ".config/ghostty".source = l "dotfiles/ghostty";
+    ".config/wezterm".source = l "dotfiles/wezterm";
+    # iTerm2 config is managed via its own preferences system
+    # ".config/iterm2".source = l "dotfiles/iterm2";
   };
     
   home.stateVersion = "25.05"; # Please read the comment before changing.

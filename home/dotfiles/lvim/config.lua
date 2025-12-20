@@ -8,19 +8,111 @@
 -- Recommanded for avante
 vim.opt.laststatus = 3
 
+-- Enable relative and absolute line numbers
+vim.opt.number = true
+vim.opt.relativenumber = true
+
 -- Enable transparency in tmux
 -- This allows the terminal background to show through
+local function enable_transparency()
+  -- Core UI elements
+  vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "NonText", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE" })
+  
+  -- Line numbers and signs
+  vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
+  
+  -- Folding
+  vim.api.nvim_set_hl(0, "Folded", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "FoldColumn", { bg = "NONE" })
+  
+  -- Cursor and selection
+  vim.api.nvim_set_hl(0, "CursorLine", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "CursorColumn", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "Visual", { bg = "NONE" })
+  
+  -- Status lines
+  vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "WinSeparator", { bg = "NONE" })
+  
+  -- Windows and splits
+  vim.api.nvim_set_hl(0, "WinBar", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "WinBarNC", { bg = "NONE" })
+  
+  -- Popup menus and floating windows
+  vim.api.nvim_set_hl(0, "Pmenu", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "PmenuSel", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "NONE" })
+  
+  -- Notifications (for nvim-notify)
+  vim.api.nvim_set_hl(0, "NotifyBackground", { bg = "NONE" })
+  
+  -- Telescope and other plugins
+  vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = "NONE" })
+end
+
+-- Apply transparency on startup
+vim.api.nvim_create_autocmd("VimEnter", {
+  pattern = "*",
+  callback = function()
+    enable_transparency()
+    -- Force redraw to ensure transparency is applied
+    vim.cmd("redraw!")
+  end,
+})
+
+-- Re-apply transparency when colorscheme changes
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
   callback = function()
-    vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
-    vim.api.nvim_set_hl(0, "NonText", { bg = "NONE" })
-    vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE" })
-    vim.api.nvim_set_hl(0, "Folded", { bg = "NONE" })
-    vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE" })
+    enable_transparency()
+    vim.cmd("redraw!")
   end,
 })
+
+-- Re-apply transparency when entering a window (for tmux splits)
+vim.api.nvim_create_autocmd("WinEnter", {
+  pattern = "*",
+  callback = enable_transparency,
+})
+
+-- Re-apply transparency when buffer changes
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = enable_transparency,
+})
+
+-- Re-apply transparency after UI events (like CMD+e or other keybindings)
+vim.api.nvim_create_autocmd("UIEnter", {
+  pattern = "*",
+  callback = enable_transparency,
+})
+
+-- Re-apply transparency when focus changes (for tmux window switching)
+vim.api.nvim_create_autocmd("FocusGained", {
+  pattern = "*",
+  callback = enable_transparency,
+})
+
+-- Create a command to manually re-apply transparency
+vim.api.nvim_create_user_command("Transparency", function()
+  enable_transparency()
+  vim.cmd("redraw!")
+  vim.notify("Transparency re-applied", vim.log.levels.INFO)
+end, { desc = "Re-apply transparency to all UI elements" })
 
 lvim.plugins = {
   {
@@ -110,17 +202,42 @@ lvim.plugins = {
       -- OPTIONAL:
       --   `nvim-notify` is only needed, if you want to use the notification view.
       --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
+      {
+        "rcarriga/nvim-notify",
+        opts = {
+          background_colour = "#000000", -- Required for transparency
+          timeout = 3000,
+        },
+        config = function()
+          require("notify").setup({
+            background_colour = "#000000", -- Required for transparency
+            timeout = 3000,
+          })
+        end,
+      },
     }
   },
   {
-  "phaazon/hop.nvim",
-  event = "BufRead",
-  config = function()
-    require("hop").setup()
-    vim.api.nvim_set_keymap("n", "s", ":HopChar2<cr>", { silent = true })
-    vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
-  end,
+    "phaazon/hop.nvim",
+    event = "BufRead",
+    config = function()
+      require("hop").setup()
+      vim.api.nvim_set_keymap("n", "s", ":HopChar2<cr>", { silent = true })
+      vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
+    end,
+  },
+  {
+    "mistweaverco/kulala.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("kulala").setup({
+        -- Optional: customize kulala settings
+        -- See https://neovim.getkulala.net/ for configuration options
+      })
+    end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter", -- For response highlighting
+    },
   },
   {
   "nvim-pack/nvim-spectre",

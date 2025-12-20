@@ -17,6 +17,7 @@
     
     # Network tools
     curl
+    xh  # Modern curl alternative with better defaults and colored output
     wget
     tailscale
     sshpass
