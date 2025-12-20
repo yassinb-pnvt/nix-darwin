@@ -14,6 +14,19 @@ sudo mkdir -p /Library/Preferences/FeatureFlags/Domain
 sudo /usr/libexec/PlistBuddy -c "Add 'redesigned_text_cursor:Enabled' bool false" /Library/Preferences/FeatureFlags/Domain/UIKit.plist
 ```
 
+## Package Management
+
+Packages are organized in `packages/`:
+- `system.nix` - System packages
+- `cli-tools.nix` - CLI utilities  
+- `dev-tools.nix` - Development tools
+- `languages.nix` - Programming languages
+- `docker.nix` - Docker tools
+- `shell.nix` - Shell packages
+- `homebrew.nix` - Homebrew packages (GUI apps, etc.)
+
+Add new packages to the appropriate category file, then rebuild.
+
 ## Next steps:
 
 - []: Correctly debug why Ghostty can't find fish without full path
