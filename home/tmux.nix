@@ -23,7 +23,12 @@
       {
         plugin = tmuxPlugins.catppuccin;
         extraConfig = ''
+          # Set default terminal with truecolor support for transparency
           set-option -g default-terminal "tmux-256color"
+          
+          # Enable truecolor/RGB for transparency support
+          set-option -sa terminal-overrides ",xterm*:Tc"
+          set-option -sa terminal-overrides ",*256col*:Tc"
 
           # Configure the catppuccin plugin
           set -g @catppuccin_flavor "mocha"
@@ -50,8 +55,27 @@
         bind-key -T copy-mode-vi Enter send -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
       }
 
-      set -as terminal-features ",gnome*:RGB"
-      set-option -ga terminal-overrides ",xterm-256color:Tc"
+      # Enable truecolor/RGB support for transparency
+      # This allows applications like lvim to use transparent backgrounds in tmux
+      set -as terminal-features ",*:RGB"
+      set-option -ga terminal-overrides ",*256col*:RGB"
+      set-option -ga terminal-overrides ",xterm-256color:RGB"
+      set-option -ga terminal-overrides ",tmux-256color:RGB"
+      set-option -ga terminal-overrides ",screen-256color:RGB"
+      
+      # Enable truecolor capability
+      set-option -ga terminal-overrides ",*:Tc"
+      
+      # Don't set a pane background - allow terminal transparency to show through
+      set-option -g pane-active-border-style "fg=default"
+      set-option -g pane-border-style "fg=default"
+      
+      # Set window style to allow transparency (no background color)
+      set-option -g window-style "default"
+      set-option -g window-active-style "default"
+      
+      # Don't set a default background color - preserve terminal transparency
+      set-option -g default-command ""
 
       # bind == bind-key
       bind-key c new-window -c "#{pane_current_path}"
