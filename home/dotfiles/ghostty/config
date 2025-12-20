@@ -345,7 +345,7 @@ freetype-load-flags = hinting,force-autohint,monochrome,autohint
 # 
 #   - macOS: titlebar tabs style is not updated when switching themes.
 # 
-theme = catppuccin-frappe
+theme = ~/.config/ghostty/themes/catppuccin-frappe.conf
 
 # Background color for the window.
 background = #282c34
@@ -2163,11 +2163,11 @@ bold-is-bright = false
 # features. An option exists in vim to modify this: `:set
 # keyprotocol=ghostty:kitty`, however a bug in the implementation prevents it
 # from working properly. https://github.com/vim/vim/pull/13211 fixes this.
-term = xterm-ghostty
+# term = xterm-ghostty
 
 # String to send when we receive `ENQ` (`0x05`) from the command that we are
 # running. Defaults to an empty string if not set.
-enquiry-response = 
+# enquiry-response = 
 
 # Control the auto-update functionality of Ghostty. This is only supported
 # on macOS currently, since Linux builds are distributed via package
@@ -2213,5 +2213,5 @@ auto-update = check
 # Ghostty to take effect.
 # 
 # This only works on macOS since only macOS has an auto-update feature.
-auto-update-channel = 
+# auto-update-channel = 
 
