@@ -45,6 +45,17 @@
         update-repos=''
           fd . --maxdepth 1 -x sh -c " echo 'Updating repo {}' && cd {} && git pull"
         '';
+        # SSH wrapper to prevent TERM from being sent to remote hosts
+        ssh=''
+          # Save original TERM
+          set -l original_term $TERM
+          # Set TERM to xterm for SSH session
+          set -gx TERM xterm
+          # Run ssh with all arguments
+          command ssh $argv
+          # Restore original TERM
+          set -gx TERM $original_term
+        '';
       };
       plugins = [
         { name = "grc"; src = pkgs.fishPlugins.grc.src; }

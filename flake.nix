@@ -58,8 +58,7 @@
 
     forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
 
-  in {
-    darwinConfigurations.default = nix-darwin.lib.darwinSystem {
+    darwinConfig = nix-darwin.lib.darwinSystem {
       inherit system;
 
       specialArgs = {
@@ -77,6 +76,7 @@
           home-manager.useGlobalPkgs = false;
           home-manager.useUserPackages = true;
           home-manager.verbose = true;
+          home-manager.backupFileExtension = "backup";
           home-manager.users."yassin.bousaadi" = ./home;
           home-manager.extraSpecialArgs = {
             inherit pkgs pkgs-stable neovim-nightly-overlay;
@@ -91,6 +91,10 @@
         }
       ];
     };
+
+  in {
+    darwinConfigurations.default = darwinConfig;
+    darwinConfigurations."Yassins-MacBook-Air" = darwinConfig;
 
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
   };
