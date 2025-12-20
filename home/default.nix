@@ -13,10 +13,12 @@ let
 in
 {
   imports = [
+    ./packages.nix
     ./git.nix
     ./darwin.nix
     ./fish.nix
     ./tmux.nix
+    ./ssh.nix
     ../hosts/work/home.nix
   ];
 
